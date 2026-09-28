@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" preserveAspectRatio="none" fill="none" role="img" aria-labelledby="frame-title frame-description">
+  <title id="frame-title">Moldura ornamental Giselly Studio</title>
+  <desc id="frame-description">Moldura simétrica de curvas suaves, centro creme e contornos rosa e vinho. A área externa é transparente.</desc>
+  <defs>
+    <path id="frame" d="
+      M 600 44
+      C 656 44 673 94 726 94
+      C 763 94 787 72 827 82
+      C 874 94 885 132 924 146
+      C 944 154 968 148 984 162
+      C 1000 176 991 196 1010 216
+      C 1034 242 1094 253 1110 290
+      C 1126 326 1095 349 1105 380
+      C 1116 412 1158 429 1158 470
+      C 1158 511 1116 528 1105 560
+      C 1095 591 1126 614 1110 650
+      C 1094 687 1034 698 1010 724
+      C 991 744 1000 764 984 778
+      C 968 792 944 786 924 794
+      C 885 808 874 834 827 844
+      C 768 856 713 842 674 839
+      C 646 836 624 834 600 834
+      C 576 834 554 836 526 839
+      C 487 842 432 856 373 844
+      C 326 834 315 808 276 794
+      C 256 786 232 792 216 778
+      C 200 764 209 744 190 724
+      C 166 698 106 687 90 650
+      C 74 614 105 591 95 560
+      C 84 528 42 511 42 470
+      C 42 429 84 412 95 380
+      C 105 349 74 326 90 290
+      C 106 253 166 242 190 216
+      C 209 196 200 176 216 162
+      C 232 148 256 154 276 146
+      C 315 132 326 94 373 82
+      C 413 72 437 94 474 94
+      C 527 94 544 44 600 44 Z"/>
+  </defs>
+  <g stroke-linejoin="round">
+    <use href="#frame" fill="#fff8ef" stroke="#f7dce3" stroke-width="36"/>
+    <use href="#frame" stroke="#dfa1af" stroke-width="22"/>
+    <use href="#frame" stroke="#f7dce3" stroke-width="12"/>
+    <use href="#frame" stroke="#771d3c" stroke-width="3"/>
+  </g>
+</svg>
