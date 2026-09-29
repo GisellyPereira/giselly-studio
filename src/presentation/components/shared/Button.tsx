@@ -17,7 +17,7 @@ type ButtonLinkVariant =
   | "galleryProject"
   | "backTop";
 
-type ButtonVariant = "project" | "modalClose";
+type ButtonVariant = "project" | "modalClose" | "caseAction";
 
 interface ButtonLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   readonly variant: ButtonLinkVariant;
@@ -43,11 +43,13 @@ const linkClasses: Record<ButtonLinkVariant, string> = {
 const buttonClasses: Record<ButtonVariant, string> = {
   project: "project-link",
   modalClose: "case-close-button",
+  caseAction: "case-action",
 };
 
 const buttonMotion: Record<ButtonVariant, "fill" | "icon"> = {
   project: "icon",
   modalClose: "icon",
+  caseAction: "fill",
 };
 
 function joinClasses(...classes: Array<string | undefined>) {

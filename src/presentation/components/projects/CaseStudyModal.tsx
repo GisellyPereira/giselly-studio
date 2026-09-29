@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
 import type { Project } from "@/src/domain/entities/portfolio";
-import { Button, ButtonLink } from "@/src/presentation/components/shared/Button";
+import { Button } from "@/src/presentation/components/shared/Button";
 import { ArrowIcon } from "@/src/presentation/components/shared/Icons";
 import { TagList } from "@/src/presentation/components/shared/TagList";
 import { usePageScrollLock } from "@/src/presentation/hooks/usePageScrollLock";
@@ -14,7 +14,7 @@ interface CaseStudyModalProps {
   readonly onClose: () => void;
 }
 
-export function CaseStudyModal({ project, email, onClose }: CaseStudyModalProps) {
+export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
   usePageScrollLock(Boolean(project));
 
   useEffect(() => {
@@ -33,8 +33,6 @@ export function CaseStudyModal({ project, email, onClose }: CaseStudyModalProps)
 
   if (!project) return null;
 
-  const hasPublicLink = Boolean(project.deployUrl || project.repositoryUrl);
-
   return (
     <div
       className="case-modal"
@@ -46,19 +44,14 @@ export function CaseStudyModal({ project, email, onClose }: CaseStudyModalProps)
       <article
         aria-labelledby="case-title"
         aria-modal="true"
-        className={`case-sheet case-${project.color}`}
+        className={`case-sheet case-${project.color} case-project-${project.number}`}
         data-lenis-prevent
         role="dialog"
       >
         <span aria-hidden="true" className="case-sheet__flower case-sheet__flower--one" />
         <span aria-hidden="true" className="case-sheet__flower case-sheet__flower--two" />
 
-        <div className="case-sheet-top">
-          <div className="case-sheet-top__meta">
-            <span aria-hidden="true" className="case-sheet-top__mark" />
-            <span>{project.category} · projeto em destaque</span>
-            <strong>{project.year ?? "Portfólio selecionado"}</strong>
-          </div>
+        <div className="case-close-anchor">
           <Button variant="modalClose" autoFocus aria-label="Fechar estudo de caso" onClick={onClose}>
             ×
           </Button>
@@ -67,7 +60,6 @@ export function CaseStudyModal({ project, email, onClose }: CaseStudyModalProps)
         <div className="case-sheet__content">
           <section className="case-sheet-grid">
             <div className="case-intro">
-              <p className="case-intro__eyebrow">Projeto selecionado</p>
               <h2 id="case-title">{project.title}</h2>
               <p className="case-intro__lede">{project.description}</p>
               <TagList tags={project.tags} />
@@ -85,10 +77,6 @@ export function CaseStudyModal({ project, email, onClose }: CaseStudyModalProps)
                   style={{ objectPosition: project.imagePosition }}
                 />
               </div>
-              <figcaption>
-                <span>{project.category}</span>
-                <span>{project.year ?? "Projeto profissional"}</span>
-              </figcaption>
             </figure>
           </section>
 
@@ -105,47 +93,16 @@ export function CaseStudyModal({ project, email, onClose }: CaseStudyModalProps)
             </div>
           </section>
 
-          <footer className="case-sheet__footer">
-            {!hasPublicLink ? (
-              <p className="case-link-note">
-                Projeto institucional ou proprietário, sem link público informado.
-              </p>
-            ) : (
-              <p className="case-sheet__footer-note">Quer conhecer os detalhes técnicos ou o processo?</p>
-            )}
-
-            <div className="case-actions">
-              {project.deployUrl ? (
-                <ButtonLink
-                  variant="caseAction"
-                  href={project.deployUrl}
-                  icon={<ArrowIcon diagonal />}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Ver projeto no ar
-                </ButtonLink>
-              ) : null}
-              {project.repositoryUrl ? (
-                <ButtonLink
-                  variant="caseAction"
-                  href={project.repositoryUrl}
-                  icon={<ArrowIcon diagonal />}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Abrir repositório
-                </ButtonLink>
-              ) : null}
-              <ButtonLink
-                variant="caseAction"
-                href={`mailto:${email}?subject=Quero conversar sobre o projeto ${project.title}`}
-                icon={<ArrowIcon diagonal />}
-              >
-                Conversar sobre este case
-              </ButtonLink>
-            </div>
-          </footer>
+          <div className="case-actions case-actions--public">
+            <Button
+              variant="caseAction"
+              aria-label="Ver projeto — link será adicionado em breve"
+              disabled
+              icon={<ArrowIcon diagonal />}
+            >
+              Ver projeto
+            </Button>
+          </div>
         </div>
       </article>
     </div>

@@ -21,7 +21,7 @@ export const portfolioData = {
       title: "Sistema Escolar — FAB",
       category: "Web",
       description:
-        "Plataforma para digitalizar matrículas, frequência, notas e a comunicação entre escola e responsáveis.",
+        "Sistema de gestão escolar criado para reunir matrículas, frequência, notas e comunicação em um único ambiente. A solução organiza a rotina de gestores e professores e torna o acompanhamento mais simples para estudantes e responsáveis.",
       color: "rose",
       imageSrc: "/images/featured-projects/school-fab-login.png",
       imageAlt: "Tela de login do Sistema Escolar da FAB, com uma criança astronauta em um foguete",
@@ -37,7 +37,7 @@ export const portfolioData = {
       title: "Teatro Arthur Azevedo",
       category: "Web",
       description:
-        "Experiência digital para aproximar o público da programação, da história e dos serviços do teatro.",
+        "Redesenho da presença digital de um dos principais equipamentos culturais do Maranhão. O site aproxima o público da programação, da história e dos serviços do teatro por meio de uma navegação clara e uma identidade visual conectada ao edifício histórico.",
       color: "banana",
       imageSrc: "/images/featured-projects/teatro-arthur-azevedo-site.png",
       imageAlt: "Página inicial do site do Teatro Arthur Azevedo, com ilustração da fachada histórica",
@@ -47,14 +47,13 @@ export const portfolioData = {
         "Organizar conteúdos culturais e informações institucionais em uma navegação clara para públicos com necessidades diferentes.",
       result:
         "Interfaces responsivas que valorizam a identidade do equipamento cultural e facilitam a descoberta das informações mais importantes.",
-      deployUrl: "https://teatroarthurazevedo.ma.gov.br/",
     },
     {
       number: "03",
       title: "Museu do Palácio dos Leões",
       category: "Web",
       description:
-        "Produto digital pensado para apresentar o acervo e a história do Palácio dos Leões de forma convidativa.",
+        "Experiência digital criada para apresentar a história, os ambientes e o acervo do Palácio dos Leões. O projeto transforma conteúdo institucional em uma visita convidativa, visual e acessível antes mesmo da chegada ao museu.",
       color: "sky",
       imageSrc: "/images/featured-projects/museu-palacio-leoes-site.png",
       imageAlt: "Página inicial do site do Museu do Palácio dos Leões, com fotografia dos salões históricos",
@@ -64,14 +63,13 @@ export const portfolioData = {
         "Traduzir a riqueza histórica do museu para o ambiente digital mantendo legibilidade, contexto e interesse visual.",
       result:
         "Uma navegação visual e acessível que conduz o público pelo patrimônio, pelas coleções e pelas informações de visitação.",
-      deployUrl: "https://palaciodosleoes.ma.gov.br/",
     },
     {
       number: "04",
       title: "App Reino",
       category: "Mobile",
       description:
-        "Aplicativo para centralizar rotinas, conteúdos e comunicação de comunidades em uma experiência simples.",
+        "Aplicativo que concentra agenda, conteúdos, atividades e comunicação de comunidades em uma única jornada. A interface foi pensada para reduzir atritos nas tarefas diárias e deixar informações importantes sempre fáceis de encontrar.",
       color: "rose",
       imageSrc: "/images/featured-projects/app-reino.png",
       imageAlt: "Aplicativo de agenda e comunidade sendo usado em um celular",
@@ -86,7 +84,7 @@ export const portfolioData = {
       title: "App Procon MA",
       category: "Mobile",
       description:
-        "Evolução do aplicativo oficial do Procon Maranhão e assistência frequente às demandas do front-end web.",
+        "Evolução do aplicativo oficial do Procon Maranhão, levando serviços de defesa do consumidor para uma experiência móvel mais simples e confiável. O trabalho envolve novas jornadas, integrações, notificações e apoio contínuo às interfaces web da equipe.",
       year: "2026",
       color: "banana",
       imageSrc: "/images/featured-projects/app-procon.png",
@@ -96,14 +94,13 @@ export const portfolioData = {
         "Criar fluxos simples, acessíveis e confiáveis para um serviço público usado em diferentes aparelhos e contextos de conexão.",
       result:
         "Interfaces completas do layout à implementação, integrações REST, notificações push e suporte recorrente às demandas web da equipe.",
-      deployUrl: "https://play.google.com/store/apps/details?id=br.gov.ma.proconapp&hl=pt_BR",
     },
     {
       number: "06",
       title: "App Hubnews",
       category: "Mobile",
       description:
-        "Aplicativo de notícias criado para organizar conteúdos em uma experiência de leitura rápida e fluida.",
+        "Aplicativo de notícias desenvolvido para transformar um grande fluxo de publicações em uma leitura leve e bem organizada. A experiência prioriza descoberta, hierarquia de conteúdo e navegação rápida entre os assuntos.",
       color: "sky",
       imageSrc: "/images/featured-projects/app-hubnews.png",
       imageAlt: "Aplicativo de notícias aberto em um celular sobre uma mesa editorial",
