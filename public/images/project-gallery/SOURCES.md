@@ -16,6 +16,7 @@ Arquivos do próprio repositório, usando a referência `HEAD` na data de downlo
 | --- | --- |
 | travel.jpg | travel-agency / public/pexels-athul-shigo-774998744-18951617.jpg |
 | ramen.png | RamenGo / public/Ilustracao.png |
+| costa-sprint.png | Captura do Costa Sprint fornecida pela autora em 03/10/2026 |
 | artwalk.png | project-artwalk / src/assets/BANNER.png |
 | startup.png | startup-tech / public/robo.png |
 | rosa.png | projeto-rosa / assets/banner.png |
