@@ -4,6 +4,7 @@ const githubUrl = "https://github.com/GisellyPereira";
 const image = (file: string) => `/images/project-gallery/${file}`;
 
 const projectHeadings: Readonly<Record<string, readonly string[]>> = {
+  "react-frontend-challenge": ["Sua próxima", "leitura começa aqui."],
   "travel-agency": ["Novos destinos.", "Novas histórias."],
   RamenGo: ["Seu ramen,", "do seu jeito."],
   "project-artwalk": ["Estilo em", "cada detalhe."],
@@ -53,6 +54,7 @@ export const projectGalleryContent = {
   heading: ["Do código", "para o mundo."],
   githubUrl,
   projects: [
+    repository("react-frontend-challenge", "Libris", "Biblioteca pessoal para descobrir livros, montar uma estante virtual e acompanhar suas leituras. Busca integrada ao Google Books, temas claro e escuro e uma identidade visual inspirada no universo dos livros.", "React · TypeScript · Vite · TanStack Query · Zustand", { imageSrc: image("libris-discover.png"), deployUrl: "https://libris-tests.netlify.app/login" }),
     repository("travel-agency", "Travel Agency", "Uma interface de viagens para explorar destinos e novas possibilidades. Um projeto de front-end disponível no meu GitHub.", "TypeScript", { imageSrc: image("travel.jpg") }),
     repository("RamenGo", "RamenGo", "Uma experiência de pedido de ramen, com escolhas de ingredientes e validações que acompanham cada etapa da interação.", "JavaScript · HTML · CSS", { imageSrc: image("ramen.png") }),
     repository("project-artwalk", "Artwalk", "Exploração de uma interface de e-commerce de sneakers, com uma linguagem visual focada nos produtos.", "HTML · CSS", { imageSrc: image("artwalk.png") }),

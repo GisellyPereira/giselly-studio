@@ -40,3 +40,10 @@ Os demais projetos usam capas tipográficas feitas em CSS, sem simular telas ou 
 - https://3d-race.netlify.app/
 - https://643daad7aeaf4018dc6595f5--incomparable-liger-f1d744.netlify.app/
 - Procon: link Google Play já fornecido no conteúdo do portfólio.
+
+## Libris — 03/10/2026
+
+- Projeto: [Libris](https://libris-tests.netlify.app/login).
+- Código: [react-frontend-challenge](https://github.com/GisellyPereira/react-frontend-challenge).
+- Capa `libris-discover.png`: captura da tela Descobrir fornecida pela autora.
+- Incluído no catálogo Web, com o nome Libris e as tecnologias usadas no projeto.
