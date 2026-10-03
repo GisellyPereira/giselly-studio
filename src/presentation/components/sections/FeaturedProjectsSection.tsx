@@ -56,11 +56,6 @@ export function FeaturedProjectsSection({ projects, email }: FeaturedProjectsSec
                   <span className="project-cutout__caption">
                     <span className="project-cutout__meta">{project.category}</span>
                     <strong>{project.title}</strong>
-                    <span className="project-cutout__arrow" aria-hidden="true">
-                      <svg viewBox="0 0 20 20">
-                        <path d="M5 15 15 5M7 5h8v8" />
-                      </svg>
-                    </span>
                   </span>
                 </button>
               </article>

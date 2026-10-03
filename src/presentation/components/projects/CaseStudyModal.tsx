@@ -3,10 +3,10 @@
 import Image from "next/image";
 import { useEffect } from "react";
 import type { Project } from "@/src/domain/entities/portfolio";
-import { Button } from "@/src/presentation/components/shared/Button";
-import { ArrowIcon } from "@/src/presentation/components/shared/Icons";
+import { Button, ButtonLink } from "@/src/presentation/components/shared/Button";
 import { TagList } from "@/src/presentation/components/shared/TagList";
 import { usePageScrollLock } from "@/src/presentation/hooks/usePageScrollLock";
+import galleryStyles from "./case-study-gallery.module.css";
 
 interface CaseStudyModalProps {
   readonly project: Project | null;
@@ -80,6 +80,17 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
             </figure>
           </section>
 
+          {project.screenshots && project.screenshots.length > 0 ? (
+            <section className={galleryStyles.gallery} aria-label={`Telas do ${project.title}`}>
+              {project.screenshots.map((screenshot) => (
+                <figure className={galleryStyles.screen} key={screenshot.src}>
+                  <Image alt={screenshot.alt} src={screenshot.src} width={screenshot.width} height={screenshot.height} sizes="(max-width: 760px) 84vw, 30vw" className={galleryStyles.image} />
+                  <figcaption>{screenshot.caption}</figcaption>
+                </figure>
+              ))}
+            </section>
+          ) : null}
+
           <section aria-label="Resumo do estudo de caso" className="case-notes">
             <div className="case-note case-note--challenge">
               <span className="case-note__label">Ponto de partida</span>
@@ -93,15 +104,16 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
             </div>
           </section>
 
-          <div className="case-actions case-actions--public">
-            <Button
-              variant="caseAction"
-              aria-label="Ver projeto — link será adicionado em breve"
-              disabled
-              icon={<ArrowIcon diagonal />}
-            >
-              Ver projeto
-            </Button>
+          <div className="case-actions">
+            {project.deployUrl ? (
+              <ButtonLink variant="caseAction" href={project.deployUrl} target="_blank" rel="noopener noreferrer">
+                {project.deployLabel ?? "Ver projeto"}
+              </ButtonLink>
+            ) : (
+              <Button variant="caseAction" disabled aria-label="Link do projeto ainda não disponível">
+                Ver projeto
+              </Button>
+            )}
           </div>
         </div>
       </article>

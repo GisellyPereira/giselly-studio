@@ -1,0 +1,16 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-top: 2.5rem;
+}
+
+.screen { margin: 0; min-width: 0; }
+.image { display: block; width: 100%; height: auto; border-radius: 1rem; }
+.screen figcaption { margin-top: .75rem; font-size: .9rem; line-height: 1.5; text-align: center; }
+
+@media (max-width: 760px) {
+  .gallery { grid-template-columns: 1fr; justify-items: center; gap: 2rem; }
+  .screen { width: min(100%, 22rem); }
+}

@@ -97,18 +97,44 @@ export const portfolioData = {
     },
     {
       number: "06",
-      title: "App Hubnews",
+      title: "HubNews — App",
       category: "Mobile",
       description:
-        "Aplicativo de notícias desenvolvido para transformar um grande fluxo de publicações em uma leitura leve e bem organizada. A experiência prioriza descoberta, hierarquia de conteúdo e navegação rápida entre os assuntos.",
+        "Aplicativo de notícias sobre tecnologia e inteligência artificial. A experiência reúne leitura por assunto, favoritos e configurações de tema, notificações, idioma e tamanho de fonte.",
       color: "sky",
-      imageSrc: "/images/featured-projects/app-hubnews.png",
-      imageAlt: "Aplicativo de notícias aberto em um celular sobre uma mesa editorial",
+      imageSrc: "/images/featured-projects/hubnews-app-preview.svg",
+      imageAlt: "Telas reais de início, favoritos e configurações do aplicativo HubNews",
+      imagePosition: "center",
+      deployUrl: "https://apps.apple.com/br/app/hubnews-ai/id6748926138",
+      deployLabel: "Ver na App Store",
       tags: ["React Native", "API REST", "UX Mobile"],
+      screenshots: [
+        { src: "/images/featured-projects/hubnews-app-home.jpeg", alt: "Início do HubNews com notícias e filtros por assunto", caption: "Notícias por assunto", width: 739, height: 1600 },
+        { src: "/images/featured-projects/hubnews-app-favorites.jpeg", alt: "Favoritos do HubNews com notícias salvas para leitura", caption: "Leituras salvas", width: 739, height: 1600 },
+        { src: "/images/featured-projects/hubnews-app-settings.jpeg", alt: "Configurações de tema, notificações, idioma e tamanho de fonte do HubNews", caption: "Preferências de leitura", width: 739, height: 1600 },
+      ],
       challenge:
-        "Apresentar grande volume de conteúdo sem sobrecarregar a tela, preservando hierarquia, descoberta e conforto de leitura.",
+        "Organizar as notícias em uma experiência mobile clara e permitir que cada pessoa adapte a leitura às suas preferências.",
       result:
-        "Uma experiência mobile com navegação por conteúdos, leitura objetiva e estrutura preparada para atualização constante.",
+        "Aplicativo publicado na App Store, com navegação por assuntos, favoritos e opções de personalização da leitura.",
+    },
+    {
+      number: "07",
+      title: "HubNews — Web",
+      category: "Web",
+      description:
+        "Portal de notícias sobre tecnologia e inteligência artificial. A composição editorial organiza destaques, últimas notícias e categorias para acompanhar os assuntos em diferentes telas.",
+      color: "rose",
+      imageSrc: "/images/featured-projects/hubnews-web.png",
+      imageAlt: "Página inicial do HubNews com destaque editorial, categorias e últimas notícias",
+      imagePosition: "center top",
+      deployUrl: "https://hubnews.ai/",
+      deployLabel: "Acessar o site",
+      tags: ["Next.js", "React", "TypeScript"],
+      challenge:
+        "Apresentar um fluxo contínuo de notícias com hierarquia editorial e navegação simples entre as categorias.",
+      result:
+        "Portal publicado com destaques, últimas notícias e acesso aos conteúdos por assunto, em uma interface responsiva.",
     },
   ],
   experiences: [

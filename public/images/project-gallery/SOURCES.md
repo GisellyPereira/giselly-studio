@@ -47,3 +47,10 @@ Os demais projetos usam capas tipográficas feitas em CSS, sem simular telas ou 
 - Código: [react-frontend-challenge](https://github.com/GisellyPereira/react-frontend-challenge).
 - Capa `libris-discover.png`: captura da tela Descobrir fornecida pela autora.
 - Incluído no catálogo Web, com o nome Libris e as tecnologias usadas no projeto.
+
+## HubNews — 03/10/2026
+
+- Web: https://hubnews.ai/ — captura da página inicial fornecida pela autora (`hubnews-web.png`).
+- App: https://apps.apple.com/br/app/hubnews-ai/id6748926138 — capturas de início, favoritos e configurações fornecidas pela autora (`hubnews-app-home.jpeg`, `hubnews-app-favorites.jpeg`, `hubnews-app-settings.jpeg`).
+- `hubnews-app-preview.svg`: composição vetorial das três capturas originais, preservadas também na galeria do estudo de caso.
+- App e web têm fichas próprias, categorias Mobile e Web e seus destinos oficiais. A imagem ilustrativa anterior do app foi substituída pelas telas reais.

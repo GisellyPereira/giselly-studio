@@ -20,6 +20,14 @@ export interface Project {
   readonly result: string;
   readonly repositoryUrl?: string;
   readonly deployUrl?: string;
+  readonly deployLabel?: string;
+  readonly screenshots?: readonly {
+    readonly src: string;
+    readonly alt: string;
+    readonly caption: string;
+    readonly width: number;
+    readonly height: number;
+  }[];
 }
 
 export interface SkillSticker {
