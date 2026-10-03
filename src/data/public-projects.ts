@@ -73,7 +73,7 @@ export const projectGalleryContent = {
       deployUrl: "https://hubnews.ai/",
     },
     repository("react-frontend-challenge", "Libris", "Biblioteca pessoal para descobrir livros, montar uma estante virtual e acompanhar suas leituras. Busca integrada ao Google Books, temas claro e escuro e uma identidade visual inspirada no universo dos livros.", "React · TypeScript · Vite · TanStack Query · Zustand", { imageSrc: image("libris-discover.png"), deployUrl: "https://libris-tests.netlify.app/login" }),
-    repository("travel-agency", "Travel Agency", "Uma interface de viagens para explorar destinos e novas possibilidades. Um projeto de front-end disponível no meu GitHub.", "TypeScript", { imageSrc: image("travel.jpg") }),
+    repository("travel-agency", "Travel Agency", "Descoberta de destinos com busca mundial de cidades e atrações, fotografias, clima, mapas, lugares próximos e favoritos. Carrossel em tela inteira, planejamento de viagem e scroll suave com Lenis.", "Next.js · React · TypeScript · Framer Motion · Lenis", { imageSrc: image("travel-agency.png"), deployUrl: "https://agency-travvel.netlify.app/" }),
     repository("RamenGo", "RamenGo", "Uma experiência de pedido de ramen, com escolhas de ingredientes e validações que acompanham cada etapa da interação.", "JavaScript · HTML · CSS", { imageSrc: image("ramen.png") }),
     repository("project-artwalk", "Artwalk", "Exploração de uma interface de e-commerce de sneakers, com uma linguagem visual focada nos produtos.", "HTML · CSS", { imageSrc: image("artwalk.png") }),
     {
