@@ -4,6 +4,10 @@
   align-items: start;
   gap: clamp(1rem, 3vw, 2rem);
   margin-top: 2.5rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border-radius: 1.25rem;
+  background: #e5edf3;
+  color: #263b4b;
 }
 
 .screen { margin: 0; min-width: 0; }
