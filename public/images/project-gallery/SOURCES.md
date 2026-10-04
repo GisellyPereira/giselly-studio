@@ -65,3 +65,10 @@ Os demais projetos usam capas tipográficas feitas em CSS, sem simular telas ou 
 - Capa `pila-cover.png` e fonte `pila-cover.svg`: quatro capturas reais do iPhone, fornecidas pela autora, em modo de demonstração.
 - Composição horizontal 16:10, com fundo neutro suave, molduras e sombras discretas, seguindo a apresentação dos outros aplicativos. Sem nome do app ou legendas externas sobre as telas. As capturas mantêm seus textos e valores originais.
 - A ficha apresenta organização de renda, contas, gastos, agenda e simulação financeira; substitui a descrição antiga de mascote e gamificação.
+
+## Aveline — 04/10/2026
+
+- Código: [landingPage-vue](https://github.com/GisellyPereira/landingPage-vue).
+- Capa `aveline.png`: captura real da hero atual, também utilizada em `docs/aveline-opening.png` no README do Aveline.
+- Retratos editoriais ilustrativos gerados para o projeto; prompts e arquivos originais documentados no repositório.
+- A ficha existente foi atualizada para o salão Aveline, preservando o endereço de publicação.
