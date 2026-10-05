@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import type { Project } from "@/src/domain/entities/portfolio";
 import { Button, ButtonLink } from "@/src/presentation/components/shared/Button";
 import { TagList } from "@/src/presentation/components/shared/TagList";
@@ -10,24 +10,62 @@ import galleryStyles from "./case-study-gallery.module.css";
 
 interface CaseStudyModalProps {
   readonly project: Project | null;
-  readonly email: string;
+  readonly email?: string;
   readonly onClose: () => void;
 }
 
 export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
+  const dialogRef = useRef<HTMLElement>(null);
   usePageScrollLock(Boolean(project));
 
   useEffect(() => {
-    if (!project) return;
+    const dialog = dialogRef.current;
+    if (!project || !dialog) return;
 
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
+    const focusableControls = () => Array.from(dialog.querySelectorAll<HTMLElement>(
+      "a[href], button, input, select, textarea, [tabindex], [contenteditable='true']",
+    )).filter((element) =>
+      element.tabIndex >= 0 && !element.hasAttribute("disabled") &&
+      element.getClientRects().length > 0 && window.getComputedStyle(element).visibility !== "hidden",
+    );
+
+    const focusFirst = () => (focusableControls()[0] ?? dialog).focus({ preventScroll: true });
+    if (!dialog.contains(document.activeElement)) focusFirst();
+
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+        return;
+      }
+      if (event.key !== "Tab") return;
+
+      const controls = focusableControls();
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      const active = document.activeElement;
+
+      if (!first || !last) {
+        event.preventDefault();
+        dialog.focus({ preventScroll: true });
+      } else if (event.shiftKey && (active === first || !dialog.contains(active))) {
+        event.preventDefault();
+        last.focus({ preventScroll: true });
+      } else if (!event.shiftKey && (active === last || !dialog.contains(active))) {
+        event.preventDefault();
+        first.focus({ preventScroll: true });
+      }
     };
 
-    window.addEventListener("keydown", closeOnEscape);
+    const containFocus = (event: FocusEvent) => {
+      if (event.target instanceof Node && !dialog.contains(event.target)) focusFirst();
+    };
+
+    window.addEventListener("keydown", handleKeydown);
+    document.addEventListener("focusin", containFocus);
 
     return () => {
-      window.removeEventListener("keydown", closeOnEscape);
+      window.removeEventListener("keydown", handleKeydown);
+      document.removeEventListener("focusin", containFocus);
     };
   }, [project, onClose]);
 
@@ -42,11 +80,13 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
       }}
     >
       <article
+        ref={dialogRef}
         aria-labelledby="case-title"
         aria-modal="true"
         className={`case-sheet case-${project.color} case-project-${project.number}`}
         data-lenis-prevent
         role="dialog"
+        tabIndex={-1}
       >
         <span aria-hidden="true" className="case-sheet__flower case-sheet__flower--one" />
         <span aria-hidden="true" className="case-sheet__flower case-sheet__flower--two" />
@@ -74,14 +114,14 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
                   fill
                   sizes="(max-width: 760px) 92vw, 50vw"
                   src={project.imageSrc}
-                  style={{ objectPosition: project.imagePosition }}
+                  style={{ objectPosition: project.imagePosition, ...(project.imageFit ? { objectFit: project.imageFit } : {}) }}
                 />
               </div>
             </figure>
           </section>
 
-          {project.screenshots && project.screenshots.length > 0 ? (
-            <section className={galleryStyles.gallery} aria-label={`Telas do ${project.title}`}>
+          {!project.hideDetailGallery && project.screenshots && project.screenshots.length > 0 ? (
+            <section className={galleryStyles.gallery} data-screens={project.screenshots.length} aria-label={`Telas do ${project.title}`}>
               {project.screenshots.map((screenshot) => (
                 <figure className={galleryStyles.screen} key={screenshot.src}>
                   <Image alt={screenshot.alt} src={screenshot.src} width={screenshot.width} height={screenshot.height} sizes="(max-width: 760px) 84vw, 30vw" className={galleryStyles.image} />
@@ -105,15 +145,24 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
           </section>
 
           <div className="case-actions">
-            {project.deployUrl ? (
+            {project.storeLinks?.length ? project.storeLinks.map((store) => (
+              <ButtonLink key={store.href} variant="caseAction" href={store.href} target="_blank" rel="noopener noreferrer" aria-label={`${store.label}: ${project.title} (abre em nova aba)`}>
+                {store.label}
+              </ButtonLink>
+            )) : project.deployUrl ? (
               <ButtonLink variant="caseAction" href={project.deployUrl} target="_blank" rel="noopener noreferrer">
                 {project.deployLabel ?? "Ver projeto"}
               </ButtonLink>
-            ) : (
+            ) : project.presentationUrl ? null : (
               <Button variant="caseAction" disabled aria-label="Link do projeto ainda não disponível">
                 Ver projeto
               </Button>
             )}
+            {project.presentationUrl ? (
+              <ButtonLink variant="caseAction" href={project.presentationUrl} target="_blank" rel="noopener noreferrer" aria-label="Ver apresentação na jornada pedagógica no LinkedIn (abre em nova aba)">
+                Ver apresentação no LinkedIn
+              </ButtonLink>
+            ) : null}
           </div>
         </div>
       </article>

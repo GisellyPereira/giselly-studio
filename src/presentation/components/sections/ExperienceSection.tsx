@@ -1,6 +1,7 @@
+import Image from "next/image";
 import type { Experience, ExperienceContent } from "@/src/domain/entities/portfolio";
-import { ExperienceTimeline } from "@/src/presentation/components/experience/ExperienceTimeline";
-import { SparkIcon } from "@/src/presentation/components/shared/Icons";
+import { ExperienceCollection } from "@/src/presentation/components/experience/ExperienceCollection";
+import { EntranceSection } from "@/src/presentation/components/behavior/EntranceSection";
 import styles from "@/src/presentation/components/experience/experience.module.css";
 
 interface ExperienceSectionProps {
@@ -10,33 +11,19 @@ interface ExperienceSectionProps {
 
 export function ExperienceSection({ experiences, content }: ExperienceSectionProps) {
   return (
-    <section aria-labelledby="experience-title" className={styles.section} id="experiencia">
+    <EntranceSection aria-labelledby="experience-title" className={styles.section} id="experiencia">
       <div className={styles.inner}>
         <header className={styles.header}>
-          <div>
-            <p className={styles.eyebrow}><span aria-hidden="true" />{content.eyebrow}</p>
-            <h2 id="experience-title">{content.heading.map((line) => <span key={line}>{line}</span>)}</h2>
-          </div>
-          <div className={styles.intro}>
-            <SparkIcon className={styles.headerSpark} />
-            <p>{content.description}</p>
-            <span className={styles.handwritten}>código, pessoas & novos caminhos</span>
-          </div>
+          <h2 id="experience-title" data-entrance="heading" data-entrance-children>
+            <span className={styles.headingMain}>{content.heading[0]}</span>
+            <em className={styles.headingScript}>{content.heading.slice(1).join(" ")}</em>
+          </h2>
+          <Image alt="" aria-hidden="true" className={styles.headerFlower} data-entrance="bloom" height={256} src="/images/brand/giselly-studio-icon.svg" width={256} />
         </header>
 
-        <div className={styles.timelineTopline}>
-          <span>Experiências</span>
-          <span>Da mais recente ao começo <span aria-hidden="true">↘</span></span>
-        </div>
-        <ExperienceTimeline experiences={experiences} />
-
-        <div className={styles.closing}>
-          <SparkIcon className={styles.closingSpark} />
-          <p>{content.closing}</p>
-          <span className={styles.closingLine} aria-hidden="true" />
-          <span aria-hidden="true" className={styles.signature}>Gi.</span>
-        </div>
+        <ExperienceCollection experiences={experiences} />
+        <p className={styles.closing} data-entrance="rise">{content.closing}</p>
       </div>
-    </section>
+    </EntranceSection>
   );
 }

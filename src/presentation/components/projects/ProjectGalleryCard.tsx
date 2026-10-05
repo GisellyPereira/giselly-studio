@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import type { GalleryTone, PublicProject } from "@/src/domain/entities/public-project";
-import { ButtonLink } from "@/src/presentation/components/shared/Button";
+import { Button, ButtonLink } from "@/src/presentation/components/shared/Button";
 import { GlassPanel } from "@/src/presentation/components/shared/GlassPanel";
 import { SparkIcon } from "@/src/presentation/components/shared/Icons";
 
@@ -42,7 +42,7 @@ export function ProjectGalleryCard({ project, tone, active, onActivate, onDeacti
       }}
     >
       {project.imageSrc ? (
-        <Image alt="" className="gallery-card__image" fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 600px" src={project.imageSrc} />
+        <Image alt="" className="gallery-card__image" fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 600px" src={project.imageSrc} style={project.imageFit ? { objectFit: project.imageFit, backgroundColor: "#fffdf8", transform: "none" } : undefined} />
       ) : (
         <div aria-hidden="true" className="gallery-card__artwork">
           <span className="gallery-card__orbit" />
@@ -57,7 +57,8 @@ export function ProjectGalleryCard({ project, tone, active, onActivate, onDeacti
         <p>{project.title}</p>
       </div>
 
-      <button
+      <Button
+        variant="trigger"
         aria-controls={detailsId}
         aria-expanded={active}
         aria-label={`Ver detalhes de ${project.title}`}
@@ -74,15 +75,17 @@ export function ProjectGalleryCard({ project, tone, active, onActivate, onDeacti
           <p className="gallery-card__technology">{project.technology}</p>
           {destination ? (
             <div className="gallery-card__actions">
-              <ButtonLink
+              {project.storeLinks?.length ? project.storeLinks.map((store) => (
+                <ButtonLink key={store.href} aria-label={`${store.label}: ${project.title} (abre em nova aba)`} href={store.href} rel="noopener noreferrer" target="_blank" variant="galleryProject">{store.label}</ButtonLink>
+              )) : <ButtonLink
                 aria-label={`Ver projeto ${project.title}${project.deployUrl ? " publicado" : " no GitHub"} (abre em nova aba)`}
                 href={destination}
                 rel="noopener noreferrer"
                 target="_blank"
                 variant="galleryProject"
-              >Ver projeto</ButtonLink>
+              >Ver projeto</ButtonLink>}
               {project.deployUrl && project.repositoryUrl ? (
-                <a className="gallery-card__source" href={project.repositoryUrl} rel="noopener noreferrer" target="_blank" aria-label={`Código de ${project.title} no GitHub (abre em nova aba)`}>Código ↗</a>
+                <ButtonLink variant="text" className="gallery-card__source" href={project.repositoryUrl} rel="noopener noreferrer" target="_blank" aria-label={`Código de ${project.title} no GitHub (abre em nova aba)`}>Código ↗</ButtonLink>
               ) : null}
             </div>
           ) : null}

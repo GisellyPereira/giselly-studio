@@ -1,0 +1,13 @@
+.note {
+  color: #b4677f;
+  font-family: "Dawning of a New Day", cursive;
+  font-size: clamp(1.5rem, 1.7vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.05;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  transform: rotate(-13deg);
+}
+.note > span { display: block; white-space: nowrap; }
+.heart { bottom: -.2rem; height: 1.9rem; position: absolute; right: -1.3rem; width: 1.6rem; }

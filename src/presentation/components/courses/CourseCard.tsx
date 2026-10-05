@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import type { Course } from "@/src/domain/entities/course";
+import { Button } from "@/src/presentation/components/shared/Button";
 
 interface CourseCardProps {
   readonly course: Course;
@@ -60,7 +61,8 @@ export function CourseCard({ course, provider, providerLogo }: CourseCardProps) 
         </div>
       </div>
 
-      <button
+      <Button
+        variant="trigger"
         aria-controls={detailsId}
         aria-describedby={isOpen ? detailsId : undefined}
         aria-expanded={isOpen}
@@ -80,7 +82,7 @@ export function CourseCard({ course, provider, providerLogo }: CourseCardProps) 
         type="button"
       >
         <span aria-hidden="true" className="course-card__touch-close">fechar</span>
-      </button>
+      </Button>
     </article>
   );
 }

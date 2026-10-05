@@ -1,0 +1,20 @@
+.catalog { max-width: 25rem; min-width: 0; position: relative; width: 100%; }
+.label { display: inline-block; margin: 0 0 1.5rem .5rem; }
+.label :global(.tag-list) > span { background: var(--pop-pink); border: 0; color: var(--pop-red-dark); font-family: var(--font-clean); font-size: .65rem; font-weight: 600; padding: .5rem .75rem; text-transform: none; }
+.board { padding: .5rem .65rem; position: relative; }
+.papers { display: grid; gap: 1.2rem; grid-template-columns: minmax(0, 1fr); list-style: none; margin: 0; padding: 0; }
+.papers li { --paper-color: #f9f2e8; --paper-ink: var(--pop-red-dark); filter: drop-shadow(0 2px 1.5px rgb(81 44 42 / .1)) drop-shadow(3px 9px 9px rgb(102 52 63 / .16)); min-width: 0; position: relative; }
+.papers .paper { --action-fill: var(--paper-ink); --action-hover-color: var(--paper-color); --paper-image-size: 108% 130%; background: url("/images/decor/recycled-paper-reference.png") center / var(--paper-image-size) no-repeat; border-radius: 0; color: var(--paper-ink); font-family: var(--font-editorial); font-size: clamp(1.5rem, 2vw, 2rem); font-weight: 500; letter-spacing: -.035em; line-height: 1.15; mask: url("/images/decor/recycled-paper-reference.png") center / var(--paper-image-size) no-repeat; min-height: 6.5rem; padding: 1.2rem 1.8rem; text-align: center; width: 100%; }
+.paper :global(.action-button__content), .paper :global(.action-button__label) { min-width: 0; width: 100%; }
+.paperContent { display: block; width: 100%; }
+.name { display: block; overflow-wrap: break-word; text-wrap: balance; }
+.papers li[data-group="cultura-conteudo"] { transform: rotate(-2deg); }
+.papers li[data-group="negocios-servicos"] { transform: rotate(1.5deg); }
+.papers li[data-group="produtos-lojas"] { transform: rotate(-1deg); }
+.flower { bottom: -.9rem; filter: drop-shadow(0 3px 3px rgb(119 29 60 / .2)); height: 3.2rem; pointer-events: none; position: absolute; right: -.4rem; transform: rotate(16deg); width: 3.2rem; }
+.papers li:has(a:focus-visible) { outline: 2px solid var(--pop-red-dark); outline-offset: 4px; }
+.papers .paper:focus-visible { outline: none; }
+.hint { display: flex; align-items: flex-end; gap: .6rem; color: var(--pop-red-dark); font-size: .78rem; line-height: 1.6; margin: 1.5rem .65rem 0; }
+.hintArrow { flex: 0 0 3.5rem; height: 3.5rem; width: 3.5rem; }
+@media (max-width: 1050px) { .catalog { margin: 0 auto; } }
+@media (max-width: 550px) { .papers { gap: 1rem; } .papers .paper { font-size: clamp(1.35rem, 6vw, 1.8rem); min-height: 6rem; padding: 1rem 1.25rem; } .hint { font-size: .72rem; } }

@@ -1,0 +1,12 @@
+.page {
+  /* Keep shared controls within the About page's pink, wine and cream palette. */
+  --pop-lime: var(--pop-pink);
+  --pop-yellow: var(--pop-cream);
+  --pop-olive: var(--pop-red-dark);
+}
+
+.page :global(.courses-section) { --back-to-top-tone: wine; }
+.page :global(.site-footer) { --back-to-top-tone: pink; }
+.page :global(.courses-section__note) { box-shadow: .55rem .7rem 0 rgb(119 29 60 / .18); }
+.page :global(.course-card:nth-child(3n + 2) .course-card__paper) { box-shadow: .65rem .8rem 0 rgb(119 29 60 / .18); }
+.page :global(.course-card:nth-child(3n + 2) .course-card__tape) { background: rgb(233 164 184 / .84); }

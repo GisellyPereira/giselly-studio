@@ -1,0 +1,57 @@
+.intro {
+  background: var(--dark-amethyst);
+  color: var(--ivory);
+  padding: clamp(5rem, 9vw, 9rem) var(--page-padding);
+}
+
+.intro-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: .6fr 3fr 1.1fr;
+  margin-top: clamp(4rem, 7vw, 7rem);
+}
+
+.intro-mark { color: var(--bubblegum-tint); font-size: clamp(2.5rem, 5vw, 5rem); }
+
+.intro h2 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6.8vw, 7.2rem);
+  font-weight: 750;
+  letter-spacing: -.07em;
+  line-height: .9;
+  margin: 0;
+}
+
+.intro h2 span { color: var(--mauve); font-family: Georgia, serif; font-style: italic; font-weight: 400; }
+
+.intro-note {
+  align-self: end;
+  border-left: 1px solid rgba(246, 244, 229, .35);
+  padding-left: 1.5rem;
+}
+
+.intro-note p { font-size: clamp(.8rem, 1vw, .95rem); line-height: 1.65; margin: 0 0 2rem; }
+
+.intro-note a {
+  align-items: center;
+  color: var(--ivory);
+  display: flex;
+  font-size: .7rem;
+  font-weight: 750;
+  gap: .6rem;
+  text-decoration: underline;
+  text-underline-offset: .3rem;
+}
+
+.stats-row {
+  border-top: 1px solid rgba(246, 244, 229, .25);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: clamp(5rem, 9vw, 9rem);
+  padding-top: 2.2rem;
+}
+
+.stats-row > div { align-items: flex-end; display: flex; gap: 1rem; }
+.stats-row strong { color: var(--banana-cream); font-family: var(--font-display); font-size: clamp(3rem, 6vw, 6rem); letter-spacing: -.08em; line-height: .8; }
+.stats-row span { font-size: .65rem; line-height: 1.4; text-transform: uppercase; }

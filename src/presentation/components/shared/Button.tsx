@@ -5,6 +5,7 @@ import type {
   ButtonHTMLAttributes,
   PointerEvent,
   ReactNode,
+  Ref,
 } from "react";
 
 type ButtonLinkVariant =
@@ -15,9 +16,10 @@ type ButtonLinkVariant =
   | "contact"
   | "caseAction"
   | "galleryProject"
-  | "backTop";
+  | "backTop"
+  | "text";
 
-type ButtonVariant = "project" | "modalClose" | "caseAction";
+type ButtonVariant = "project" | "modalClose" | "caseAction" | "trigger";
 
 interface ButtonLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   readonly variant: ButtonLinkVariant;
@@ -27,6 +29,7 @@ interface ButtonLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   readonly variant: ButtonVariant;
   readonly icon?: ReactNode;
+  readonly ref?: Ref<HTMLButtonElement>;
 }
 
 const linkClasses: Record<ButtonLinkVariant, string> = {
@@ -38,18 +41,21 @@ const linkClasses: Record<ButtonLinkVariant, string> = {
   caseAction: "case-action",
   galleryProject: "gallery-project-button",
   backTop: "back-top",
+  text: "",
 };
 
 const buttonClasses: Record<ButtonVariant, string> = {
   project: "project-link",
   modalClose: "case-close-button",
   caseAction: "case-action",
+  trigger: "",
 };
 
-const buttonMotion: Record<ButtonVariant, "fill" | "icon"> = {
+const buttonMotion: Record<ButtonVariant, "fill" | "icon" | "none"> = {
   project: "icon",
   modalClose: "icon",
   caseAction: "fill",
+  trigger: "none",
 };
 
 function joinClasses(...classes: Array<string | undefined>) {
@@ -88,6 +94,13 @@ export function ButtonLink({
   onPointerLeave,
   ...props
 }: ButtonLinkProps) {
+  if (variant === "text") {
+    return (
+      <a className={className} onPointerEnter={onPointerEnter} onPointerLeave={onPointerLeave} {...props}>
+        {children}
+      </a>
+    );
+  }
   return (
     <a
       className={joinClasses("action-button", linkClasses[variant], className)}
@@ -114,15 +127,35 @@ export function Button({
   children,
   className,
   type = "button",
+  onPointerEnter,
+  onPointerLeave,
   ...props
 }: ButtonProps) {
+  const motion = buttonMotion[variant];
+  if (motion === "none") {
+    // Preserve the feature's DOM, including the artwork ref used by draggable stickers.
+    return (
+      <button className={className} type={type} onPointerEnter={onPointerEnter} onPointerLeave={onPointerLeave} {...props}>
+        {children}
+      </button>
+    );
+  }
   return (
     <button
       className={joinClasses("action-button", buttonClasses[variant], className)}
-      data-button-motion={buttonMotion[variant]}
+      data-button-motion={motion}
       type={type}
+      onPointerEnter={(event) => {
+        if (motion === "fill") updateFillOrigin(event);
+        onPointerEnter?.(event);
+      }}
+      onPointerLeave={(event) => {
+        if (motion === "fill") updateFillOrigin(event);
+        onPointerLeave?.(event);
+      }}
       {...props}
     >
+      {motion === "fill" ? <span aria-hidden="true" className="action-button__fill" /> : null}
       <ButtonContent icon={icon}>{children}</ButtonContent>
     </button>
   );

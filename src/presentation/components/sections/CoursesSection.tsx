@@ -1,9 +1,12 @@
 "use client";
 
+import { Button, ButtonLink } from "@/src/presentation/components/shared/Button";
+import { ChevronIcon } from "@/src/presentation/components/shared/Icons";
 import Image from "next/image";
 import { useState } from "react";
 import type { CoursesContent } from "@/src/domain/entities/course";
 import { CourseCard } from "@/src/presentation/components/courses/CourseCard";
+import { EntranceSection } from "@/src/presentation/components/behavior/EntranceSection";
 
 export function CoursesSection({ content }: { readonly content: CoursesContent }) {
   const coursesPerPage = 3;
@@ -19,19 +22,19 @@ export function CoursesSection({ content }: { readonly content: CoursesContent }
   };
 
   return (
-    <section aria-labelledby="courses-title" className="courses-section" id="cursos">
+    <EntranceSection aria-labelledby="courses-title" className="courses-section" id="cursos">
       <div aria-hidden="true" className="courses-section__pattern" />
       <div className="courses-section__inner">
         <header className="courses-section__header">
-          <p className="courses-section__eyebrow">
+          <p className="courses-section__eyebrow" data-entrance="rise">
             <span aria-hidden="true" />
             Meus cursos
           </p>
-          <h2 id="courses-title">
+          <h2 id="courses-title" data-entrance="heading" data-entrance-children>
             <span className="courses-section__heading-main">{content.heading[0]}</span>
             <span className="courses-section__heading-script">{content.heading[1]}</span>
           </h2>
-          <div className="courses-section__note">
+          <div className="courses-section__note" data-entrance="paper" data-entrance-delay=".15">
             <span aria-hidden="true" className="courses-section__note-tape" />
             <p className="courses-section__description">{content.description}</p>
           </div>
@@ -53,8 +56,8 @@ export function CoursesSection({ content }: { readonly content: CoursesContent }
           />
         </header>
 
-        <div className="courses-section__carousel" id="courses-carousel-start">
-          <button
+        <div className="courses-section__carousel" id="courses-carousel-start" data-entrance="rise">
+          <Button variant="trigger"
             aria-label="Ver cursos anteriores"
             className="courses-section__arrow courses-section__arrow--desktop courses-section__arrow--previous"
             onClick={(event) => {
@@ -63,12 +66,10 @@ export function CoursesSection({ content }: { readonly content: CoursesContent }
             }}
             type="button"
           >
-            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
-              <path d="M15 5 8 12l7 7" />
-            </svg>
-          </button>
+            <ChevronIcon direction="left" />
+          </Button>
 
-          <a
+          <ButtonLink variant="text"
             aria-label="Ver cursos anteriores"
             className="courses-section__arrow courses-section__arrow--mobile courses-section__arrow--previous"
             href="#courses-carousel-start"
@@ -77,10 +78,8 @@ export function CoursesSection({ content }: { readonly content: CoursesContent }
               changePage(-1);
             }}
           >
-            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
-              <path d="M15 5 8 12l7 7" />
-            </svg>
-          </a>
+            <ChevronIcon direction="left" />
+          </ButtonLink>
 
           <div
             aria-atomic="true"
@@ -99,7 +98,7 @@ export function CoursesSection({ content }: { readonly content: CoursesContent }
             ))}
           </div>
 
-          <button
+          <Button variant="trigger"
             aria-label="Ver próximos cursos"
             className="courses-section__arrow courses-section__arrow--desktop courses-section__arrow--next"
             onClick={(event) => {
@@ -108,12 +107,10 @@ export function CoursesSection({ content }: { readonly content: CoursesContent }
             }}
             type="button"
           >
-            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
-              <path d="m9 5 7 7-7 7" />
-            </svg>
-          </button>
+            <ChevronIcon />
+          </Button>
 
-          <a
+          <ButtonLink variant="text"
             aria-label="Ver próximos cursos"
             className="courses-section__arrow courses-section__arrow--mobile courses-section__arrow--next"
             href="#courses-carousel-start"
@@ -122,18 +119,16 @@ export function CoursesSection({ content }: { readonly content: CoursesContent }
               changePage(1);
             }}
           >
-            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24">
-              <path d="m9 5 7 7-7 7" />
-            </svg>
-          </a>
+            <ChevronIcon />
+          </ButtonLink>
         </div>
 
-        <div className="courses-section__footer">
+        <div className="courses-section__footer" data-entrance="rise" data-entrance-children>
           <p><strong>{content.courses.length} cursos</strong><span>concluídos</span></p>
           <p><strong>{content.courses.reduce((total, course) => total + course.hours, 0)} horas</strong><span>de prática e repertório</span></p>
-          <a href="https://www.origamid.com/curso/" rel="noreferrer" target="_blank">Formação Origamid ↗</a>
+          <ButtonLink variant="text" href="https://www.origamid.com/curso/" rel="noreferrer" target="_blank">Formação Origamid ↗</ButtonLink>
         </div>
       </div>
-    </section>
+    </EntranceSection>
   );
 }

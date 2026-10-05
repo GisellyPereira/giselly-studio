@@ -1,0 +1,9 @@
+.site-header,
+.hero-campaign,
+.featured-projects,
+.courses-section,
+.project-gallery,
+.contact,
+footer {
+  font-family: var(--font-clean);
+}

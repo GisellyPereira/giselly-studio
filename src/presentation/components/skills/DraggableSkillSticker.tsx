@@ -1,6 +1,7 @@
 "use client";
 
 import type { SkillSticker } from "@/src/domain/entities/portfolio";
+import { Button } from "@/src/presentation/components/shared/Button";
 import { useStickerDrag } from "@/src/presentation/hooks/useStickerDrag";
 import { SkillStickerArtwork } from "./SkillStickerArtwork";
 
@@ -12,7 +13,8 @@ export function DraggableSkillSticker({ sticker }: DraggableSkillStickerProps) {
   const { elementRef, position, isDragging, isPointerFocus, layer, handlers } = useStickerDrag();
 
   return (
-    <button
+    <Button
+      variant="trigger"
       ref={elementRef}
       aria-label={`Mover adesivo de ${sticker.label}`}
       aria-describedby="skills-sticker-help"
@@ -28,6 +30,6 @@ export function DraggableSkillSticker({ sticker }: DraggableSkillStickerProps) {
       <span className="skills-sticker__artwork">
         <SkillStickerArtwork sticker={sticker} />
       </span>
-    </button>
+    </Button>
   );
 }

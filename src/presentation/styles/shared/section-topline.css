@@ -1,0 +1,9 @@
+.section-topline {
+  align-items: center;
+  border-top: 1px solid currentColor;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.section-index { font-size: .65rem; font-weight: 650; margin: 0; text-transform: uppercase; }

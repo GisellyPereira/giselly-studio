@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Project } from "@/src/domain/entities/portfolio";
+import { Button } from "@/src/presentation/components/shared/Button";
 
 interface FeaturedProjectCardProps {
   readonly project: Project;
@@ -9,7 +10,8 @@ interface FeaturedProjectCardProps {
 export function FeaturedProjectCard({ project, onOpen }: FeaturedProjectCardProps) {
   return (
     <article className={`featured-project-card featured-project-card--${project.color}`}>
-      <button
+      <Button
+        variant="trigger"
         aria-label={`Abrir detalhes do projeto ${project.title}`}
         onClick={() => onOpen(project)}
         type="button"
@@ -20,7 +22,7 @@ export function FeaturedProjectCard({ project, onOpen }: FeaturedProjectCardProp
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw"
             src={project.imageSrc}
-            style={{ objectPosition: project.imagePosition }}
+            style={{ objectPosition: project.imagePosition, ...(project.imageFit ? { objectFit: project.imageFit } : {}) }}
           />
         </span>
 
@@ -29,7 +31,7 @@ export function FeaturedProjectCard({ project, onOpen }: FeaturedProjectCardProp
           <span className="featured-project__summary">{project.description}</span>
           <span className="sr-only">Abrir detalhes do projeto</span>
         </span>
-      </button>
+      </Button>
     </article>
   );
 }

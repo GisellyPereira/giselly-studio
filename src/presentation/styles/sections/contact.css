@@ -1,0 +1,22 @@
+.contact {
+  align-items: center;
+  background: var(--bubblegum-tint);
+  display: flex;
+  flex-direction: column;
+  min-height: 92svh;
+  overflow: hidden;
+  padding: clamp(6rem, 11vw, 11rem) var(--page-padding) 3rem;
+  position: relative;
+  text-align: center;
+}
+
+.contact .eyebrow { position: relative; z-index: 2; }
+.contact h2 { font-family: var(--font-display); font-size: clamp(5rem, 12.5vw, 13rem); font-weight: 800; letter-spacing: -.09em; line-height: .72; margin: clamp(3rem, 5vw, 5rem) 0; position: relative; z-index: 2; }
+.contact h2 em { color: var(--ivory); }
+.contact-button { --action-fill: var(--dark-amethyst); --action-hover-color: var(--ivory); align-items: center; background: var(--ivory); border: 2px solid var(--dark-amethyst); border-radius: 999px; color: var(--dark-amethyst); display: flex; font-size: clamp(.78rem, 1.2vw, 1rem); font-weight: 750; gap: 1.5rem; padding: .5rem .55rem .5rem 1.5rem; position: relative; text-decoration: none; z-index: 2; }
+.contact-button .action-button__icon { align-items: center; background: var(--dark-amethyst); border-radius: 50%; color: var(--ivory); display: flex; height: 3rem; justify-content: center; transition: transform var(--duration-medium) var(--elastic-ease); width: 3rem; }
+.contact-button:hover .action-button__icon { transform: rotate(45deg) scale(1.1); }
+.contact-details { align-items: flex-end; display: flex; font-size: .62rem; font-weight: 700; justify-content: space-between; margin-top: auto; position: relative; text-transform: uppercase; width: 100%; z-index: 2; }
+.contact-details p { margin: 0; }
+.contact-orbit { border: 2px solid rgba(43, 19, 90, .2); border-radius: 50%; position: absolute; }
+.orbit-left { height: 37rem; left: -18rem; top: 10%; width: 37rem; }.orbit-right { bottom: -16rem; height: 44rem; right: -15rem; width: 44rem; }

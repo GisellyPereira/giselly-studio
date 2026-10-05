@@ -1,0 +1,80 @@
+.skills-showcase {
+  --back-to-top-tone: cream;
+  align-items: center;
+  background: var(--pop-pink);
+  display: grid;
+  isolation: isolate;
+  min-height: clamp(48rem, 62vw, 60rem);
+  overflow: hidden;
+  padding: clamp(5rem, 8vw, 8rem) var(--page-padding);
+  position: relative;
+}
+
+.skills-showcase::before,
+.skills-showcase::after {
+  background: repeating-linear-gradient(90deg, var(--pop-red-dark) 0 4rem, var(--pop-red) 4rem 8rem);
+  content: "";
+  height: 1.4rem;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  z-index: 4;
+}
+
+.skills-showcase::before { top: 0; }
+.skills-showcase::after { bottom: 0; }
+
+.skills-showcase__wallpaper {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.skills-showcase__bloom {
+  background: currentColor;
+  display: block;
+  height: auto;
+  -webkit-mask: url("/images/brand/giselly-studio-icon.svg") center / contain no-repeat;
+  mask: url("/images/brand/giselly-studio-icon.svg") center / contain no-repeat;
+  position: absolute;
+  width: 20rem;
+  aspect-ratio: 1;
+}
+
+.skills-showcase__bloom--one {
+  color: var(--pop-red-dark);
+  left: -6rem;
+  opacity: .08;
+  top: -5rem;
+  transform: rotate(-14deg);
+  width: clamp(16rem, 24vw, 25rem);
+}
+
+.skills-showcase__bloom--two {
+  color: var(--pop-red-dark);
+  opacity: .08;
+  right: -2rem;
+  top: 10%;
+  transform: rotate(12deg);
+  width: clamp(11rem, 17vw, 18rem);
+}
+
+.skills-showcase__bloom--three {
+  bottom: -4rem;
+  color: var(--pop-red-dark);
+  left: 8%;
+  opacity: .08;
+  transform: rotate(17deg);
+  width: clamp(10rem, 15vw, 16rem);
+}
+
+.skills-showcase__bloom--four {
+  bottom: -10rem;
+  color: var(--pop-red-dark);
+  opacity: .08;
+  right: -8rem;
+  transform: rotate(-11deg);
+  width: clamp(20rem, 31vw, 33rem);
+}

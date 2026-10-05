@@ -1,0 +1,115 @@
+.card {
+  --case-accent: var(--pop-red-dark);
+  background: var(--pop-white);
+  border: 1px solid rgb(119 29 60 / .08);
+  border-radius: .2rem;
+  box-shadow: .3rem .4rem 0 rgb(119 29 60 / .12);
+  color: var(--pop-ink);
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  min-width: 0;
+  padding: .35rem;
+  position: relative;
+  transition: box-shadow .35s var(--ease-out-quint), translate .35s var(--ease-out-quint);
+}
+
+.bodyLink {
+  color: inherit;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.picture {
+  aspect-ratio: 16 / 10;
+  background: var(--pop-white);
+  border-radius: .1rem;
+  flex: 0 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.image { object-fit: cover; transition: transform .6s var(--ease-out-quint); }
+.card[data-category="Mobile"] .image { object-fit: contain; }
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  padding: .85rem .55rem 0;
+}
+
+.card h3 {
+  color: var(--pop-red-dark);
+  font-family: var(--font-editorial);
+  font-size: 1.7rem;
+  font-weight: 500;
+  letter-spacing: -.035em;
+  line-height: 1.03;
+  margin: 0;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+
+.technology { margin: .65rem 0 .85rem; }
+.technology :global(.tag-list) { gap: .35rem; }
+.technology :global(.tag-list span) {
+  background: var(--pop-pink-light);
+  border: 0;
+  color: var(--pop-red-dark);
+  font-family: var(--font-clean);
+  font-size: .65rem;
+  font-weight: 550;
+  line-height: 1.2;
+  padding: .4rem .6rem;
+  text-transform: none;
+}
+
+.actions { align-items: center; display: flex; flex-wrap: wrap; gap: .6rem 1rem; margin-top: auto; padding: 0 .55rem .55rem; }
+.card .primary {
+  --action-fill: var(--pop-pink);
+  --action-hover-color: var(--pop-red-dark);
+  background: var(--pop-red-dark);
+  color: var(--pop-white);
+  font-size: .72rem;
+  font-weight: 700;
+  min-height: 2.5rem;
+  padding: .65rem .95rem;
+  width: auto;
+}
+.details {
+  align-items: center;
+  background: var(--pop-pink-light);
+  border: 1px solid rgb(119 29 60 / .16);
+  border-radius: 999px;
+  color: var(--pop-red-dark);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-clean);
+  font-size: .72rem;
+  font-weight: 700;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: .65rem .95rem;
+  transition: background-color .2s ease, color .2s ease;
+}
+.details:hover {
+  background: var(--pop-red-dark);
+  color: var(--pop-white);
+}
+.secondary { align-items: center; color: var(--pop-red-dark); display: inline-flex; font-family: var(--font-clean); font-size: .72rem; font-weight: 600; gap: .35rem; min-height: 2.5rem; text-decoration: underline; text-underline-offset: .25rem; }
+.primary:focus-visible, .secondary:focus-visible, .details:focus-visible { outline: 2px solid var(--pop-red-dark); outline-offset: 3px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .card:is(:hover, :focus-within) { box-shadow: .35rem .6rem 0 rgb(119 29 60 / .13); translate: 0 -3px; }
+  .card:hover .image { transform: scale(1.025); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card, .image { transition: none; }
+  .card:is(:hover, :focus-within) { translate: none; }
+  .card:hover .image { transform: none; }
+}

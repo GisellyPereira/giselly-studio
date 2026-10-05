@@ -1,168 +1,133 @@
 "use client";
 
-import Image from "next/image";
-import { useCallback, useMemo, useState } from "react";
-import type { Project } from "@/src/domain/entities/portfolio";
-import type { PublicProject } from "@/src/domain/entities/public-project";
+import { useCallback, useMemo, useRef, useState } from "react";
+import { useLenis } from "lenis/react";
+import { archiveFilters, archiveProjects, filterArchiveProjects, projectArchiveContent } from "@/src/data/project-archive";
 import { portfolioData } from "@/src/data/portfolio";
-import { projectGalleryContent } from "@/src/data/public-projects";
+import type { Project } from "@/src/domain/entities/portfolio";
+import { CaseStudyModal } from "@/src/presentation/components/projects/CaseStudyModal";
+import type { ArchiveFilter } from "@/src/domain/entities/project-archive";
+import { EntranceSection } from "@/src/presentation/components/behavior/EntranceSection";
 import { Footer } from "@/src/presentation/components/layout/Footer";
 import { Header } from "@/src/presentation/components/layout/Header";
-import { CaseStudyModal } from "@/src/presentation/components/projects/CaseStudyModal";
+import { ArchiveCategoryIcon } from "@/src/presentation/components/projects/ArchiveCategoryIcon";
+import { ArchiveProjectCard } from "@/src/presentation/components/projects/ArchiveProjectCard";
+import { Button, ButtonLink } from "@/src/presentation/components/shared/Button";
+import { ArrowIcon } from "@/src/presentation/components/shared/Icons";
+import { Pagination } from "@/src/presentation/components/shared/Pagination";
+import { TagList } from "@/src/presentation/components/shared/TagList";
+import styles from "./projects-archive.module.css";
 
-type ArchiveFilter = "Todos" | "Web" | "Mobile" | "Experimento";
+const PROJECTS_PER_PAGE = 12;
 
-type ArchiveItem = {
-  readonly id: string;
-  readonly title: string;
-  readonly category: "Web" | "Mobile" | "Experimento";
-  readonly description: string;
-  readonly technology: string;
-  readonly imageSrc?: string;
-  readonly imageAlt: string;
-  readonly deployUrl?: string;
-  readonly repositoryUrl?: string;
-  readonly featured?: Project;
-};
-
-const filters: readonly ArchiveFilter[] = ["Todos", "Web", "Mobile", "Experimento"];
-
-function fromFeatured(project: Project): ArchiveItem {
-  return {
-    id: `case-${project.number}`,
-    title: project.title,
-    category: project.category === "Mobile" ? "Mobile" : "Web",
-    description: project.description,
-    technology: project.tags.join(" · "),
-    imageSrc: project.imageSrc,
-    imageAlt: project.imageAlt,
-    deployUrl: project.deployUrl,
-    repositoryUrl: project.repositoryUrl,
-    featured: project,
-  };
-}
-
-function fromPublic(project: PublicProject): ArchiveItem {
-  return {
-    id: `github-${project.id}`,
-    title: project.title,
-    category: project.category,
-    description: project.description,
-    technology: project.technology,
-    imageSrc: project.imageSrc,
-    imageAlt: `Prévia do projeto ${project.title}`,
-    deployUrl: project.deployUrl,
-    repositoryUrl: project.repositoryUrl,
-  };
+function SearchIcon() {
+  return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 4.5 4.5" /></svg>;
 }
 
 export function ProjectsArchivePage() {
-  const [activeFilter, setActiveFilter] = useState<ArchiveFilter>("Todos");
+  const [activeFilter, setActiveFilter] = useState<ArchiveFilter>("all");
+  const [query, setQuery] = useState("");
+  const [page, setPage] = useState(1);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const closeProject = useCallback(() => setSelectedProject(null), []);
+  const detailTrigger = useRef<HTMLButtonElement | null>(null);
+  const openDetails = useCallback((project: Project, trigger: HTMLButtonElement) => { detailTrigger.current = trigger; setSelectedProject(project); }, []);
+  const closeDetails = useCallback(() => { setSelectedProject(null); requestAnimationFrame(() => detailTrigger.current?.focus({ preventScroll: true })); }, []);
+  const toolbarRef = useRef<HTMLDivElement>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
+  const lenis = useLenis();
 
-  const projects = useMemo<readonly ArchiveItem[]>(() => {
-    const featured = portfolioData.projects.map(fromFeatured);
-    const publicProjects = projectGalleryContent.projects
-      .filter((project) => project.id !== "procon-ma")
-      .map(fromPublic);
-    return [...featured, ...publicProjects];
-  }, []);
+  const filteredProjects = useMemo(() => filterArchiveProjects(archiveProjects, activeFilter, query), [activeFilter, query]);
+  const counts = useMemo(() => archiveFilters.map((filter) => filterArchiveProjects(archiveProjects, filter.id, query).length), [query]);
+  const pageCount = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE);
+  const currentPage = Math.min(page, Math.max(1, pageCount));
+  const start = (currentPage - 1) * PROJECTS_PER_PAGE;
+  const pageProjects = filteredProjects.slice(start, start + PROJECTS_PER_PAGE);
 
-  const visibleProjects = activeFilter === "Todos"
-    ? projects
-    : projects.filter((project) => project.category === activeFilter);
+  function changePage(nextPage: number) {
+    setPage(nextPage);
+    requestAnimationFrame(() => {
+      const toolbar = toolbarRef.current;
+      if (!toolbar) return;
+      toolbar.focus({ preventScroll: true });
+      if (lenis) {
+        lenis.resize();
+        lenis.scrollTo(toolbar, { duration: .8 });
+      } else {
+        toolbar.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+      }
+    });
+  }
+
+  function resetFilters() {
+    setActiveFilter("all");
+    setQuery("");
+    setPage(1);
+    requestAnimationFrame(() => searchRef.current?.focus({ preventScroll: true }));
+  }
 
   return (
-    <main className="projects-archive">
-      <Header email={portfolioData.email} />
-
-      <section className="projects-archive__hero" id="inicio" aria-labelledby="archive-title">
-        <div className="projects-archive__hero-inner">
-          <p>Arquivo de projetos · {projects.length} trabalhos</p>
-          <h1 id="archive-title">
-            <span>Projetos com</span>
-            <em>história.</em>
-          </h1>
-          <div className="projects-archive__hero-note">
-            <span>Web · Mobile · Experimentos</span>
-            <p>Uma coleção do trabalho profissional aos estudos que construíram meu repertório.</p>
+    <main className={styles.page}>
+      <div className={styles.flowers} aria-hidden="true">
+        {Array.from({ length: 8 }, (_, index) => <span key={index} />)}
+      </div>
+      <Header email={portfolioData.email} accent />
+      <section className={styles.catalog} id="inicio" aria-labelledby="archive-title">
+        <EntranceSection as="header" className={styles.masthead} startOnMount>
+          <div className={styles.headingBlock}>
+            <div className={styles.eyebrow} data-entrance="rise"><TagList tags={[projectArchiveContent.eyebrow]} /></div>
+            <h1 id="archive-title" data-entrance="heading" data-entrance-children>
+              <span>{projectArchiveContent.heading[0]}</span>
+              <em>
+                {projectArchiveContent.heading[1]}
+                <svg aria-hidden="true" className={styles.titleUnderline} viewBox="0 0 250 13" fill="none" preserveAspectRatio="none">
+                  <path d="M3 9c47-4 83-6 123-5 45 1 82 2 121-1M25 11c45-2 88-2 129-1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              </em>
+            </h1>
+            <p className={styles.intro} data-entrance="rise">{projectArchiveContent.description}</p>
           </div>
-        </div>
-      </section>
+        </EntranceSection>
 
-      <section className="projects-archive__catalog" aria-labelledby="catalog-title">
-        <div className="projects-archive__catalog-head">
-          <div>
-            <p className="projects-archive__kicker">Navegue pelo acervo</p>
-            <h2 id="catalog-title">Todos, em um só lugar.</h2>
-          </div>
-          <div className="projects-archive__filters" aria-label="Filtrar projetos">
-            {filters.map((filter) => (
-              <button
-                aria-pressed={activeFilter === filter}
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                type="button"
-              >
-                {filter}
-              </button>
+        <h2 className="sr-only" id="archive-grid-title">Projetos do acervo</h2>
+        <div className={styles.toolbar} ref={toolbarRef} tabIndex={-1} aria-label="Busca e filtros do acervo">
+          <div className={styles.filters} role="group" aria-label="Filtrar projetos">
+            {archiveFilters.map((filter, index) => (
+              <Button variant="caseAction" className={styles.filter} aria-pressed={activeFilter === filter.id} aria-controls="all-projects-grid" key={filter.id} onClick={() => { setActiveFilter(filter.id); setPage(1); }}>
+                <span className={styles.filterContent}><ArchiveCategoryIcon category={filter.id} /><span>{filter.label}</span><span className={styles.filterCount} aria-hidden="true">{counts[index]}</span></span>
+              </Button>
             ))}
           </div>
+          <label className={styles.search}>
+            <span className="sr-only">{projectArchiveContent.searchLabel}</span><SearchIcon />
+            <input ref={searchRef} type="search" value={query} placeholder={projectArchiveContent.searchPlaceholder} onChange={(event) => { setQuery(event.target.value); setPage(1); }} aria-controls="all-projects-grid" />
+          </label>
         </div>
 
-        <p className="projects-archive__count" aria-live="polite">
-          {String(visibleProjects.length).padStart(2, "0")} projetos encontrados
-        </p>
-
-        <div className="archive-list">
-          {visibleProjects.map((project) => {
-            const destination = project.deployUrl ?? project.repositoryUrl;
-            const actionLabel = project.featured
-              ? "Ver case"
-              : project.deployUrl
-                ? "Visitar projeto"
-                : "Abrir GitHub";
-
-            return (
-              <article className="archive-row" data-featured={Boolean(project.featured)} key={project.id}>
-                <div className="archive-row__thumb">
-                  {project.imageSrc ? (
-                    <Image alt={project.imageAlt} fill sizes="(max-width: 767px) 38vw, 190px" src={project.imageSrc} />
-                  ) : (
-                    <span aria-hidden="true">{project.title.slice(0, 2)}</span>
-                  )}
-                </div>
-                <div className="archive-row__main">
-                  <div className="archive-row__meta">
-                    <span>{project.category}</span>
-                    <span>{project.featured ? "Destaque" : project.deployUrl ? "Publicado" : "GitHub"}</span>
-                  </div>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                </div>
-                <p className="archive-row__tech">{project.technology}</p>
-                {project.featured ? (
-                  <button className="archive-row__action" type="button" onClick={() => setSelectedProject(project.featured ?? null)}>
-                    {actionLabel} <span aria-hidden="true">↗</span>
-                  </button>
-                ) : destination ? (
-                  <a className="archive-row__action" href={destination} rel="noreferrer" target="_blank">
-                    {actionLabel} <span aria-hidden="true">↗</span>
-                  </a>
-                ) : null}
-              </article>
-            );
-          })}
+        <div className={styles.resultSummary} role="status" aria-live="polite" aria-atomic="true">
+          <p>{filteredProjects.length > 0 ? `${start + 1}–${start + pageProjects.length} de ${filteredProjects.length} ${filteredProjects.length === 1 ? "projeto" : "projetos"}` : "Nenhum projeto encontrado"}</p>
+          {pageCount > 1 ? <span>Página {currentPage} de {pageCount}</span> : null}
         </div>
 
-        <a className="projects-archive__github" href={projectGalleryContent.githubUrl} rel="noreferrer" target="_blank">
-          Ver perfil completo no GitHub <span aria-hidden="true">↗</span>
-        </a>
+        {pageProjects.length > 0 ? (
+          <EntranceSection as="div" className={styles.grid} id="all-projects-grid" aria-labelledby="archive-grid-title" key={`${activeFilter}-${query}-${currentPage}`} revealTogether>
+            {pageProjects.map((project) => <ArchiveProjectCard project={project} githubUrl={projectArchiveContent.githubUrl} onOpenDetails={openDetails} key={project.id} />)}
+          </EntranceSection>
+        ) : (
+          <div className={styles.empty} id="all-projects-grid"><ArchiveCategoryIcon category="all" /><h2>{projectArchiveContent.emptyHeading}</h2><p>{projectArchiveContent.emptyDescription}</p><Button variant="caseAction" className={styles.reset} onClick={resetFilters}>Limpar busca e filtros</Button></div>
+        )}
+
+        <Pagination page={currentPage} pageCount={pageCount} onPageChange={changePage} controls="all-projects-grid" />
+        <div className={styles.github}><p>Tem mais código e ideias em andamento por lá.</p><ButtonLink variant="text" href={projectArchiveContent.githubUrl} target="_blank" rel="noopener noreferrer">Explorar meu GitHub <ArrowIcon diagonal /></ButtonLink></div>
+
+        <EntranceSection as="div">
+          <aside className={styles.landingCallout} aria-label="Landing pages para negócios" data-entrance="rise">
+            <div><p className={styles.calloutLabel}>Para o seu negócio</p><h2>{projectArchiveContent.landingHeading}</h2><p>{projectArchiveContent.landingDescription}</p></div>
+            <ButtonLink variant="heroPrimary" className={styles.landingButton} href="/landing-pages" icon={<ArrowIcon />}>Explorar por nicho</ButtonLink>
+          </aside>
+        </EntranceSection>
       </section>
-
       <Footer role={portfolioData.role} socials={portfolioData.socials} />
-      <CaseStudyModal project={selectedProject} email={portfolioData.email} onClose={closeProject} />
+      <CaseStudyModal project={selectedProject} onClose={closeDetails} />
     </main>
   );
 }

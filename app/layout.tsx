@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SmoothScroll } from "@/src/presentation/components/behavior/SmoothScroll";
+import { BackToTop } from "@/src/presentation/components/layout/BackToTop";
 import "@fontsource-variable/archivo";
 import "@fontsource-variable/bricolage-grotesque";
 import "@fontsource/cormorant-garamond/400.css";
@@ -24,7 +25,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
-        <SmoothScroll>{children}</SmoothScroll>
+        <SmoothScroll>
+          {children}
+          <BackToTop />
+        </SmoothScroll>
       </body>
     </html>
   );

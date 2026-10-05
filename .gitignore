@@ -21,3 +21,8 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Inventário interno dos projetos locais
+/docs/project-completion/
+
+# Arquivos de trabalho e cópias temporárias
+/work/

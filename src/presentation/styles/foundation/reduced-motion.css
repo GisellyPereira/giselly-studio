@@ -1,0 +1,6 @@
+@media (prefers-reduced-motion: reduce) {
+  .project-gallery * { transition-delay: 0s !important; }
+  .parallax-background { transform: translate3d(0, -8.3333%, 0); will-change: auto; }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}

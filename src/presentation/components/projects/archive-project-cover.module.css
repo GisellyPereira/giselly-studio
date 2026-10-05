@@ -1,0 +1,134 @@
+.cover {
+  background-color: var(--pop-white);
+  background-image: var(--work-grid-pattern);
+  background-size: 1.1rem 1.1rem;
+  color: var(--pop-red-dark);
+  height: 100%;
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+}
+
+.category {
+  align-items: center;
+  display: flex;
+  font-family: var(--font-clean);
+  font-size: .56rem;
+  font-weight: 650;
+  gap: .35rem;
+  left: 5%;
+  letter-spacing: .04em;
+  position: absolute;
+  top: 6%;
+}
+
+.category svg { height: .9rem; width: .9rem; }
+
+.backing,
+.window {
+  border-radius: .25rem;
+  height: 64%;
+  left: 16%;
+  position: absolute;
+  top: 21%;
+  width: 66%;
+}
+
+.backing {
+  background: var(--pop-pink-light);
+  transform: translate(.35rem, .3rem) rotate(5deg);
+}
+
+.window {
+  background: var(--pop-white);
+  border: 1px solid rgb(119 29 60 / .3);
+  box-shadow: 0 .2rem .45rem rgb(56 31 44 / .1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: rotate(-5deg);
+}
+
+.chrome {
+  align-items: center;
+  border-bottom: 1px solid rgb(119 29 60 / .16);
+  color: var(--pop-red-dark);
+  display: flex;
+  flex: 0 0 17%;
+  justify-content: space-between;
+  padding: 0 6%;
+}
+
+.dots { display: flex; gap: .2rem; }
+.dots i { background: rgb(119 29 60 / .5); border-radius: 50%; height: .2rem; width: .2rem; }
+.codeMark { font-family: monospace; font-size: .55rem; }
+
+.monogram {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  font-family: "Archivo Variable", sans-serif;
+  font-size: clamp(2.1rem, 4vw, 3.3rem);
+  font-variation-settings: "wdth" 92, "wght" 750;
+  font-weight: 750;
+  justify-content: center;
+  letter-spacing: -.055em;
+  line-height: 1;
+  min-height: 0;
+}
+
+.imprint {
+  font-family: var(--font-clean);
+  font-size: .38rem;
+  font-weight: 550;
+  letter-spacing: .16em;
+  padding-bottom: 5%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cover[data-layout="poster"] { background-color: var(--pop-cream); background-image: none; }
+.cover[data-layout="poster"] .backing,
+.cover[data-layout="poster"] .window { height: 72%; left: 21%; top: 16%; width: 60%; }
+.cover[data-layout="poster"] .backing { background: var(--pop-paper-yellow); transform: translate(-.35rem, .15rem) rotate(-5deg); }
+.cover[data-layout="poster"] .window { border: 0; transform: rotate(4deg); }
+.cover[data-layout="poster"] .window::before { border: 1px solid rgb(119 29 60 / .2); content: ""; inset: .4rem; pointer-events: none; position: absolute; }
+.cover[data-layout="poster"] .chrome { display: none; }
+.cover[data-layout="poster"] .monogram { font-family: var(--font-editorial); font-size: 4.4rem; font-style: italic; font-weight: 500; letter-spacing: -.06em; }
+.cover[data-layout="poster"] .imprint { padding-bottom: 10%; }
+
+.cover:is([data-layout="editor"], [data-layout="phone"]) { background-color: #f0efed; background-image: none; }
+.cover[data-layout="editor"] .backing { background: var(--pop-white); transform: translate(-.35rem, .3rem) rotate(-4deg); }
+.cover[data-layout="editor"] .window { height: 66%; left: 12%; top: 21%; transform: rotate(2deg); width: 76%; }
+.cover[data-layout="editor"] .chrome { flex-basis: 21%; }
+.cover[data-layout="editor"] .dots { display: none; }
+.cover[data-layout="editor"] .codeMark { font-size: .7rem; }
+.cover[data-layout="editor"] .monogram { justify-content: flex-start; padding-left: 8%; }
+.cover[data-layout="editor"] .imprint { padding-left: 8%; text-align: left; }
+.codeLines { bottom: 26%; display: flex; flex-direction: column; gap: .35rem; position: absolute; right: 8%; width: 26%; }
+.codeLines i { background: rgb(119 29 60 / .16); border-radius: 999px; height: .15rem; }
+.codeLines i:nth-child(2) { width: 75%; }
+.codeLines i:nth-child(3) { width: 55%; }
+
+.cover[data-layout="phone"] .backing,
+.cover[data-layout="phone"] .window {
+  border-radius: .6rem;
+  height: 74%;
+  left: 33%;
+  top: 14%;
+  width: 34%;
+}
+
+.cover[data-layout="phone"] .chrome {
+  border: 0;
+  flex-basis: 12%;
+  justify-content: center;
+}
+.cover[data-layout="phone"] .chrome::before { background: var(--pop-red-dark); border-radius: 999px; content: ""; height: .15rem; width: 25%; }
+.cover[data-layout="phone"] .dots,
+.cover[data-layout="phone"] .codeMark { display: none; }
+.cover[data-layout="phone"] .imprint { font-size: .3rem; letter-spacing: .08em; padding-bottom: 12%; }
+
+@media (max-width: 767px) {
+  .monogram { font-size: 3rem; }
+}

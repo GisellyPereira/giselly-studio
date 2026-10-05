@@ -15,12 +15,16 @@ export interface Project {
   readonly imageSrc: string;
   readonly imageAlt: string;
   readonly imagePosition?: string;
+  readonly imageFit?: "cover" | "contain";
+  readonly hideDetailGallery?: boolean;
   readonly tags: readonly string[];
   readonly challenge: string;
   readonly result: string;
   readonly repositoryUrl?: string;
   readonly deployUrl?: string;
   readonly deployLabel?: string;
+  readonly presentationUrl?: string;
+  readonly storeLinks?: readonly SocialLink[];
   readonly screenshots?: readonly {
     readonly src: string;
     readonly alt: string;
@@ -49,7 +53,6 @@ export interface Experience {
   readonly company: string;
   readonly companyShort: string;
   readonly focus: string;
-  readonly highlight: readonly string[];
   readonly current?: boolean;
   readonly description: string;
   readonly tags: readonly string[];
@@ -73,6 +76,7 @@ export interface PortfolioProfile {
   readonly initials: string;
   readonly role: string;
   readonly email: string;
+  readonly whatsapp: SocialLink;
   readonly location: string;
   readonly socials: readonly SocialLink[];
   readonly projects: readonly Project[];

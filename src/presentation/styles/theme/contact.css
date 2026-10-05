@@ -1,0 +1,150 @@
+/* Contact — typography and clear space for the conversation. */
+.contact {
+  --back-to-top-tone: pink;
+  align-items: stretch;
+  background: var(--pop-red-dark);
+  color: var(--pop-cream);
+  min-height: auto;
+  padding: clamp(5rem, 7vw, 7.5rem) var(--page-padding);
+  text-align: left;
+}
+
+.contact__pattern {
+  background: repeating-linear-gradient(-45deg, var(--pop-pink) 0 1rem, transparent 1rem 2rem);
+  bottom: 0;
+  opacity: .32;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 24%;
+}
+
+.contact__inner {
+  margin: 0 auto;
+  max-width: var(--content-max-width);
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.contact .eyebrow {
+  color: var(--pop-pink-light);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  margin: 0 0 2rem;
+  text-transform: uppercase;
+}
+
+.contact h2 {
+  font-family: "Archivo Variable", sans-serif;
+  font-size: clamp(2.8rem, 5.6vw, 6.2rem);
+  font-variation-settings: "wdth" 92, "wght" 850;
+  font-weight: 850;
+  letter-spacing: -.055em;
+  line-height: .92;
+  margin: 0;
+  max-width: 12ch;
+  text-transform: uppercase;
+  width: 72%;
+}
+
+.contact h2 em {
+  color: var(--pop-pink);
+  display: block;
+  font-family: var(--font-editorial);
+  font-size: 1.13em;
+  font-style: italic;
+  font-variation-settings: normal;
+  font-weight: 400;
+  letter-spacing: -.055em;
+  line-height: .88;
+  margin-top: .18em;
+  text-transform: none;
+}
+
+.contact__footer {
+  align-items: start;
+  display: grid;
+  gap: 2rem clamp(2rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin-top: clamp(3rem, 5vw, 5rem);
+  width: 72%;
+}
+
+.contact__action {
+  align-items: flex-start;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.contact__action > p {
+  color: var(--pop-pink-light);
+  font-size: clamp(.9rem, 1.1vw, 1rem);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 25rem;
+  text-wrap: pretty;
+}
+
+.contact-button {
+  --action-fill: var(--pop-ink);
+  --action-hover-color: var(--pop-white);
+  background: var(--pop-cream);
+  border: 0;
+  color: var(--pop-ink);
+  max-width: 100%;
+  gap: .75rem;
+  padding: 1.1rem 1.5rem;
+}
+
+.contact-button .action-button__label { overflow-wrap: anywhere; }
+.contact-button .action-button__icon {
+  background: transparent;
+  border-radius: 0;
+  color: inherit;
+  flex-shrink: 0;
+  height: 1.35rem;
+  order: -1;
+  transition: none;
+  width: 1.35rem;
+}
+.contact-button .action-button__icon svg { height: 100%; width: 100%; }
+.contact-button:hover .action-button__icon { transform: none; }
+
+.contact-details {
+  align-items: flex-start;
+  border: 0;
+  color: var(--pop-pink-light);
+  flex-direction: column;
+  font-size: .68rem;
+  gap: .8rem;
+  letter-spacing: .04em;
+  line-height: 1.6;
+  margin: 0;
+  padding: 1.15rem 0 0;
+  width: auto;
+}
+
+.contact-details p:last-child {
+  font-size: .8rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@media (max-width: 1100px) {
+  .contact__footer { grid-template-columns: minmax(0, 1fr); }
+  .contact-details { padding: 0; }
+}
+
+@media (max-width: 767px) {
+  .contact__pattern { display: none; }
+  .contact h2 { width: 100%; }
+  .contact__footer { width: 100%; }
+}

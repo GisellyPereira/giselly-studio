@@ -1,3 +1,4 @@
+import { Button } from "@/src/presentation/components/shared/Button";
 import { ArrowIcon } from "@/src/presentation/components/shared/Icons";
 
 interface ProjectGalleryNavigationProps {
@@ -19,8 +20,8 @@ export function ProjectGalleryNavigation({ page, pageCount, start, end, total, o
         <span className="sr-only">Página {page + 1} de {pageCount}. Projetos {start} a {end} de {total}.</span>
       </p>
       <div className="project-gallery__arrows" aria-label="Navegação dos projetos" role="group">
-        <button aria-controls="public-project-cards" aria-label="Quatro projetos anteriores" className="gallery-arrow gallery-arrow--previous" disabled={pageCount <= 1} onClick={() => onChange(-1)} type="button"><ArrowIcon /></button>
-        <button aria-controls="public-project-cards" aria-label="Próximos quatro projetos" className="gallery-arrow" disabled={pageCount <= 1} onClick={() => onChange(1)} type="button"><ArrowIcon /></button>
+        <Button variant="trigger" aria-controls="public-project-cards" aria-label="Quatro projetos anteriores" className="gallery-arrow gallery-arrow--previous" disabled={pageCount <= 1} onClick={() => onChange(-1)} type="button"><ArrowIcon /></Button>
+        <Button variant="trigger" aria-controls="public-project-cards" aria-label="Próximos quatro projetos" className="gallery-arrow" disabled={pageCount <= 1} onClick={() => onChange(1)} type="button"><ArrowIcon /></Button>
       </div>
     </div>
   );

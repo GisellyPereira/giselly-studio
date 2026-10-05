@@ -1,0 +1,21 @@
+/* New graphic direction: bold, image-led and clean. */
+:root {
+  --content-max-width: 76rem;
+  --pop-red: #c94f73;
+  --pop-red-dark: #771d3c;
+  --pop-pink: #e9a4b8;
+  --pop-pink-light: #f7dce3;
+  --pop-cream: #fff8ef;
+  --pop-lime: #c7ce9f;
+  --pop-yellow: #e5e9cd;
+  --pop-paper-yellow: #efe1c4;
+  --pop-olive: #6f7952;
+  --pop-ink: #381f2c;
+  --pop-white: #fffaf5;
+  --work-grid-pattern:
+    linear-gradient(rgb(201 79 115 / .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(201 79 115 / .055) 1px, transparent 1px);
+  --work-grid-size: 2.2rem;
+  --font-pop: "Instrument Sans Variable", sans-serif;
+  --font-clean: "Instrument Sans Variable", sans-serif;
+}

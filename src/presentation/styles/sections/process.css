@@ -1,0 +1,17 @@
+.process {
+  background: var(--banana-cream);
+  padding: clamp(5rem, 9vw, 9rem) var(--page-padding);
+}
+
+.process-heading { align-items: end; display: flex; justify-content: space-between; margin-top: clamp(4rem, 7vw, 7rem); }
+.process-heading h2 { font-family: var(--font-display); font-size: clamp(3.5rem, 7vw, 7.4rem); font-weight: 780; letter-spacing: -.075em; line-height: .86; margin: 0; }
+.process-heading > p { font-size: .8rem; line-height: 1.55; margin: 0; max-width: 18rem; }
+
+.process-grid { border-bottom: 1px solid currentColor; border-top: 1px solid currentColor; display: grid; grid-template-columns: repeat(4, 1fr); margin-top: clamp(4rem, 7vw, 7rem); }
+.process-grid article { min-height: 20rem; padding: 1.2rem; position: relative; }
+.process-grid article + article { border-left: 1px solid currentColor; }
+.process-grid article > span { font-size: .63rem; font-weight: 800; }
+.process-icon { align-items: center; border: 1px solid currentColor; border-radius: 50%; display: flex; font-size: 1.2rem; height: 3.3rem; justify-content: center; margin: 2rem 0 5rem; transition: background var(--duration-small), transform var(--duration-medium) var(--elastic-ease); width: 3.3rem; }
+.process-grid article:hover .process-icon { background: var(--bubblegum-tint); transform: rotate(-15deg) scale(1.1); }
+.process-grid h3 { font-family: var(--font-display); font-size: clamp(1.7rem, 2.5vw, 2.6rem); letter-spacing: -.06em; margin: 0 0 .8rem; }
+.process-grid p { font-size: .7rem; line-height: 1.55; margin: 0; max-width: 14rem; }

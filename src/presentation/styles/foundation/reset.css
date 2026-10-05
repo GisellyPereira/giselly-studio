@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html.lenis {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--dark-amethyst);
+  font-family: var(--font-text);
+  margin: 0;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--bubblegum-tint);
+  color: var(--dark-amethyst);
+}
+
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--banana-cream);
+  outline-offset: 4px;
+}
+
+.sr-only {
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

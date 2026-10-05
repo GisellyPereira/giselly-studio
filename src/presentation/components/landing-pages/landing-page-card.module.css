@@ -1,0 +1,176 @@
+.card {
+  min-width: 0;
+  background: var(--pop-white);
+  border: 1px solid rgb(119 29 60 / .13);
+  border-radius: 1rem;
+  padding: .6rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 .5rem 1.5rem -.9rem rgb(56 31 44 / .13);
+}
+
+.cover {
+  border-radius: .55rem;
+  overflow: hidden;
+  background: #f2d1da;
+}
+
+.chrome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--pop-red-dark);
+  height: 1.75rem;
+  padding-inline: .75rem;
+  font-size: .6rem;
+}
+
+.dots {
+  display: flex;
+  gap: .3rem;
+}
+
+.dots i {
+  width: .3rem;
+  height: .3rem;
+  background: currentColor;
+  opacity: .55;
+  border-radius: 50%;
+}
+
+.art {
+  align-items: center;
+  aspect-ratio: 1.85;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  background: var(--pop-pink-light);
+}
+
+.card[data-niche="tecnologia"] .cover {
+  background: #ded3eb;
+}
+
+.card[data-niche="tecnologia"] .art {
+  background: #2a2033;
+}
+
+.card[data-niche="energia"] .cover {
+  background: #edc0a2;
+}
+
+.card[data-niche="energia"] .art {
+  background: #f9e3d2;
+}
+
+.card[data-niche="turismo"] .cover {
+  background: #ead2bf;
+}
+
+.card[data-niche="financas"] .cover {
+  background: #e3d7df;
+}
+
+.card[data-niche="comercio"] .cover {
+  background: #ead1c2;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.card[data-niche="cultura"] .art {
+  aspect-ratio: 1.58;
+  background: #faf7f0;
+}
+
+.card[data-niche="cultura"] .image {
+  object-fit: contain;
+  object-position: center;
+}
+
+.card[data-niche="turismo"] .image {
+  object-position: 50% 65%;
+}
+
+.card[data-niche="tecnologia"] .image, .card[data-niche="comercio"] .image {
+  object-fit: contain;
+  padding: 1rem;
+}
+
+.lettering {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  color: var(--pop-red-dark);
+}
+
+.coverSketch {
+  width: 3rem;
+  height: 3rem;
+}
+
+.monogram {
+  font-family: var(--font-editorial);
+  font-size: 4.5rem;
+  font-weight: 500;
+  letter-spacing: -.05em;
+}
+
+.card[data-niche="tecnologia"] .lettering {
+  color: #d9c8ed;
+}
+
+.caption {
+  padding: 1rem .75rem .75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.meta {
+  color: var(--pop-red-dark);
+  font-size: .64rem;
+  font-weight: 600;
+  margin: 0 0 .7rem;
+}
+
+.caption h2 {
+  font-family: var(--font-pop);
+  font-size: clamp(1.45rem, 1.7vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: -.05em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem .9rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.actions .visit {
+  --action-fill: var(--pop-pink);
+  --action-hover-color: var(--pop-ink);
+  background: var(--pop-red-dark);
+  border: 0;
+  border-radius: 999px;
+  color: var(--pop-white);
+  font-size: .72rem;
+  font-weight: 600;
+  min-height: 2.8rem;
+  padding: .7rem 1.1rem;
+  width: auto;
+}
+
+@media (max-width: 767px) {
+  .caption {
+    padding: 1rem .65rem .7rem;
+  }
+}

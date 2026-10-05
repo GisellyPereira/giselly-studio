@@ -1,5 +1,6 @@
 "use client";
 
+import { ButtonLink } from "@/src/presentation/components/shared/Button";
 import type { GalleryTone, ProjectGalleryContent } from "@/src/domain/entities/public-project";
 import { ProjectGalleryCard } from "@/src/presentation/components/projects/ProjectGalleryCard";
 import { ProjectGalleryHeading } from "@/src/presentation/components/projects/ProjectGalleryHeading";
@@ -30,7 +31,7 @@ export function ProjectGallerySection({ content }: { readonly content: ProjectGa
         </div>
 
         <div className="project-gallery__footer">
-          <a className="project-gallery__github" href={content.githubUrl} rel="noopener noreferrer" target="_blank">Explore meu GitHub <span aria-hidden="true">↗</span></a>
+          <ButtonLink variant="text" className="project-gallery__github" href={content.githubUrl} rel="noopener noreferrer" target="_blank">Explore meu GitHub <span aria-hidden="true">↗</span></ButtonLink>
           <ProjectGalleryNavigation end={gallery.start + projects.length} onChange={gallery.changePage} page={gallery.page} pageCount={gallery.pageCount} start={gallery.start + 1} total={content.projects.length} />
         </div>
       </div>

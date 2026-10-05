@@ -1,0 +1,29 @@
+.corners {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.paper {
+  aspect-ratio: var(--torn-paper-aspect, 1120 / 1404);
+  position: absolute;
+  width: var(--torn-paper-width, clamp(11rem, 16vw, 20rem));
+}
+
+.paper img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+/* Move the source's transparent margins and straight edges outside the section. */
+.topRight { right: 0; top: 0; transform: translate(16%, -8%) scaleX(-1); }
+.bottomLeft { bottom: 0; left: 0; transform: translate(-16%, 8%) scaleY(-1); }
+
+@media (max-width: 1050px) {
+  .paper { width: var(--torn-paper-width, 9rem); }
+}
+
+@media (max-width: 700px) {
+  .paper { width: var(--torn-paper-width, 7rem); }
+}

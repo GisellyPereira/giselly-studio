@@ -1,62 +1,73 @@
+"use client";
+
+import { gsap } from "gsap";
+import { useLayoutEffect, useRef } from "react";
 import type { Experience } from "@/src/domain/entities/portfolio";
-import { SparkIcon } from "@/src/presentation/components/shared/Icons";
 import { TagList } from "@/src/presentation/components/shared/TagList";
-import styles from "@/src/presentation/components/experience/experience.module.css";
+import styles from "./experience.module.css";
 
 interface ExperienceChapterProps {
   readonly experience: Experience;
-  readonly index: number;
-  readonly open: boolean;
-  readonly onToggle: () => void;
+  readonly animateEntrance?: boolean;
 }
 
-export function ExperienceChapter({ experience, index, open, onToggle }: ExperienceChapterProps) {
-  const triggerId = `experience-${experience.id}-trigger`;
-  const panelId = `experience-${experience.id}-panel`;
+export function ExperienceChapter({ experience, animateEntrance = false }: ExperienceChapterProps) {
+  const paperRef = useRef<HTMLElement>(null);
+
+  useLayoutEffect(() => {
+    const paper = paperRef.current;
+    // The section already reveals the first sheet with its folder on scroll.
+    if (!paper || !animateEntrance) return;
+
+    const media = gsap.matchMedia();
+    media.add("(prefers-reduced-motion: no-preference)", () => {
+      const compact = window.matchMedia("(max-width: 767px)").matches;
+      const content = paper.querySelectorAll("[data-chapter-reveal]");
+
+      gsap.timeline({ defaults: { ease: "power3.out", clearProps: "transform,transformOrigin,opacity" } })
+        .from(paper, {
+          opacity: 0,
+          y: compact ? 16 : 26,
+          rotation: -.8,
+          scale: .985,
+          transformOrigin: "50% 20%",
+          duration: .6,
+        })
+        .from(content, {
+          opacity: 0,
+          y: compact ? 10 : 14,
+          duration: .42,
+          stagger: .045,
+        }, .12);
+    }, paper);
+
+    // A new keyed sheet unmounts the previous one, cancelling rapid-click tweens.
+    return () => media.revert();
+  }, [animateEntrance]);
 
   return (
-    <li className={styles.chapter} data-open={open}>
-      <span aria-hidden="true" className={styles.marker}>{String(index + 1).padStart(2, "0")}</span>
-      <article className={styles.card}>
-        <h3 className={styles.chapterHeading}>
-          <button
-            aria-controls={panelId}
-            aria-expanded={open}
-            aria-label={`${open ? "Recolher" : "Expandir"} experiência na ${experience.companyShort}`}
-            className={styles.trigger}
-            id={triggerId}
-            onClick={onToggle}
-            type="button"
-          >
-            <span className={styles.companyGroup}>
-              <span className={styles.meta}>
-                <span className={styles.focus}>{experience.focus}</span>
-                {experience.current ? <span className={styles.current}><span aria-hidden="true" />Atualmente</span> : null}
-              </span>
-              <span className={styles.company}>{experience.companyShort}</span>
-              <span className={styles.role}>{experience.role}</span>
-            </span>
-            <span className={styles.period}>{experience.period}</span>
-            <span aria-hidden="true" className={styles.toggleIcon}><span /><span /></span>
-          </button>
-        </h3>
+    <article ref={paperRef} aria-labelledby="experience-company" className={styles.paper} id="experience-detail">
+      <span aria-hidden="true" className={styles.paperFold} />
+      <div className={styles.chapterMeta} data-chapter-reveal>
+        <p>{experience.period}</p>
+        {experience.current ? <span className={styles.current}>Experiência atual</span> : null}
+      </div>
 
-        <div aria-hidden={!open} aria-labelledby={triggerId} className={styles.reveal} id={panelId} inert={!open} role="region">
-          <div className={styles.revealInner}>
-            <div className={styles.body}>
-              <div className={styles.note}>
-                <SparkIcon className={styles.noteSpark} />
-                <p>{experience.highlight.map((line) => <span key={line}>{line}</span>)}</p>
-              </div>
-              <div className={styles.description}>
-                {experience.company !== experience.companyShort ? <p className={styles.organization}>{experience.company}</p> : null}
-                <p className={styles.descriptionText}>{experience.description}</p>
-                <div className={styles.stack}><TagList tags={experience.tags} /></div>
-              </div>
-            </div>
-          </div>
+      <header className={styles.chapterHeader}>
+        <p className={styles.focus} data-chapter-reveal>{experience.focus}</p>
+        <h3 id="experience-company" data-chapter-reveal>{experience.companyShort}</h3>
+        <p className={styles.role} data-chapter-reveal>{experience.role}</p>
+      </header>
+
+      <div className={styles.chapterBody}>
+        <div className={styles.description}>
+          {experience.company !== experience.companyShort ? <p className={styles.organization} data-chapter-reveal>{experience.company}</p> : null}
+          {experience.description.split("\n\n").map((paragraph) => (
+            <p className={styles.descriptionText} data-chapter-reveal key={paragraph}>{paragraph}</p>
+          ))}
+          <div className={styles.stack} data-chapter-reveal><TagList tags={experience.tags} /></div>
         </div>
-      </article>
-    </li>
+      </div>
+    </article>
   );
 }

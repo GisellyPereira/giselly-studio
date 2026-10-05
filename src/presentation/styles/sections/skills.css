@@ -1,0 +1,177 @@
+.skills-showcase__content {
+  align-items: center;
+  background:
+    radial-gradient(circle at 18% 8%, rgb(255 255 255 / .08), transparent 38%),
+    var(--pop-red-dark);
+  border: 0;
+  border-radius: 2.75rem;
+  color: var(--pop-cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: center;
+  min-height: clamp(29rem, 35vw, 34rem);
+  padding: clamp(4.5rem, 7vw, 7rem) clamp(2rem, 5vw, 5rem);
+  position: relative;
+  text-align: center;
+  width: min(66rem, 68vw);
+  z-index: 1;
+}
+
+.skills-showcase__content h2 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  line-height: .8;
+  margin: 0 auto;
+  max-width: none;
+  text-wrap: balance;
+  width: 100%;
+}
+
+.skills-showcase__content h2 span {
+  color: var(--pop-cream);
+  font-family: "Archivo Variable", sans-serif;
+  font-size: clamp(2.65rem, 4.1vw, 4.5rem);
+  font-variation-settings: "wdth" 92, "wght" 850;
+  font-weight: 850;
+  letter-spacing: -.055em;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.skills-showcase__content h2 em {
+  color: var(--pop-pink-light);
+  font-family: var(--font-editorial);
+  font-size: clamp(4.4rem, 7vw, 7.25rem);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.055em;
+  white-space: nowrap;
+}
+
+.skills-showcase__content ul {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 0;
+  justify-content: center;
+  list-style: none;
+  margin: clamp(2.4rem, 4vw, 3.5rem) auto 0;
+  max-width: 52rem;
+  padding: 0;
+}
+
+.skills-showcase__content li {
+  align-items: center;
+  display: inline-flex;
+  font-family: var(--font-clean);
+  font-size: clamp(.86rem, 1.02vw, 1.02rem);
+  font-weight: 650;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.skills-showcase__content li + li::before {
+  background: var(--pop-pink-light);
+  content: "";
+  flex: 0 0 auto;
+  height: .72rem;
+  margin: 0 .72rem;
+  -webkit-mask: url("/images/brand/giselly-studio-icon.svg") center / contain no-repeat;
+  mask: url("/images/brand/giselly-studio-icon.svg") center / contain no-repeat;
+  width: .72rem;
+}
+
+.skills-showcase__stickers {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+}
+
+.skills-sticker {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: grab;
+  display: block;
+  line-height: 0;
+  padding: 0;
+  pointer-events: auto;
+  position: absolute;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.skills-sticker:focus-visible {
+  border-radius: 1rem;
+  outline: 2px dashed var(--ivory);
+  outline-offset: .65rem;
+}
+
+.skills-sticker[data-pointer-focus="true"]:focus {
+  outline: none;
+}
+
+.skills-sticker__artwork {
+  display: block;
+  filter: drop-shadow(0 2px 2px rgb(0 0 0 / .16)) drop-shadow(0 7px 9px rgb(0 0 0 / .18));
+  pointer-events: none;
+  transform: rotate(var(--sticker-angle, 0deg));
+  transition: transform .3s var(--ease-out-quint);
+  width: 100%;
+}
+
+.skills-sticker__artwork svg {
+  display: block;
+  height: auto;
+  overflow: visible;
+  width: 100%;
+}
+
+.skills-sticker__artwork image { -webkit-user-drag: none; }
+
+.skills-sticker.is-dragging {
+  cursor: grabbing;
+}
+
+.skills-sticker.is-dragging .skills-sticker__artwork {
+  transform: rotate(calc(var(--sticker-angle, 0deg) * .5)) scale(1.045);
+}
+
+@media (hover: hover) {
+  .skills-sticker:hover .skills-sticker__artwork {
+    transform: rotate(calc(var(--sticker-angle, 0deg) * .7)) scale(1.04);
+  }
+}
+
+.skills-sticker--react {
+  --sticker-angle: -13deg;
+  left: 7%; top: 14%; width: clamp(8rem, 10.3vw, 11.5rem);
+}
+.skills-sticker--tailwind {
+  --sticker-angle: -16deg;
+  right: 28%; top: 17%; width: clamp(10rem, 12.5vw, 14rem);
+}
+.skills-sticker--figma {
+  --sticker-angle: 14deg;
+  left: 28%; top: 12%; width: clamp(5.3rem, 6.3vw, 7.1rem);
+}
+.skills-sticker--javascript {
+  --sticker-angle: 12deg;
+  right: 10%; top: 43%; width: clamp(7.5rem, 9vw, 10.5rem);
+}
+.skills-sticker--github {
+  --sticker-angle: -16deg;
+  left: 8%; top: 47%; width: clamp(8rem, 10.3vw, 11.5rem);
+}
+.skills-sticker--gitlab {
+  --sticker-angle: -15deg;
+  left: 18%; bottom: 11%; width: clamp(7.5rem, 10.5vw, 11.5rem);
+}
+.skills-sticker--typescript {
+  --sticker-angle: -13deg;
+  right: 18%; bottom: 12%; width: clamp(7.5rem, 9vw, 10.5rem);
+}

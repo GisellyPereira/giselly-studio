@@ -1,0 +1,10 @@
+.hero-empty {
+  background: var(--ivory);
+  min-height: 100svh;
+  padding: 0;
+}
+
+.hero-empty::before,
+.hero-empty::after {
+  display: none;
+}
