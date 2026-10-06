@@ -39,6 +39,16 @@ export const projectGalleryContent = {
   heading: ["Do código", "para o mundo."],
   githubUrl,
   projects: [
+    {
+      id: "fala-ati",
+      title: "Fala, Ati!",
+      category: "Web",
+      description: "Portal de conteúdo da ATI Maranhão que reúne podcasts, entrevistas, notícias e iniciativas sobre tecnologia, inovação e transformação digital no estado.",
+      technology: "React · Vite · CSS",
+      imageSrc: image("fala-ati.png"),
+      imageAspectRatio: "1846 / 980",
+      deployUrl: "https://fala.ati.ma.gov.br/",
+    },
     repository("dog-room", "Dog Room", "Landing page para banho e tosa com identidade em amarelo, lilás e preto, apresentação dos serviços, galeria de pets com fotos ampliáveis e contato pelo WhatsApp. Layout responsivo para computador e celular.", "Next.js · React · TypeScript · GSAP · Lenis", { imageSrc: image("dog-room.jpg"), imageFit: "contain", imageAspectRatio: "1425 / 990", deployUrl: "https://dog-room.netlify.app/", landingPage: { niche: "pets", format: "Landing page", context: "Projeto de portfólio" } }),
     repository("soda-animation", "Soda Animation — VIVA", "Projeto que criei para testar animações e interações com scroll. Uma hero de bebidas com transições suaves entre sabores, movimento de frutas em camadas, mudança de cores e controles para computador e celular.", "HTML · CSS · JavaScript · requestAnimationFrame", { category: "Experimento", imageSrc: image("soda-animation-mirtilo.jpg"), deployUrl: "https://peppy-dieffenbachia-a483e1.netlify.app/", landingPage: { niche: "gastronomia", format: "Landing page", context: "Estudo" } }),
     {

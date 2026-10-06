@@ -1,11 +1,9 @@
 "use client";
 
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useLenis } from "lenis/react";
 import { archiveFilters, archiveProjects, filterArchiveProjects, projectArchiveContent } from "@/src/data/project-archive";
 import { portfolioData } from "@/src/data/portfolio";
-import type { Project } from "@/src/domain/entities/portfolio";
-import { CaseStudyModal } from "@/src/presentation/components/projects/CaseStudyModal";
 import type { ArchiveFilter } from "@/src/domain/entities/project-archive";
 import { EntranceSection } from "@/src/presentation/components/behavior/EntranceSection";
 import { Footer } from "@/src/presentation/components/layout/Footer";
@@ -28,10 +26,6 @@ export function ProjectsArchivePage() {
   const [activeFilter, setActiveFilter] = useState<ArchiveFilter>("all");
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const detailTrigger = useRef<HTMLButtonElement | null>(null);
-  const openDetails = useCallback((project: Project, trigger: HTMLButtonElement) => { detailTrigger.current = trigger; setSelectedProject(project); }, []);
-  const closeDetails = useCallback(() => { setSelectedProject(null); requestAnimationFrame(() => detailTrigger.current?.focus({ preventScroll: true })); }, []);
   const toolbarRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const lenis = useLenis();
@@ -110,7 +104,7 @@ export function ProjectsArchivePage() {
 
         {pageProjects.length > 0 ? (
           <EntranceSection as="div" className={styles.grid} id="all-projects-grid" aria-labelledby="archive-grid-title" key={`${activeFilter}-${query}-${currentPage}`} revealTogether>
-            {pageProjects.map((project) => <ArchiveProjectCard project={project} githubUrl={projectArchiveContent.githubUrl} onOpenDetails={openDetails} key={project.id} />)}
+            {pageProjects.map((project) => <ArchiveProjectCard project={project} githubUrl={projectArchiveContent.githubUrl} key={project.id} />)}
           </EntranceSection>
         ) : (
           <div className={styles.empty} id="all-projects-grid"><ArchiveCategoryIcon category="all" /><h2>{projectArchiveContent.emptyHeading}</h2><p>{projectArchiveContent.emptyDescription}</p><Button variant="caseAction" className={styles.reset} onClick={resetFilters}>Limpar busca e filtros</Button></div>
@@ -127,7 +121,6 @@ export function ProjectsArchivePage() {
         </EntranceSection>
       </section>
       <Footer role={portfolioData.role} socials={portfolioData.socials} />
-      <CaseStudyModal project={selectedProject} onClose={closeDetails} />
     </main>
   );
 }

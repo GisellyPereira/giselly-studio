@@ -8,6 +8,8 @@ Não foram inventados links para FAB, Teatro Arthur Azevedo, Museu do Palácio d
 Deploys antigos de `E-commerce` e `site-exposicao` retornaram 404. Nesses cards a ação aponta para o repositório.
 O catálogo é um retrato da data acima, não uma sincronização automática. Verificar novos projetos/URLs antes de adicioná-los.
 
+Em 06/10/2026, **Fala, Ati!** foi incluído no catálogo Web com a captura fornecida pela autora e o destino oficial https://fala.ati.ma.gov.br/. O site reúne podcasts, entrevistas, notícias e iniciativas da ATI Maranhão sobre tecnologia e transformação digital.
+
 Em 29/09/2026, os repositórios de referência para negócios foram conferidos novamente para o catálogo por nicho. `travel-agency` e `startup-tech` ganharam seus deploys confirmados nos READMEs. `SOLeris` e `project-lo` identificam explicitamente negócios fictícios; os demais usam o rótulo “Projeto de portfólio”, sem presumir contratação comercial. `selezione` é um site institucional de investimentos e `projeto-rosa` é a campanha Maranhão Rosa. RamenGo e a loja de coxinhas permanecem no acervo geral, com seus formatos de aplicação de pedidos e e-commerce.
 
 ## Capas
@@ -16,6 +18,7 @@ Arquivos do próprio repositório, usando a referência `HEAD` na data de downlo
 
 | Arquivo local | Repositório / caminho original |
 | --- | --- |
+| fala-ati.png | Captura do projeto Fala, Ati! fornecida pela autora em 06/10/2026 |
 | travel.jpg | travel-agency / public/pexels-athul-shigo-774998744-18951617.jpg |
 | ramen.png | RamenGo / public/Ilustracao.png |
 | soleris.png | Captura da Soleris fornecida pela autora em 03/10/2026 |

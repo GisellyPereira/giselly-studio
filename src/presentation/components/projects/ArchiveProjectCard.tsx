@@ -1,7 +1,6 @@
 import Image from "next/image";
-import type { Project } from "@/src/domain/entities/portfolio";
 import type { ArchiveProject } from "@/src/domain/entities/project-archive";
-import { Button, ButtonLink } from "@/src/presentation/components/shared/Button";
+import { ButtonLink } from "@/src/presentation/components/shared/Button";
 import { TagList } from "@/src/presentation/components/shared/TagList";
 import { ArchiveProjectCover } from "./ArchiveProjectCover";
 import { getProjectDestination } from "./project-destination";
@@ -10,10 +9,9 @@ import styles from "./archive-project-card.module.css";
 interface ArchiveProjectCardProps {
   readonly project: ArchiveProject;
   readonly githubUrl: string;
-  readonly onOpenDetails?: (project: Project, trigger: HTMLButtonElement) => void;
 }
 
-export function ArchiveProjectCard({ project, githubUrl, onOpenDetails }: ArchiveProjectCardProps) {
+export function ArchiveProjectCard({ project, githubUrl }: ArchiveProjectCardProps) {
   const titleId = `archive-project-${project.id}`;
   const tags = [...new Set(project.technology.split(" · ").map((tag) => tag.trim()).filter(Boolean))];
   const destination = getProjectDestination(project, githubUrl);
@@ -58,31 +56,40 @@ export function ArchiveProjectCard({ project, githubUrl, onOpenDetails }: Archiv
       </ButtonLink>
 
       <div className={styles.actions}>
-        {project.featured?.screenshots?.length && onOpenDetails ? <Button variant="trigger" className={styles.details} aria-haspopup="dialog" aria-label={`Ver telas e detalhes de ${project.title}`} onClick={event => onOpenDetails(project.featured!, event.currentTarget)}>Ver telas</Button> : null}
-        {project.storeLinks?.length ? project.storeLinks.map((store) => (
-          <ButtonLink key={store.href} aria-label={`${store.label}: ${project.title} (abre em nova aba)`} className={styles.primary} href={store.href} rel="noopener noreferrer" target="_blank" variant="caseAction">
-            {store.label}
-          </ButtonLink>
-        )) : <ButtonLink
-          aria-label={destinationLabel}
-          className={styles.primary}
-          href={destination.href}
-          rel="noopener noreferrer"
-          target="_blank"
-          variant="caseAction"
-        >
-          {destination.label}
-        </ButtonLink>}
-        {project.deployUrl && project.repositoryUrl ? (
+        {project.deployUrl ? (
           <ButtonLink
-            aria-label={`Código de ${project.title} no GitHub (abre em nova aba)`}
-            className={styles.secondary}
+            aria-label={`Ver projeto: ${project.title} (abre em nova aba)`}
+            className={styles.primary}
+            href={project.deployUrl}
+            rel="noopener noreferrer"
+            target="_blank"
+            variant="caseAction"
+          >
+            Ver projeto
+          </ButtonLink>
+        ) : null}
+        {project.repositoryUrl ? (
+          <ButtonLink
+            aria-label={`Ver GitHub: ${project.title} (abre em nova aba)`}
+            className={project.deployUrl ? styles.secondary : styles.primary}
             href={project.repositoryUrl}
             rel="noopener noreferrer"
             target="_blank"
-            variant="text"
+            variant={project.deployUrl ? "text" : "caseAction"}
           >
-            Ver código
+            Ver GitHub
+          </ButtonLink>
+        ) : null}
+        {!project.deployUrl && !project.repositoryUrl ? (
+          <ButtonLink
+            aria-label={`Ver GitHub de Giselly — referência para ${project.title} (abre em nova aba)`}
+            className={styles.primary}
+            href={githubUrl}
+            rel="noopener noreferrer"
+            target="_blank"
+            variant="caseAction"
+          >
+            Ver GitHub
           </ButtonLink>
         ) : null}
       </div>

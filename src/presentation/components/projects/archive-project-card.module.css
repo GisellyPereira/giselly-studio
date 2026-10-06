@@ -81,28 +81,8 @@
   padding: .65rem .95rem;
   width: auto;
 }
-.details {
-  align-items: center;
-  background: var(--pop-pink-light);
-  border: 1px solid rgb(119 29 60 / .16);
-  border-radius: 999px;
-  color: var(--pop-red-dark);
-  cursor: pointer;
-  display: inline-flex;
-  font-family: var(--font-clean);
-  font-size: .72rem;
-  font-weight: 700;
-  justify-content: center;
-  min-height: 2.5rem;
-  padding: .65rem .95rem;
-  transition: background-color .2s ease, color .2s ease;
-}
-.details:hover {
-  background: var(--pop-red-dark);
-  color: var(--pop-white);
-}
 .secondary { align-items: center; color: var(--pop-red-dark); display: inline-flex; font-family: var(--font-clean); font-size: .72rem; font-weight: 600; gap: .35rem; min-height: 2.5rem; text-decoration: underline; text-underline-offset: .25rem; }
-.primary:focus-visible, .secondary:focus-visible, .details:focus-visible { outline: 2px solid var(--pop-red-dark); outline-offset: 3px; }
+.primary:focus-visible, .secondary:focus-visible { outline: 2px solid var(--pop-red-dark); outline-offset: 3px; }
 
 @media (hover: hover) and (pointer: fine) {
   .card:is(:hover, :focus-within) { box-shadow: .35rem .6rem 0 rgb(119 29 60 / .13); translate: 0 -3px; }

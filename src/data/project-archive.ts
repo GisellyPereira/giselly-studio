@@ -14,7 +14,6 @@ export const archiveFilters = [
   { id: "all", label: "Todos" },
   { id: "Web", label: "Web" },
   { id: "Mobile", label: "Mobile" },
-  { id: "Experimento", label: "Experimentos" },
 ] as const satisfies readonly ArchiveFilterOption[];
 
 function normalizeSearch(value: string): string {
