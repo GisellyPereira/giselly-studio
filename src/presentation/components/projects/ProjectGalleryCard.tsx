@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/src/i18n/use-i18n";
 import Image from "next/image";
 import type { GalleryTone, PublicProject } from "@/src/domain/entities/public-project";
 import { Button, ButtonLink } from "@/src/presentation/components/shared/Button";
@@ -15,6 +16,7 @@ interface ProjectGalleryCardProps {
 }
 
 export function ProjectGalleryCard({ project, tone, active, onActivate, onDeactivate }: ProjectGalleryCardProps) {
+  const { t } = useI18n();
   const titleId = `gallery-title-${project.id}`;
   const detailsId = `gallery-details-${project.id}`;
   const destination = project.deployUrl ?? project.repositoryUrl;
@@ -61,7 +63,7 @@ export function ProjectGalleryCard({ project, tone, active, onActivate, onDeacti
         variant="trigger"
         aria-controls={detailsId}
         aria-expanded={active}
-        aria-label={`Ver detalhes de ${project.title}`}
+        aria-label={t("Ver detalhes de {value0}", {value0: project.title})}
         className="gallery-card__trigger"
         onClick={() => onActivate(project.id)}
         type="button"
@@ -69,23 +71,23 @@ export function ProjectGalleryCard({ project, tone, active, onActivate, onDeacti
 
       <div className="gallery-card__reveal" aria-hidden={!active} inert={!active} id={detailsId}>
         <GlassPanel className="gallery-card__glass" contentClassName="gallery-card__details">
-          <span className="gallery-card__category">{project.category} / {project.deployUrl ? "Publicado" : "GitHub"}</span>
+          <span className="gallery-card__category">{project.category} / {project.deployUrl ? t("Publicado") : "GitHub"}</span>
           <h3 id={titleId}>{project.title}</h3>
           <p className="gallery-card__description">{project.description}</p>
           <p className="gallery-card__technology">{project.technology}</p>
           {destination ? (
             <div className="gallery-card__actions">
               {project.storeLinks?.length ? project.storeLinks.map((store) => (
-                <ButtonLink key={store.href} aria-label={`${store.label}: ${project.title} (abre em nova aba)`} href={store.href} rel="noopener noreferrer" target="_blank" variant="galleryProject">{store.label}</ButtonLink>
+                <ButtonLink key={store.href} aria-label={t("{value0}: {value1} (abre em nova aba)", {value0: store.label, value1: project.title})} href={store.href} rel="noopener noreferrer" target="_blank" variant="galleryProject">{store.label}</ButtonLink>
               )) : <ButtonLink
-                aria-label={`Ver projeto ${project.title}${project.deployUrl ? " publicado" : " no GitHub"} (abre em nova aba)`}
+                aria-label={t("Ver projeto {value0}{value1} (abre em nova aba)", {value0: project.title, value1: project.deployUrl ? ` ${t("Publicado").toLowerCase()}` : ` ${t("no GitHub")}`})}
                 href={destination}
                 rel="noopener noreferrer"
                 target="_blank"
                 variant="galleryProject"
-              >Ver projeto</ButtonLink>}
+              >{t("Ver projeto")}</ButtonLink>}
               {project.deployUrl && project.repositoryUrl ? (
-                <ButtonLink variant="text" className="gallery-card__source" href={project.repositoryUrl} rel="noopener noreferrer" target="_blank" aria-label={`Código de ${project.title} no GitHub (abre em nova aba)`}>Código ↗</ButtonLink>
+                <ButtonLink variant="text" className="gallery-card__source" href={project.repositoryUrl} rel="noopener noreferrer" target="_blank" aria-label={t("Código de {value0} no GitHub (abre em nova aba)", {value0: project.title})}>{t("Código ↗")}</ButtonLink>
               ) : null}
             </div>
           ) : null}

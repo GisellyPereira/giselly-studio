@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/src/i18n/use-i18n";
 import { useState } from "react";
 import type { Experience } from "@/src/domain/entities/portfolio";
 import { Button } from "@/src/presentation/components/shared/Button";
@@ -7,6 +8,7 @@ import { ExperienceChapter } from "./ExperienceChapter";
 import styles from "./experience.module.css";
 
 export function ExperienceCollection({ experiences }: { readonly experiences: readonly Experience[] }) {
+  const { t } = useI18n();
   const [selection, setSelection] = useState(() => ({
     id: experiences.find((experience) => experience.current)?.id ?? experiences[0]?.id,
     hasChanged: false,
@@ -17,8 +19,8 @@ export function ExperienceCollection({ experiences }: { readonly experiences: re
 
   return (
     <div className={styles.collection}>
-      <nav aria-label="Escolha uma experiência profissional" className={styles.index}>
-        <p className={styles.indexLabel}>Clique em uma empresa</p>
+      <nav aria-label={t("Escolha uma experiência profissional")} className={styles.index}>
+        <p className={styles.indexLabel}>{t("Clique em uma empresa")}</p>
         <ul className={styles.indexList} data-entrance="from-left" data-entrance-children>
           {experiences.map((experience) => (
             <li key={experience.id}>
@@ -34,7 +36,7 @@ export function ExperienceCollection({ experiences }: { readonly experiences: re
                 <span className={styles.indexCompany}>{experience.companyShort}</span>
                 <span className={styles.indexPeriod}>{experience.period}</span>
                 <span className={styles.indexState}>
-                  {experience.id === selected.id ? "Em leitura" : "Abrir experiência"}
+                  {experience.id === selected.id ? t("Em leitura") : t("Abrir experiência")}
                 </span>
               </Button>
             </li>
@@ -46,7 +48,7 @@ export function ExperienceCollection({ experiences }: { readonly experiences: re
         <span aria-hidden="true" className={styles.folderTab} />
         <ExperienceChapter key={selected.id} experience={selected} animateEntrance={selection.hasChanged} />
       </div>
-      <p aria-live="polite" className="sr-only">Exibindo experiência na {selected.companyShort}.</p>
+      <p aria-live="polite" className="sr-only">{t("Exibindo experiência na")} {selected.companyShort}.</p>
     </div>
   );
 }

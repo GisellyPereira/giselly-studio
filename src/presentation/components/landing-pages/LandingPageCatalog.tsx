@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/src/i18n/use-i18n";
 import { useState } from "react";
 import type { LandingPageGroup, LandingPageNiche, LandingPageNicheOption } from "@/src/domain/entities/landing-page";
 import type { LandingPageProject } from "@/src/domain/entities/public-project";
@@ -19,10 +20,11 @@ interface LandingPageCatalogProps {
 }
 
 export function LandingPageCatalog({ initialNiche, projects, niches, groups, heading, note }: LandingPageCatalogProps) {
+  const { t } = useI18n();
   const [activeGroup, setActiveGroup] = useState<LandingPageGroup["id"] | "todos">(
     () => initialNiche === "todos" ? "todos" : groups.find((group) => group.niches.includes(initialNiche))?.id ?? "todos",
   );
-  const options = [{ id: "todos", label: "Ver tudo" }, ...groups] as const;
+  const options = [{ id: "todos", label: t("Ver tudo") }, ...groups] as const;
   const selectedGroup = groups.find((group) => group.id === activeGroup);
   const visibleProjects = selectedGroup
     ? projects.filter((project) => selectedGroup.niches.includes(project.landingPage.niche))
@@ -36,7 +38,7 @@ export function LandingPageCatalog({ initialNiche, projects, niches, groups, hea
           <p className={styles.note}><span className={styles.flower} aria-hidden="true" />{note}</p>
         </div>
       </header>
-      <div className={styles.filters} aria-label="Filtrar referências por categoria" data-entrance="rise">
+      <div className={styles.filters} aria-label={t("Filtrar referências por categoria")} data-entrance="rise">
         {options.map((group) => (
           <Button
             variant="caseAction"
@@ -54,8 +56,8 @@ export function LandingPageCatalog({ initialNiche, projects, niches, groups, hea
         ))}
       </div>
       <p className={styles.count} role="status">
-        {visibleProjects.length} {visibleProjects.length === 1 ? "referência" : "referências"}
-        {selectedGroup ? ` em ${selectedGroup.label}` : " para explorar"}
+        {visibleProjects.length} {visibleProjects.length === 1 ? t("referência") : t("referências")}
+        {" "}{selectedGroup ? t("em {value0}", {value0: selectedGroup.label}) : t("para explorar")}
       </p>
       <div className={styles.grid} id="landing-page-results">
         {visibleProjects.map((project) => (
@@ -67,10 +69,8 @@ export function LandingPageCatalog({ initialNiche, projects, niches, groups, hea
         ))}
       </div>
       <div className={styles.more} data-entrance="rise">
-        <div><p>Tem mais coisa por aqui.</p><span>Também gosto de criar apps, sistemas e experimentar outras ideias.</span></div>
-        <ButtonLink variant="heroSecondary" className={styles.archiveLink} href="/projetos" icon={<ArrowIcon />}>
-          Ver todos os projetos
-        </ButtonLink>
+        <div><p>{t("Tem mais coisa por aqui.")}</p><span>{t("Também gosto de criar apps, sistemas e experimentar outras ideias.")}</span></div>
+        <ButtonLink variant="heroSecondary" className={styles.archiveLink} href="/projetos" icon={<ArrowIcon />}>{t("Ver todos os projetos")}</ButtonLink>
       </div>
     </EntranceSection>
   );

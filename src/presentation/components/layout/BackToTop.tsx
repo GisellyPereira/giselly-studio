@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/src/i18n/use-i18n";
 import { useEffect, useRef, useState } from "react";
 import { useLenis } from "lenis/react";
 import { ArrowIcon } from "@/src/presentation/components/shared/Icons";
@@ -31,6 +32,7 @@ function backgroundTone(element: Element | null): ArrowTone {
 }
 
 export function BackToTop() {
+  const { t } = useI18n();
   const buttonRef = useRef<HTMLButtonElement>(null);
   const lenis = useLenis();
   const [appearance, setAppearance] = useState<{ visible: boolean; tone: ArrowTone }>({
@@ -83,7 +85,7 @@ export function BackToTop() {
       className={styles.arrow}
       data-tone={appearance.tone}
       data-visible={appearance.visible}
-      aria-label="Voltar ao topo"
+      aria-label={t("Voltar ao topo")}
       aria-hidden={!appearance.visible}
       tabIndex={appearance.visible ? 0 : -1}
       onClick={scrollToTop}

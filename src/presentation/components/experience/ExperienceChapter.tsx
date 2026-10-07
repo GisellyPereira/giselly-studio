@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/src/i18n/use-i18n";
 import { gsap } from "gsap";
 import { useLayoutEffect, useRef } from "react";
 import type { Experience } from "@/src/domain/entities/portfolio";
@@ -12,6 +13,7 @@ interface ExperienceChapterProps {
 }
 
 export function ExperienceChapter({ experience, animateEntrance = false }: ExperienceChapterProps) {
+  const { t } = useI18n();
   const paperRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
@@ -50,7 +52,7 @@ export function ExperienceChapter({ experience, animateEntrance = false }: Exper
       <span aria-hidden="true" className={styles.paperFold} />
       <div className={styles.chapterMeta} data-chapter-reveal>
         <p>{experience.period}</p>
-        {experience.current ? <span className={styles.current}>Experiência atual</span> : null}
+        {experience.current ? <span className={styles.current}>{t("Experiência atual")}</span> : null}
       </div>
 
       <header className={styles.chapterHeader}>

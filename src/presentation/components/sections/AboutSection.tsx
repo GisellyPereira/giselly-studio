@@ -1,3 +1,6 @@
+"use client";
+
+import { useI18n } from "@/src/i18n/use-i18n";
 import Image from "next/image";
 import type { AboutContent, AboutPhoto } from "@/src/domain/entities/about";
 import { EntranceSection } from "@/src/presentation/components/behavior/EntranceSection";
@@ -69,12 +72,13 @@ function HobbySketch({ index }: { readonly index: number }) {
 }
 
 export function AboutSection({ content }: { readonly content: AboutContent }) {
+  const { t } = useI18n();
   return (
     <section aria-labelledby="about-title" className={styles.section} id="inicio">
       <AboutDecoration />
       <EntranceSection as="div" className={`${styles.inner} ${styles.heroGrid}`} startOnMount>
         <div className={styles.heroCopy}>
-          <p className={styles.eyebrow} data-entrance="rise">Sobre mim</p>
+          <p className={styles.eyebrow} data-entrance="rise">{t("Sobre mim")}</p>
           <h1 id="about-title" data-entrance="heading" data-entrance-children>
             <span>{content.heading[0]}</span>
             <em>{content.heading[1]}</em>
@@ -86,11 +90,11 @@ export function AboutSection({ content }: { readonly content: AboutContent }) {
             {content.details.map((detail) => <span key={detail}>{detail}</span>)}
           </div>
           <div className={styles.actions} data-entrance="rise" data-entrance-delay=".2">
-            <ButtonLink className={styles.secondaryButton} href="/#projetos" variant="heroSecondary">Ver meus projetos</ButtonLink>
+            <ButtonLink className={styles.secondaryButton} href="/#projetos" variant="heroSecondary">{t("Ver meus projetos")}</ButtonLink>
           </div>
         </div>
         <div className={styles.portraitComposition} data-entrance="paper" data-entrance-delay=".15">
-          <span className={styles.photoNote}>prazer, giselly :)</span>
+          <span className={styles.photoNote}>{t("prazer, giselly :)")}</span>
           <Polaroid className={styles.portrait} photo={content.portrait} priority />
           <Flower className={styles.portraitFlower} />
           <svg aria-hidden="true" className={styles.doodle} fill="none" viewBox="0 0 110 95">
@@ -101,7 +105,7 @@ export function AboutSection({ content }: { readonly content: AboutContent }) {
 
       <EntranceSection as="div" className={`${styles.inner} ${styles.story} ${styles.storySpread}`} id="minha-historia">
         <header className={styles.storyHeader}>
-          <p className={styles.eyebrow} data-entrance="rise">Minha história</p>
+          <p className={styles.eyebrow} data-entrance="rise">{t("Minha história")}</p>
           <h2 id="story-title" data-entrance="heading" data-entrance-children>
             <span>{content.story.heading[0]}</span>{" "}<em>{content.story.heading[1]}</em>
           </h2>
@@ -120,7 +124,7 @@ export function AboutSection({ content }: { readonly content: AboutContent }) {
 
       <EntranceSection as="div" className={`${styles.inner} ${styles.interests} ${styles.interestsGrid}`} id="fora-das-telas">
         <div className={styles.interestsCopy}>
-          <p className={styles.eyebrow} data-entrance="rise">No meu tempo</p>
+          <p className={styles.eyebrow} data-entrance="rise">{t("No meu tempo")}</p>
           <h2 id="interests-title" data-entrance="heading" data-entrance-children>
             <span>{content.interests.heading[0]}</span><em>{content.interests.heading[1]}</em>
           </h2>

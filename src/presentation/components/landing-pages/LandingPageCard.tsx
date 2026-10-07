@@ -1,3 +1,6 @@
+"use client";
+
+import { useI18n } from "@/src/i18n/use-i18n";
 import Image from "next/image";
 import type { LandingPageProject } from "@/src/domain/entities/public-project";
 import { ButtonLink } from "@/src/presentation/components/shared/Button";
@@ -10,6 +13,7 @@ interface LandingPageCardProps {
 }
 
 export function LandingPageCard({ project, nicheLabel }: LandingPageCardProps) {
+  const { t } = useI18n();
   return (
     <article className={styles.card} data-entrance="rise" data-niche={project.landingPage.niche}>
       <div className={styles.cover}>
@@ -20,7 +24,7 @@ export function LandingPageCard({ project, nicheLabel }: LandingPageCardProps) {
         <div className={styles.art}>
           {project.imageSrc ? (
             <Image
-              alt={`Arte do projeto ${project.title}`}
+              alt={t("Arte do projeto {value0}", {value0: project.title})}
               className={styles.image}
               src={project.imageSrc}
               fill
@@ -39,9 +43,7 @@ export function LandingPageCard({ project, nicheLabel }: LandingPageCardProps) {
         <h2>{project.title}</h2>
         <div className={styles.actions}>
           {project.deployUrl ? (
-            <ButtonLink variant="caseAction" className={styles.visit} href={project.deployUrl} target="_blank" rel="noopener noreferrer" aria-label={`Ver site: ${project.title}`}>
-              Ver site
-            </ButtonLink>
+            <ButtonLink variant="caseAction" className={styles.visit} href={project.deployUrl} target="_blank" rel="noopener noreferrer" aria-label={t("Ver site: {value0}", {value0: project.title})}>{t("Ver site")}</ButtonLink>
           ) : null}
         </div>
       </div>

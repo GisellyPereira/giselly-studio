@@ -1,9 +1,10 @@
 "use client";
 
+import { useI18n } from "@/src/i18n/use-i18n";
 import { useMemo, useRef, useState } from "react";
 import { useLenis } from "lenis/react";
-import { archiveFilters, archiveProjects, filterArchiveProjects, projectArchiveContent } from "@/src/data/project-archive";
-import { portfolioData } from "@/src/data/portfolio";
+import { archiveFilters as originalArchiveFilters, archiveProjects as originalArchiveProjects, filterArchiveProjects, projectArchiveContent as originalProjectArchiveContent } from "@/src/data/project-archive";
+import { portfolioData as originalPortfolioData } from "@/src/data/portfolio";
 import type { ArchiveFilter } from "@/src/domain/entities/project-archive";
 import { EntranceSection } from "@/src/presentation/components/behavior/EntranceSection";
 import { Footer } from "@/src/presentation/components/layout/Footer";
@@ -23,6 +24,11 @@ function SearchIcon() {
 }
 
 export function ProjectsArchivePage() {
+  const { t, localize } = useI18n();
+  const archiveFilters = useMemo(() => localize(originalArchiveFilters), [localize]);
+  const archiveProjects = useMemo(() => localize(originalArchiveProjects), [localize]);
+  const projectArchiveContent = localize(originalProjectArchiveContent);
+  const portfolioData = localize(originalPortfolioData);
   const [activeFilter, setActiveFilter] = useState<ArchiveFilter>("all");
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
@@ -30,8 +36,8 @@ export function ProjectsArchivePage() {
   const searchRef = useRef<HTMLInputElement>(null);
   const lenis = useLenis();
 
-  const filteredProjects = useMemo(() => filterArchiveProjects(archiveProjects, activeFilter, query), [activeFilter, query]);
-  const counts = useMemo(() => archiveFilters.map((filter) => filterArchiveProjects(archiveProjects, filter.id, query).length), [query]);
+  const filteredProjects = useMemo(() => filterArchiveProjects(archiveProjects, activeFilter, query), [activeFilter, query, archiveProjects]);
+  const counts = useMemo(() => archiveFilters.map((filter) => filterArchiveProjects(archiveProjects, filter.id, query).length), [query, archiveFilters, archiveProjects]);
   const pageCount = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE);
   const currentPage = Math.min(page, Math.max(1, pageCount));
   const start = (currentPage - 1) * PROJECTS_PER_PAGE;
@@ -82,9 +88,9 @@ export function ProjectsArchivePage() {
           </div>
         </EntranceSection>
 
-        <h2 className="sr-only" id="archive-grid-title">Projetos do acervo</h2>
-        <div className={styles.toolbar} ref={toolbarRef} tabIndex={-1} aria-label="Busca e filtros do acervo">
-          <div className={styles.filters} role="group" aria-label="Filtrar projetos">
+        <h2 className="sr-only" id="archive-grid-title">{t("Projetos do acervo")}</h2>
+        <div className={styles.toolbar} ref={toolbarRef} tabIndex={-1} aria-label={t("Busca e filtros do acervo")}>
+          <div className={styles.filters} role="group" aria-label={t("Filtrar projetos")}>
             {archiveFilters.map((filter, index) => (
               <Button variant="caseAction" className={styles.filter} aria-pressed={activeFilter === filter.id} aria-controls="all-projects-grid" key={filter.id} onClick={() => { setActiveFilter(filter.id); setPage(1); }}>
                 <span className={styles.filterContent}><ArchiveCategoryIcon category={filter.id} /><span>{filter.label}</span><span className={styles.filterCount} aria-hidden="true">{counts[index]}</span></span>
@@ -98,8 +104,8 @@ export function ProjectsArchivePage() {
         </div>
 
         <div className={styles.resultSummary} role="status" aria-live="polite" aria-atomic="true">
-          <p>{filteredProjects.length > 0 ? `${start + 1}–${start + pageProjects.length} de ${filteredProjects.length} ${filteredProjects.length === 1 ? "projeto" : "projetos"}` : "Nenhum projeto encontrado"}</p>
-          {pageCount > 1 ? <span>Página {currentPage} de {pageCount}</span> : null}
+          <p>{filteredProjects.length > 0 ? t("{value0}–{value1} de {value2} {value3}", {value0: start + 1, value1: start + pageProjects.length, value2: filteredProjects.length, value3: filteredProjects.length === 1 ? t("projeto") : t("projetos")}) : t("Nenhum projeto encontrado")}</p>
+          {pageCount > 1 ? <span>{t("Página {value0} de {value1}", {value0: currentPage, value1: pageCount})}</span> : null}
         </div>
 
         {pageProjects.length > 0 ? (
@@ -107,16 +113,16 @@ export function ProjectsArchivePage() {
             {pageProjects.map((project) => <ArchiveProjectCard project={project} githubUrl={projectArchiveContent.githubUrl} key={project.id} />)}
           </EntranceSection>
         ) : (
-          <div className={styles.empty} id="all-projects-grid"><ArchiveCategoryIcon category="all" /><h2>{projectArchiveContent.emptyHeading}</h2><p>{projectArchiveContent.emptyDescription}</p><Button variant="caseAction" className={styles.reset} onClick={resetFilters}>Limpar busca e filtros</Button></div>
+          <div className={styles.empty} id="all-projects-grid"><ArchiveCategoryIcon category="all" /><h2>{projectArchiveContent.emptyHeading}</h2><p>{projectArchiveContent.emptyDescription}</p><Button variant="caseAction" className={styles.reset} onClick={resetFilters}>{t("Limpar busca e filtros")}</Button></div>
         )}
 
         <Pagination page={currentPage} pageCount={pageCount} onPageChange={changePage} controls="all-projects-grid" />
-        <div className={styles.github}><p>Tem mais código e ideias em andamento por lá.</p><ButtonLink variant="text" href={projectArchiveContent.githubUrl} target="_blank" rel="noopener noreferrer">Explorar meu GitHub <ArrowIcon diagonal /></ButtonLink></div>
+        <div className={styles.github}><p>{t("Tem mais código e ideias em andamento por lá.")}</p><ButtonLink variant="text" href={projectArchiveContent.githubUrl} target="_blank" rel="noopener noreferrer">{t("Explorar meu GitHub")}<ArrowIcon diagonal /></ButtonLink></div>
 
         <EntranceSection as="div">
-          <aside className={styles.landingCallout} aria-label="Landing pages para negócios" data-entrance="rise">
-            <div><p className={styles.calloutLabel}>Para o seu negócio</p><h2>{projectArchiveContent.landingHeading}</h2><p>{projectArchiveContent.landingDescription}</p></div>
-            <ButtonLink variant="heroPrimary" className={styles.landingButton} href="/landing-pages" icon={<ArrowIcon />}>Explorar por nicho</ButtonLink>
+          <aside className={styles.landingCallout} aria-label={t("Landing pages para negócios")} data-entrance="rise">
+            <div><p className={styles.calloutLabel}>{t("Para o seu negócio")}</p><h2>{projectArchiveContent.landingHeading}</h2><p>{projectArchiveContent.landingDescription}</p></div>
+            <ButtonLink variant="heroPrimary" className={styles.landingButton} href="/landing-pages" icon={<ArrowIcon />}>{t("Explorar por nicho")}</ButtonLink>
           </aside>
         </EntranceSection>
       </section>

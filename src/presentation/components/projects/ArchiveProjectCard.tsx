@@ -1,3 +1,6 @@
+"use client";
+
+import { useI18n } from "@/src/i18n/use-i18n";
 import Image from "next/image";
 import type { ArchiveProject } from "@/src/domain/entities/project-archive";
 import { ButtonLink } from "@/src/presentation/components/shared/Button";
@@ -12,12 +15,13 @@ interface ArchiveProjectCardProps {
 }
 
 export function ArchiveProjectCard({ project, githubUrl }: ArchiveProjectCardProps) {
+  const { t } = useI18n();
   const titleId = `archive-project-${project.id}`;
   const tags = [...new Set(project.technology.split(" · ").map((tag) => tag.trim()).filter(Boolean))];
   const destination = getProjectDestination(project, githubUrl);
   const destinationLabel = !project.deployUrl && !project.repositoryUrl
-    ? `Perfil de Giselly no GitHub — ${project.title} (abre em nova aba)`
-    : `${destination.label}: ${project.title} (abre em nova aba)`;
+    ? t("Perfil de Giselly no GitHub — {value0} (abre em nova aba)", {value0: project.title})
+    : t("{value0}: {value1} (abre em nova aba)", {value0: t(destination.label), value1: project.title});
 
   return (
     <article aria-labelledby={titleId} className={styles.card} data-category={project.category} data-entrance="fade">
@@ -38,7 +42,7 @@ export function ArchiveProjectCard({ project, githubUrl }: ArchiveProjectCardPro
               fill
               sizes="(max-width: 767px) 92vw, (max-width: 1050px) 46vw, (max-width: 1199px) 30vw, (max-width: 1295px) 23vw, 286px"
               src={project.imageSrc}
-              style={{ objectPosition: project.imagePosition ?? "center", ...(project.imageFit ? { objectFit: project.imageFit, backgroundColor: "#fffdf8", transform: "none" } : {}) }}
+              style={{ objectPosition: project.imagePosition ?? "center" }}
             />
           ) : (
             <ArchiveProjectCover category={project.category} layout={project.coverLayout} monogram={project.monogram} title={project.title} />
@@ -58,39 +62,33 @@ export function ArchiveProjectCard({ project, githubUrl }: ArchiveProjectCardPro
       <div className={styles.actions}>
         {project.deployUrl ? (
           <ButtonLink
-            aria-label={`Ver projeto: ${project.title} (abre em nova aba)`}
+            aria-label={t("Ver projeto: {value0} (abre em nova aba)", {value0: project.title})}
             className={styles.primary}
             href={project.deployUrl}
             rel="noopener noreferrer"
             target="_blank"
             variant="caseAction"
-          >
-            Ver projeto
-          </ButtonLink>
+          >{t("Ver projeto")}</ButtonLink>
         ) : null}
         {project.repositoryUrl ? (
           <ButtonLink
-            aria-label={`Ver GitHub: ${project.title} (abre em nova aba)`}
+            aria-label={t("Ver GitHub: {value0} (abre em nova aba)", {value0: project.title})}
             className={project.deployUrl ? styles.secondary : styles.primary}
             href={project.repositoryUrl}
             rel="noopener noreferrer"
             target="_blank"
             variant={project.deployUrl ? "text" : "caseAction"}
-          >
-            Ver GitHub
-          </ButtonLink>
+          >{t("Ver GitHub")}</ButtonLink>
         ) : null}
         {!project.deployUrl && !project.repositoryUrl ? (
           <ButtonLink
-            aria-label={`Ver GitHub de Giselly — referência para ${project.title} (abre em nova aba)`}
+            aria-label={t("Ver GitHub de Giselly — referência para {value0} (abre em nova aba)", {value0: project.title})}
             className={styles.primary}
             href={githubUrl}
             rel="noopener noreferrer"
             target="_blank"
             variant="caseAction"
-          >
-            Ver GitHub
-          </ButtonLink>
+          >{t("Ver GitHub")}</ButtonLink>
         ) : null}
       </div>
     </article>

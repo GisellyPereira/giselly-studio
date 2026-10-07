@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/src/i18n/use-i18n";
 import { Button } from "./Button";
 import { ChevronIcon } from "./Icons";
 import styles from "./pagination.module.css";
@@ -56,6 +57,7 @@ export function Pagination({
   controls,
   label = "Paginação dos projetos",
 }: PaginationProps) {
+  const { t } = useI18n();
   const totalPages = Math.max(0, Math.floor(pageCount));
 
   if (totalPages <= 1) return null;
@@ -77,7 +79,7 @@ export function Pagination({
               <Button
                 variant="trigger"
                 className={`${styles.button} ${styles.number} ${item === currentPage ? styles.current : ""}`}
-                aria-label={item === currentPage ? `Página ${item}, atual` : `Ir para a página ${item}`}
+                aria-label={item === currentPage ? t("Página {value0}, atual", {value0: item}) : t("Ir para a página {value0}", {value0: item})}
                 aria-current={item === currentPage ? "page" : undefined}
                 aria-controls={controls}
                 onClick={() => changePage(item)}
@@ -99,7 +101,7 @@ export function Pagination({
         variant="caseAction"
         className={`${styles.button} ${styles.direction}`}
         disabled={currentPage === 1}
-        aria-label="Ir para a página anterior"
+        aria-label={t("Ir para a página anterior")}
         aria-controls={controls}
         onClick={() => changePage(currentPage - 1)}
       >
@@ -113,7 +115,7 @@ export function Pagination({
         variant="caseAction"
         className={`${styles.button} ${styles.direction}`}
         disabled={currentPage === totalPages}
-        aria-label="Ir para a próxima página"
+        aria-label={t("Ir para a próxima página")}
         aria-controls={controls}
         onClick={() => changePage(currentPage + 1)}
       >

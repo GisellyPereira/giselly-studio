@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/src/i18n/use-i18n";
 import Image from "next/image";
 import { useState } from "react";
 import type { Course } from "@/src/domain/entities/course";
@@ -12,6 +13,7 @@ interface CourseCardProps {
 }
 
 export function CourseCard({ course, provider, providerLogo }: CourseCardProps) {
+  const { t } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
   const titleId = `course-title-${course.id}`;
   const detailsId = `course-details-${course.id}`;
@@ -43,9 +45,9 @@ export function CourseCard({ course, provider, providerLogo }: CourseCardProps) 
 
           <div aria-hidden={!isOpen} className="course-card__reveal" id={detailsId}>
             <div className="course-card__details">
-              <span className="course-card__reveal-label">O que ficou na bagagem</span>
+              <span className="course-card__reveal-label">{t("O que ficou na bagagem")}</span>
               <Image alt={provider} className="course-card__provider" height={30} src={providerLogo} width={162} />
-              <p className="course-card__hours">{course.hours} horas de aprendizado</p>
+              <p className="course-card__hours">{course.hours} {t("horas de aprendizado")}</p>
               <p className="course-card__description">{course.description}</p>
             </div>
           </div>
@@ -57,7 +59,7 @@ export function CourseCard({ course, provider, providerLogo }: CourseCardProps) 
             <span>{course.hours}h</span>
           </p>
           <h3 className="course-card__title" id={titleId}>{course.title}</h3>
-          <span aria-hidden="true" className="course-card__hint">ver detalhes</span>
+          <span aria-hidden="true" className="course-card__hint">{t("ver detalhes")}</span>
         </div>
       </div>
 
@@ -66,7 +68,7 @@ export function CourseCard({ course, provider, providerLogo }: CourseCardProps) 
         aria-controls={detailsId}
         aria-describedby={isOpen ? detailsId : undefined}
         aria-expanded={isOpen}
-        aria-label={`${isOpen ? "Ocultar" : "Ver"} detalhes do curso ${course.title}`}
+        aria-label={t("{value0} detalhes do curso {value1}", {value0: isOpen ? t("Ocultar") : t("Ver"), value1: course.title})}
         className="course-card__trigger"
         onBlur={() => setIsOpen(false)}
         onClick={() => {
@@ -81,7 +83,7 @@ export function CourseCard({ course, provider, providerLogo }: CourseCardProps) 
         }}
         type="button"
       >
-        <span aria-hidden="true" className="course-card__touch-close">fechar</span>
+        <span aria-hidden="true" className="course-card__touch-close">{t("fechar")}</span>
       </Button>
     </article>
   );

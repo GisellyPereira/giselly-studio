@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/src/i18n/use-i18n";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import type { Project } from "@/src/domain/entities/portfolio";
@@ -15,6 +16,7 @@ interface CaseStudyModalProps {
 }
 
 export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
+  const { t } = useI18n();
   const dialogRef = useRef<HTMLElement>(null);
   usePageScrollLock(Boolean(project));
 
@@ -92,7 +94,7 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
         <span aria-hidden="true" className="case-sheet__flower case-sheet__flower--two" />
 
         <div className="case-close-anchor">
-          <Button variant="modalClose" autoFocus aria-label="Fechar estudo de caso" onClick={onClose}>
+          <Button variant="modalClose" autoFocus aria-label={t("Fechar estudo de caso")} onClick={onClose}>
             ×
           </Button>
         </div>
@@ -121,7 +123,7 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
           </section>
 
           {!project.hideDetailGallery && project.screenshots && project.screenshots.length > 0 ? (
-            <section className={galleryStyles.gallery} data-screens={project.screenshots.length} aria-label={`Telas do ${project.title}`}>
+            <section className={galleryStyles.gallery} data-screens={project.screenshots.length} aria-label={t("Telas do {value0}", {value0: project.title})}>
               {project.screenshots.map((screenshot) => (
                 <figure className={galleryStyles.screen} key={screenshot.src}>
                   <Image alt={screenshot.alt} src={screenshot.src} width={screenshot.width} height={screenshot.height} sizes="(max-width: 760px) 84vw, 30vw" className={galleryStyles.image} />
@@ -131,37 +133,33 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
             </section>
           ) : null}
 
-          <section aria-label="Resumo do estudo de caso" className="case-notes">
+          <section aria-label={t("Resumo do estudo de caso")} className="case-notes">
             <div className="case-note case-note--challenge">
-              <span className="case-note__label">Ponto de partida</span>
-              <h3>O desafio</h3>
+              <span className="case-note__label">{t("Ponto de partida")}</span>
+              <h3>{t("O desafio")}</h3>
               <p>{project.challenge}</p>
             </div>
             <div className="case-note case-note--result">
-              <span className="case-note__label">O que ganhou forma</span>
-              <h3>O resultado</h3>
+              <span className="case-note__label">{t("O que ganhou forma")}</span>
+              <h3>{t("O resultado")}</h3>
               <p>{project.result}</p>
             </div>
           </section>
 
           <div className="case-actions">
             {project.storeLinks?.length ? project.storeLinks.map((store) => (
-              <ButtonLink key={store.href} variant="caseAction" href={store.href} target="_blank" rel="noopener noreferrer" aria-label={`${store.label}: ${project.title} (abre em nova aba)`}>
+              <ButtonLink key={store.href} variant="caseAction" href={store.href} target="_blank" rel="noopener noreferrer" aria-label={t("{value0}: {value1} (abre em nova aba)", {value0: store.label, value1: project.title})}>
                 {store.label}
               </ButtonLink>
             )) : project.deployUrl ? (
               <ButtonLink variant="caseAction" href={project.deployUrl} target="_blank" rel="noopener noreferrer">
-                {project.deployLabel ?? "Ver projeto"}
+                {project.deployLabel ?? t("Ver projeto")}
               </ButtonLink>
             ) : project.presentationUrl ? null : (
-              <Button variant="caseAction" disabled aria-label="Link do projeto ainda não disponível">
-                Ver projeto
-              </Button>
+              <Button variant="caseAction" disabled aria-label={t("Link do projeto ainda não disponível")}>{t("Ver projeto")}</Button>
             )}
             {project.presentationUrl ? (
-              <ButtonLink variant="caseAction" href={project.presentationUrl} target="_blank" rel="noopener noreferrer" aria-label="Ver apresentação na jornada pedagógica no LinkedIn (abre em nova aba)">
-                Ver apresentação no LinkedIn
-              </ButtonLink>
+              <ButtonLink variant="caseAction" href={project.presentationUrl} target="_blank" rel="noopener noreferrer" aria-label={t("Ver apresentação na jornada pedagógica no LinkedIn (abre em nova aba)")}>{t("Ver apresentação no LinkedIn")}</ButtonLink>
             ) : null}
           </div>
         </div>

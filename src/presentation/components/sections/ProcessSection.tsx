@@ -1,3 +1,6 @@
+"use client";
+
+import { useI18n } from "@/src/i18n/use-i18n";
 import type { ProcessStep } from "@/src/domain/entities/portfolio";
 import { SectionTopline } from "@/src/presentation/components/shared/SectionTopline";
 
@@ -6,16 +9,15 @@ interface ProcessSectionProps {
 }
 
 export function ProcessSection({ steps }: ProcessSectionProps) {
+  const { t } = useI18n();
   return (
     <section className="process" id="processo">
       <SectionTopline label="Como eu chego lá" index="04 — Processo" />
       <div className="process-heading">
-        <h2>
-          Curiosidade no início.
-          <br />
-          <em>Capricho até o fim.</em>
+        <h2>{t("Curiosidade no início.")}<br />
+          <em>{t("Capricho até o fim.")}</em>
         </h2>
-        <p>Um processo criativo, colaborativo e sempre aberto a aprender.</p>
+        <p>{t("Um processo criativo, colaborativo e sempre aberto a aprender.")}</p>
       </div>
       <div className="process-grid">
         {steps.map((step) => (

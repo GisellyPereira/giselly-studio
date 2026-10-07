@@ -24,12 +24,29 @@
   z-index: 0;
 }
 
-.action-button[data-button-motion="fill"]:not(:disabled):is(:hover, :focus-visible) {
+.action-button[data-button-motion="fill"]:not(:disabled):focus-visible {
   color: var(--action-hover-color);
 }
 
-.action-button[data-button-motion="fill"]:not(:disabled):is(:hover, :focus-visible) .action-button__fill {
+.action-button[data-button-motion="fill"]:not(:disabled):focus-visible .action-button__fill {
   transform: translate(-50%, -50%) scale(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .action-button[data-button-motion="fill"]:not(:disabled):hover {
+    color: var(--action-hover-color);
+  }
+
+  .action-button[data-button-motion="fill"]:not(:disabled):hover .action-button__fill {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .action-button[data-button-motion="fill"],
+  .action-button__fill {
+    transition: none;
+  }
 }
 
 .action-button__content {

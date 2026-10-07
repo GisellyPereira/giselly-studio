@@ -1,7 +1,8 @@
 "use client";
 
+import { useI18n } from "@/src/i18n/use-i18n";
 import { Button, ButtonLink } from "@/src/presentation/components/shared/Button";
-import { ChevronIcon } from "@/src/presentation/components/shared/Icons";
+import { ArrowIcon, ChevronIcon } from "@/src/presentation/components/shared/Icons";
 import Image from "next/image";
 import { useState } from "react";
 import type { CoursesContent } from "@/src/domain/entities/course";
@@ -9,6 +10,7 @@ import { CourseCard } from "@/src/presentation/components/courses/CourseCard";
 import { EntranceSection } from "@/src/presentation/components/behavior/EntranceSection";
 
 export function CoursesSection({ content }: { readonly content: CoursesContent }) {
+  const { t } = useI18n();
   const coursesPerPage = 3;
   const pageCount = Math.ceil(content.courses.length / coursesPerPage);
   const [currentPage, setCurrentPage] = useState(0);
@@ -27,9 +29,7 @@ export function CoursesSection({ content }: { readonly content: CoursesContent }
       <div className="courses-section__inner">
         <header className="courses-section__header">
           <p className="courses-section__eyebrow" data-entrance="rise">
-            <span aria-hidden="true" />
-            Meus cursos
-          </p>
+            <span aria-hidden="true" />{t("Meus cursos")}</p>
           <h2 id="courses-title" data-entrance="heading" data-entrance-children>
             <span className="courses-section__heading-main">{content.heading[0]}</span>
             <span className="courses-section__heading-script">{content.heading[1]}</span>
@@ -58,7 +58,7 @@ export function CoursesSection({ content }: { readonly content: CoursesContent }
 
         <div className="courses-section__carousel" id="courses-carousel-start" data-entrance="rise">
           <Button variant="trigger"
-            aria-label="Ver cursos anteriores"
+            aria-label={t("Ver cursos anteriores")}
             className="courses-section__arrow courses-section__arrow--desktop courses-section__arrow--previous"
             onClick={(event) => {
               event.currentTarget.blur();
@@ -70,7 +70,7 @@ export function CoursesSection({ content }: { readonly content: CoursesContent }
           </Button>
 
           <ButtonLink variant="text"
-            aria-label="Ver cursos anteriores"
+            aria-label={t("Ver cursos anteriores")}
             className="courses-section__arrow courses-section__arrow--mobile courses-section__arrow--previous"
             href="#courses-carousel-start"
             onClick={(event) => {
@@ -83,7 +83,7 @@ export function CoursesSection({ content }: { readonly content: CoursesContent }
 
           <div
             aria-atomic="true"
-            aria-label={`Cursos ${currentPage * coursesPerPage + 1} a ${Math.min((currentPage + 1) * coursesPerPage, content.courses.length)} de ${content.courses.length}`}
+            aria-label={t("Cursos {value0} a {value1} de {value2}", {value0: currentPage * coursesPerPage + 1, value1: Math.min((currentPage + 1) * coursesPerPage, content.courses.length), value2: content.courses.length})}
             aria-live="polite"
             className="courses-section__grid"
             key={currentPage}
@@ -99,7 +99,7 @@ export function CoursesSection({ content }: { readonly content: CoursesContent }
           </div>
 
           <Button variant="trigger"
-            aria-label="Ver próximos cursos"
+            aria-label={t("Ver próximos cursos")}
             className="courses-section__arrow courses-section__arrow--desktop courses-section__arrow--next"
             onClick={(event) => {
               event.currentTarget.blur();
@@ -111,7 +111,7 @@ export function CoursesSection({ content }: { readonly content: CoursesContent }
           </Button>
 
           <ButtonLink variant="text"
-            aria-label="Ver próximos cursos"
+            aria-label={t("Ver próximos cursos")}
             className="courses-section__arrow courses-section__arrow--mobile courses-section__arrow--next"
             href="#courses-carousel-start"
             onClick={(event) => {
@@ -124,9 +124,9 @@ export function CoursesSection({ content }: { readonly content: CoursesContent }
         </div>
 
         <div className="courses-section__footer" data-entrance="rise" data-entrance-children>
-          <p><strong>{content.courses.length} cursos</strong><span>concluídos</span></p>
-          <p><strong>{content.courses.reduce((total, course) => total + course.hours, 0)} horas</strong><span>de prática e repertório</span></p>
-          <ButtonLink variant="text" href="https://www.origamid.com/curso/" rel="noreferrer" target="_blank">Formação Origamid ↗</ButtonLink>
+          <p><strong>{t("{count} cursos", {count: content.courses.length})}</strong><span>{t("concluídos")}</span></p>
+          <p><strong>{t("{count} horas", {count: content.courses.reduce((total, course) => total + course.hours, 0)})}</strong><span>{t("de prática e repertório")}</span></p>
+          <ButtonLink variant="text" href="https://www.origamid.com/curso/" icon={<ArrowIcon />} rel="noreferrer" target="_blank" aria-label={t("Formação Origamid (abre em nova aba)")}>{t("Formação Origamid")}</ButtonLink>
         </div>
       </div>
     </EntranceSection>

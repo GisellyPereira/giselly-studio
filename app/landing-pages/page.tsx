@@ -1,11 +1,18 @@
+import { getLocale, getTranslations } from "next-intl/server";
+import { createTranslator } from "@/src/i18n/translate";
 import type { Metadata } from "next";
 import { landingPageGroups, landingPageNiches } from "@/src/data/landing-pages";
 import { LandingPagesPage } from "@/src/presentation/pages/LandingPagesPage";
 
-export const metadata: Metadata = {
-  title: "Landing pages & sites por nicho — Giselly Studio",
-  description: "Referências de landing pages e sites por área de atuação. Conheça projetos de Giselly Pereira e converse sobre o site do seu negócio.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const messages = await getTranslations("site");
+  const t = createTranslator((key) => messages.raw(key) as string, locale);
+  return {
+  title: t("Landing pages & sites por nicho — Giselly Studio"),
+  description: t("Referências de landing pages e sites por área de atuação. Conheça projetos de Giselly Pereira e converse sobre o site do seu negócio."),
+  };
+}
 
 interface LandingPagesProps {
   readonly searchParams: Promise<{ readonly nicho?: string | string[]; readonly categoria?: string | string[] }>;

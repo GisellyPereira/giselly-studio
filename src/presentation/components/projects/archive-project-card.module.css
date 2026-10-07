@@ -33,7 +33,6 @@
 }
 
 .image { object-fit: cover; transition: transform .6s var(--ease-out-quint); }
-.card[data-category="Mobile"] .image { object-fit: contain; }
 
 .content {
   display: flex;

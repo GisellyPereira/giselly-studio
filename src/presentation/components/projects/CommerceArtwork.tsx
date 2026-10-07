@@ -1,25 +1,29 @@
+"use client";
+
+import { useI18n } from "@/src/i18n/use-i18n";
 export function CommerceArtwork() {
+  const { t } = useI18n();
   return (
     <div className="project-art commerce-art" aria-hidden="true">
       <div className="commerce-header">
-        <strong>LOJA*</strong>
-        <span>Novidades&nbsp;&nbsp; Coleções&nbsp;&nbsp; Buscar</span>
+        <strong>{t("LOJA*")}</strong>
+        <span>{t("Novidades&nbsp;&nbsp; Coleções&nbsp;&nbsp; Buscar")}</span>
         <b>Bag (2)</b>
       </div>
       <div className="product-grid">
         <div>
           <i />
-          <span>Produto 01</span>
+          <span>{t("Produto 01")}</span>
           <b>R$ 240</b>
         </div>
         <div>
           <i />
-          <span>Produto 02</span>
+          <span>{t("Produto 02")}</span>
           <b>R$ 320</b>
         </div>
         <div>
           <i />
-          <span>Produto 03</span>
+          <span>{t("Produto 03")}</span>
           <b>R$ 180</b>
         </div>
       </div>
@@ -27,7 +31,7 @@ export function CommerceArtwork() {
         VTEX
         <br />IO ↗
       </div>
-      <div className="commerce-tag">EXPERIÊNCIAS PARA GRANDES MARCAS</div>
+      <div className="commerce-tag">{t("EXPERIÊNCIAS PARA GRANDES MARCAS")}</div>
     </div>
   );
 }

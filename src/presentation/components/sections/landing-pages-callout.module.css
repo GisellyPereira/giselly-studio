@@ -68,7 +68,7 @@
   text-align: center;
   white-space: nowrap;
 }
-.actions .primary { --action-fill: var(--pop-cream); --action-hover-color: var(--pop-red-dark); background: var(--pop-red-dark); border: 1px solid var(--pop-red-dark); color: var(--pop-cream); gap: .9rem; }
+.actions .primary { --action-fill: #57152f; --action-hover-color: var(--pop-cream); background: var(--pop-red-dark); border: 1px solid var(--pop-red-dark); color: var(--pop-cream); gap: .9rem; }
 .primary :global(.action-button__icon) svg { height: 1rem; width: 1rem; }
 .actions .secondary { --action-fill: var(--pop-red-dark); --action-hover-color: var(--pop-cream); background: transparent; border: 1px solid var(--pop-red-dark); color: var(--pop-red-dark); }
 .ideasNote { left: calc(-1 * clamp(8.5rem, 10vw, 12rem) - 2.5rem); margin-top: 1.5rem; position: relative; top: -5.5rem; width: clamp(8.5rem, 10vw, 12rem); }

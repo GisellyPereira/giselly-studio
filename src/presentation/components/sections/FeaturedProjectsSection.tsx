@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/src/i18n/use-i18n";
 import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
 import type { Project } from "@/src/domain/entities/portfolio";
@@ -12,6 +13,7 @@ interface FeaturedProjectsSectionProps {
 }
 
 export function FeaturedProjectsSection({ projects }: FeaturedProjectsSectionProps) {
+  const { t } = useI18n();
   const selectedProjects = projects.filter((project) => project.title !== "RamenGo" && project.title !== "App Reino").slice(0, 6);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const projectTrigger = useRef<HTMLButtonElement | null>(null);
@@ -26,10 +28,10 @@ export function FeaturedProjectsSection({ projects }: FeaturedProjectsSectionPro
       <div className="selected-work__inner">
         <header className="selected-work__header">
           <div>
-            <p className="selected-work__eyebrow" data-entrance="rise">Uma seleção do meu trabalho</p>
+            <p className="selected-work__eyebrow" data-entrance="rise">{t("Uma seleção do meu trabalho")}</p>
             <h2 id="selected-work-title" data-entrance="heading" data-entrance-children>
-              <span>Projetos em</span>
-              <em>destaque.</em>
+              <span>{t("Projetos em")}</span>
+              <em>{t("destaque.")}</em>
             </h2>
           </div>
         </header>
@@ -46,7 +48,7 @@ export function FeaturedProjectsSection({ projects }: FeaturedProjectsSectionPro
                   variant="trigger"
                   className="project-cutout__button"
                   data-entrance="paper"
-                  aria-label={`Abrir detalhes do projeto ${project.title}`}
+                  aria-label={t("Abrir detalhes do projeto {value0}", {value0: project.title})}
                   aria-haspopup="dialog"
                   onClick={(event) => {
                     projectTrigger.current = event.currentTarget;
@@ -74,13 +76,11 @@ export function FeaturedProjectsSection({ projects }: FeaturedProjectsSectionPro
         <div className="selected-work__more" data-entrance="rise">
           <Image aria-hidden="true" alt="" className="selected-work__flower selected-work__flower--five" height={256} src="/images/brand/giselly-studio-icon.svg" width={256} />
           <Image aria-hidden="true" alt="" className="selected-work__flower selected-work__flower--six" height={256} src="/images/brand/giselly-studio-icon.svg" width={256} />
-          <ButtonLink className="selected-work__more-link" href="/projetos" variant="heroPrimary">
-            Explorar todos os projetos
-          </ButtonLink>
+          <ButtonLink className="selected-work__more-link" href="/projetos" variant="heroPrimary">{t("Explorar todos os projetos")}</ButtonLink>
         </div>
       </div>
     </EntranceSection>
-    <CaseStudyModal project={selectedProject} onClose={closeProject} />
+    <CaseStudyModal project={selectedProject ? projects.find((project) => project.title === selectedProject.title) ?? null : null} onClose={closeProject} />
     </>
   );
 }

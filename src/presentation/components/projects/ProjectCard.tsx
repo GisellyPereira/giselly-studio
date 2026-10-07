@@ -1,3 +1,6 @@
+"use client";
+
+import { useI18n } from "@/src/i18n/use-i18n";
 import type { Project } from "@/src/domain/entities/portfolio";
 import { ProjectArtwork } from "@/src/presentation/components/projects/ProjectArtwork";
 import { Button } from "@/src/presentation/components/shared/Button";
@@ -10,6 +13,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, onOpen }: ProjectCardProps) {
+  const { t } = useI18n();
   return (
     <article className={`project-card project-${project.color}`}>
       <div className="project-meta">
@@ -26,10 +30,8 @@ export function ProjectCard({ project, onOpen }: ProjectCardProps) {
             variant="project"
             icon={<ArrowIcon diagonal />}
             onClick={() => onOpen(project)}
-            aria-label={`Ver estudo de caso ${project.title}`}
-          >
-            Ver case
-          </Button>
+            aria-label={t("Ver estudo de caso {value0}", {value0: project.title})}
+          >{t("Ver case")}</Button>
         </div>
         <ProjectArtwork color={project.color} />
       </div>

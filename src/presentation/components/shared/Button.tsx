@@ -63,6 +63,8 @@ function joinClasses(...classes: Array<string | undefined>) {
 }
 
 function updateFillOrigin<T extends HTMLElement>(event: PointerEvent<T>) {
+  if (event.pointerType !== "mouse" || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
   const element = event.currentTarget;
   const bounds = element.getBoundingClientRect();
   const x = event.clientX - bounds.left;
