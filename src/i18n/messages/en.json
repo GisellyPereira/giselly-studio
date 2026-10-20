@@ -136,9 +136,9 @@
     "text134": "My expedition",
     "text135": "Integrating touch-based 3D interaction with a real image archive, offering free rotation, zoom and an interface that stays visually cohesive throughout exploration.",
     "text136": "Five destinations with surface maps, automatic and manual rotation, contextual NASA collections, date filters, enlarged images and local favorites. Actual iPhone screenshots and 23 behavior and integration tests.",
-    "text137": "Nov 2024 — Sep 2026",
-    "text138": "Mobile Developer · Mobile & Web",
-    "text139": "I developed institutional and cultural apps and websites for the Maranhão government with the systems team: React Native, Expo, TypeScript and JavaScript for mobile; React and responsive web interfaces integrated with content management for history, collections, galleries and events. I implemented REST APIs, authentication, forms with Yup and image uploads.\n\nOn mobile, I worked with Expo Router and React Navigation; Firebase FCM and Expo Notifications push notifications in foreground, background and with the app closed; notification history and read status in SQLite; AsyncStorage persistence; camera, gallery, WebView and vibration, managing permissions on Android and iOS.\n\nI configured Expo SDK, native modules, and development, preview and production profiles in EAS Build, with APK, AAB and automatic version increments. I organized reusable components and optimized rendering and lists with memoization, FlatList and on-demand loading. I took part in code reviews and Git version control and was responsible for publishing and updating apps on the App Store and Google Play.",
+    "text137": "Nov 2024 — present",
+    "text138": "Front-End Developer · Mobile & Web",
+    "text139": "I build apps and portals for the Government of Maranhão with the systems team. I rebuilt the Viva Procon app in React Native, published on the App Store and Google Play, and worked on the Teatro Arthur Azevedo and Palácio dos Leões Museum portals, the latter with content in six languages. I'm responsible for publishing and updating the apps in the stores.\n\nOn mobile, I work with React Native, Expo, Expo Router and TypeScript: Firebase FCM push notifications, including with the app closed, notification history in SQLite, camera, gallery and permission handling on Android and iOS. I set up development, preview and production builds with EAS Build.\n\nOn the web, I build React interfaces integrated with content management, with REST APIs, authentication and forms validated with Yup. I organize reusable components, optimize lists and rendering and take part in code reviews.",
     "text140": "Jan — Sep 2024",
     "text141": "Web Developer · VTEX CMS & IO",
     "text142": "I was one of the developers responsible for store interfaces for Nike, Chilli Beans, Authentic Feet, Santa Lolla, Móveis Linhares, Vivavinhos, Nautika and Artwalk. I implemented and maintained these e-commerce websites in VTEX CMS and VTEX IO. I worked directly with clients through Monday to receive requests, clarify needs and align each request's features and resources.\n\nIn VTEX CMS, I built and adjusted page structure with HTML, styling with CSS and Sass, and interactions with JavaScript. In VTEX IO, I implemented React components and composed them within store interfaces. I implemented layouts supplied by clients or created by the design team, preserving each brand's visual identity.",
@@ -446,6 +446,10 @@
     "text444": "Study",
     "text445": "Open case study: {value0}",
     "text446": "Case study",
-    "text447": "Private code"
+    "text447": "Private code",
+    "text448": "Apps and portals for the Government of Maranhão",
+    "text449": "VTEX e-commerce for brands like Nike and Chilli Beans",
+    "text450": "Front-end for three notary office systems",
+    "text451": "Web system and app for church management"
   }
 }

@@ -54,6 +54,7 @@ export interface Experience {
   readonly companyShort: string;
   readonly focus: string;
   readonly current?: boolean;
+  readonly summary?: string;
   readonly description: string;
   readonly tags: readonly string[];
 }

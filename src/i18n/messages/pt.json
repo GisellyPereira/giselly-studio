@@ -136,9 +136,9 @@
     "text134": "Minha expedição",
     "text135": "Integrar interação 3D por toque a um acervo de imagens real, com rotação livre, zoom e uma interface que mantenha continuidade visual durante a exploração.",
     "text136": "Cinco destinos com mapas de superfície, rotação automática e manual, coleções contextuais da NASA, filtros por época, imagens ampliadas e favoritos locais. Capturas reais do fluxo no iPhone e 23 testes de comportamento e integração.",
-    "text137": "nov 2024 — set 2026",
-    "text138": "Desenvolvedora Mobile · atuação Mobile & Web",
-    "text139": "Desenvolvi aplicativos e portais institucionais e culturais para o Governo do Maranhão com a equipe de sistemas: React Native, Expo, TypeScript e JavaScript no mobile; React e interfaces responsivas integradas à gestão de conteúdo na web, com história, acervos, galerias e programação. Implementei APIs REST, autenticação, formulários com Yup e envio de imagens. No mobile, trabalhei com Expo Router e React Navigation; push via Firebase FCM e Expo Notifications em foreground, background e com o app encerrado; histórico de notificações e controle de leitura em SQLite; persistência com AsyncStorage; câmera, galeria, WebView e vibração, com gestão de permissões em Android e iOS. Configurei Expo SDK, módulos nativos e perfis de desenvolvimento, prévia e produção no EAS Build, com APK, AAB e incremento automático de versão. Organizei componentes reutilizáveis e otimizei a renderização e as listas com memoização, FlatList e carregamento sob demanda. Participei de revisões de código e versionamento com Git e fui responsável pela publicação e atualização dos aplicativos na App Store e no Google Play.",
+    "text137": "nov 2024 — atual",
+    "text138": "Desenvolvedora Front-End · Mobile & Web",
+    "text139": "Desenvolvo aplicativos e portais do Governo do Maranhão com a equipe de sistemas. Reconstruí em React Native o aplicativo Viva Procon, publicado na App Store e no Google Play, e participei dos portais do Teatro Arthur Azevedo e do Museu do Palácio dos Leões, este com conteúdo em seis idiomas. Sou responsável pela publicação e atualização dos aplicativos nas lojas. No mobile, trabalho com React Native, Expo, Expo Router e TypeScript: notificações push com Firebase FCM, inclusive com o app encerrado, histórico de notificações em SQLite, câmera, galeria e gestão de permissões em Android e iOS. Configuro os builds de desenvolvimento, prévia e produção no EAS Build. Na web, desenvolvo interfaces em React integradas à gestão de conteúdo, com APIs REST, autenticação e formulários validados com Yup. Organizo componentes reutilizáveis, otimizo listas e renderização e participo das revisões de código.",
     "text140": "jan — set 2024",
     "text141": "Desenvolvedora Web · VTEX CMS & IO",
     "text142": "Fui uma das desenvolvedoras responsáveis pelas interfaces de lojas como Nike, Chilli Beans, Authentic Feet, Santa Lolla, Móveis Linhares, Vivavinhos, Nautika e Artwalk. Trabalhei na implementação e manutenção desses e-commerces em VTEX CMS e VTEX IO. Mantive contato direto com os clientes pelo Monday para receber demandas, esclarecer necessidades e alinhar as funcionalidades e os recursos de cada solicitação. No VTEX CMS, desenvolvi e ajustei a estrutura das páginas com HTML, os estilos com CSS e Sass e as interações com JavaScript. No VTEX IO, implementei componentes em React e trabalhei sua composição nas interfaces das lojas. Implementei layouts enviados pelos clientes ou elaborados pela equipe de design, preservando a identidade visual de cada marca.",
@@ -230,7 +230,7 @@
     "text228": "ver detalhes",
     "text229": "Experiência atual",
     "text230": "Escolha uma experiência profissional",
-    "text231": "Clique em uma empresa",
+    "text231": "Escolha uma empresa",
     "text232": "Em leitura",
     "text233": "Abrir experiência",
     "text234": "Exibindo experiência na",
@@ -446,6 +446,10 @@
     "text444": "Estudo",
     "text445": "Abrir estudo de caso: {value0}",
     "text446": "Estudo de caso",
-    "text447": "Código privado"
+    "text447": "Código privado",
+    "text448": "Apps e portais do Governo do Maranhão",
+    "text449": "E-commerces VTEX de marcas como Nike e Chilli Beans",
+    "text450": "Front-end de três sistemas para cartórios",
+    "text451": "Sistema web e app para gestão de igrejas"
   }
 }

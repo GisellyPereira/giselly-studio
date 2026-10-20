@@ -216,13 +216,15 @@ export const portfolioData = {
   experiences: [
     {
       id: "ati",
-      period: "nov 2024 — set 2026",
-      role: "Desenvolvedora Mobile · atuação Mobile & Web",
+      period: "nov 2024 — atual",
+      role: "Desenvolvedora Front-End · Mobile & Web",
+      current: true,
+      summary: "Apps e portais do Governo do Maranhão",
       company: "ATI — Agência Estadual de TI do Maranhão",
       companyShort: "ATI Maranhão",
       focus: "Mobile & Web",
       description:
-        "Desenvolvi aplicativos e portais institucionais e culturais para o Governo do Maranhão com a equipe de sistemas: React Native, Expo, TypeScript e JavaScript no mobile; React e interfaces responsivas integradas à gestão de conteúdo na web, com história, acervos, galerias e programação. Implementei APIs REST, autenticação, formulários com Yup e envio de imagens.\n\nNo mobile, trabalhei com Expo Router e React Navigation; push via Firebase FCM e Expo Notifications em foreground, background e com o app encerrado; histórico de notificações e controle de leitura em SQLite; persistência com AsyncStorage; câmera, galeria, WebView e vibração, com gestão de permissões em Android e iOS.\n\nConfigurei Expo SDK, módulos nativos e perfis de desenvolvimento, prévia e produção no EAS Build, com APK, AAB e incremento automático de versão. Organizei componentes reutilizáveis e otimizei a renderização e as listas com memoização, FlatList e carregamento sob demanda. Participei de revisões de código e versionamento com Git e fui responsável pela publicação e atualização dos aplicativos na App Store e no Google Play.",
+        "Desenvolvo aplicativos e portais do Governo do Maranhão com a equipe de sistemas. Reconstruí em React Native o aplicativo Viva Procon, publicado na App Store e no Google Play, e participei dos portais do Teatro Arthur Azevedo e do Museu do Palácio dos Leões, este com conteúdo em seis idiomas. Sou responsável pela publicação e atualização dos aplicativos nas lojas.\n\nNo mobile, trabalho com React Native, Expo, Expo Router e TypeScript: notificações push com Firebase FCM, inclusive com o app encerrado, histórico de notificações em SQLite, câmera, galeria e gestão de permissões em Android e iOS. Configuro os builds de desenvolvimento, prévia e produção no EAS Build.\n\nNa web, desenvolvo interfaces em React integradas à gestão de conteúdo, com APIs REST, autenticação e formulários validados com Yup. Organizo componentes reutilizáveis, otimizo listas e renderização e participo das revisões de código.",
       tags: ["React Native", "React", "Expo", "TypeScript", "JavaScript", "Firebase FCM", "Expo Router", "SQLite", "EAS Build", "APIs REST", "Yup"],
     },
     {
@@ -231,6 +233,7 @@ export const portfolioData = {
       role: "Desenvolvedora Web · VTEX CMS & IO",
       company: "Pandanjo",
       companyShort: "Pandanjo",
+      summary: "E-commerces VTEX de marcas como Nike e Chilli Beans",
       focus: "E-commerce",
       description:
         "Fui uma das desenvolvedoras responsáveis pelas interfaces de lojas como Nike, Chilli Beans, Authentic Feet, Santa Lolla, Móveis Linhares, Vivavinhos, Nautika e Artwalk. Trabalhei na implementação e manutenção desses e-commerces em VTEX CMS e VTEX IO. Mantive contato direto com os clientes pelo Monday para receber demandas, esclarecer necessidades e alinhar as funcionalidades e os recursos de cada solicitação.\n\nNo VTEX CMS, desenvolvi e ajustei a estrutura das páginas com HTML, os estilos com CSS e Sass e as interações com JavaScript. No VTEX IO, implementei componentes em React e trabalhei sua composição nas interfaces das lojas. Implementei layouts enviados pelos clientes ou elaborados pela equipe de design, preservando a identidade visual de cada marca.",
@@ -242,6 +245,7 @@ export const portfolioData = {
       role: "Desenvolvedora Front-End Pleno",
       company: "Confia",
       companyShort: "Confia",
+      summary: "Front-end de três sistemas para cartórios",
       focus: "Sistemas para cartórios",
       description:
         "Desenvolvi o front-end de três sistemas para cartórios como desenvolvedora pleno, participando da análise de requisitos, implementação e manutenção das telas. Trabalhei em fluxos de registro civil — nascimentos, óbitos e casamentos — e em serviços de escrituras, autenticações e protestos. Implementei interfaces para preenchimento de dados, consulta de registros e disponibilização de informações, incluindo fluxos de troca de dados entre cartórios, em colaboração com as demais áreas da equipe.\n\nUtilizei React, Vite e JavaScript, com Redux para gerenciamento de estado e Tailwind CSS para os estilos. Desenvolvi formulários com Formik, seleção de datas com Datepicker e iconografia com React Icons. Fui responsável pela integração com o back-end, conectando formulários e consultas aos serviços do sistema e exibindo as informações retornadas nas telas. Também trabalhei na configuração do ambiente com Docker e MySQL 8.",
@@ -253,6 +257,7 @@ export const portfolioData = {
       role: "Desenvolvedora Front-End Júnior",
       company: "B4D Desenvolvimento de Sistemas",
       companyShort: "B4D",
+      summary: "Sistema web e app para gestão de igrejas",
       focus: "Web & Mobile",
       description:
         "Participei, junto à equipe, do desenvolvimento de um sistema de gestão para igrejas e do aplicativo vinculado a esse mesmo produto. No front-end web, implementei telas e componentes com React a partir dos layouts propostos pela equipe. Utilizei Redux para gerenciamento de estado, Tailwind CSS e Material UI para construir as interfaces e integrei as telas às APIs. No mobile, contribuí para a implementação do aplicativo em React Native.\n\nDesenvolvi funcionalidades de controle financeiro para registrar e acompanhar entradas e saídas no fluxo de caixa, além de cadastro e gestão de membros e consulta de aniversariantes. Minha atuação incluía transformar essas rotinas administrativas em telas funcionais, conectar os dados do sistema às interfaces, corrigir bugs e propor melhorias com a equipe. Também participei da revisão e organização do código e dos ajustes necessários para as entregas.",

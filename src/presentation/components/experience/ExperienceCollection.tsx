@@ -35,9 +35,7 @@ export function ExperienceCollection({ experiences }: { readonly experiences: re
               >
                 <span className={styles.indexCompany}>{experience.companyShort}</span>
                 <span className={styles.indexPeriod}>{experience.period}</span>
-                <span className={styles.indexState}>
-                  {experience.id === selected.id ? t("Em leitura") : t("Abrir experiência")}
-                </span>
+                {experience.summary ? <span className={styles.indexSummary}>{experience.summary}</span> : null}
               </Button>
             </li>
           ))}

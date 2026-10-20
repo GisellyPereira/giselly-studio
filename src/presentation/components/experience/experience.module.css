@@ -114,3 +114,6 @@
 @media (prefers-reduced-motion: reduce) {
   .indexButton { transition: none; }
 }
+
+.indexSummary { font-size: .74rem; font-weight: 550; line-height: 1.35; margin-top: .2rem; opacity: .85; text-wrap: pretty; }
+@media (max-width: 767px) { .indexSummary { font-size: .66rem; } }
