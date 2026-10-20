@@ -236,3 +236,51 @@
   white-space: nowrap;
 }
 .hero-campaign__rail i { color: var(--pop-pink); font-size: .55rem; }
+
+/* Hero: proposta de valor e ações */
+.portfolio-home .hero-campaign__logo { max-height: 44svh; }
+
+.hero-campaign__summary {
+  color: var(--pop-ink);
+  font-family: var(--font-clean);
+  font-size: clamp(.92rem, 1.15vw, 1.05rem);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 36rem;
+  opacity: .82;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.hero-campaign__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  justify-content: center;
+  margin-top: .35rem;
+}
+
+.hero-campaign .hero-campaign__action {
+  --action-fill: var(--pop-red-dark);
+  --action-hover-color: var(--pop-white);
+  background: var(--pop-red);
+  color: var(--pop-white);
+  min-width: 10.5rem;
+  padding: .95rem 1.45rem;
+}
+
+.hero-campaign .hero-campaign__action--secondary {
+  --action-fill: var(--pop-red-dark);
+  background: transparent;
+  border: 1px solid var(--pop-red-dark);
+  color: var(--pop-red-dark);
+}
+
+.hero-campaign__action .action-button__icon svg { transform: rotate(90deg); }
+
+@media (max-width: 640px) {
+  .portfolio-home .hero-campaign__logo { max-height: 36svh; }
+  .hero-campaign__summary { font-size: .9rem; padding: 0 .4rem; }
+  .hero-campaign__actions { width: 100%; }
+  .hero-campaign .hero-campaign__action { flex: 1 1 100%; }
+}

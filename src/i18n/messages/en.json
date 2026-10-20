@@ -419,6 +419,11 @@
     "text417": "Open project details: {value0}",
     "text418": "Artwork for {value0}",
     "text419": "{value0} course details: {value1}",
-    "text420": "Page {value0} of {value1}. Projects {value2} to {value3} of {value4}."
+    "text420": "Page {value0} of {value1}. Projects {value2} to {value3} of {value4}.",
+    "text421": "Front-end developer, web and mobile",
+    "text422": "Apps in the stores, portals online and interfaces made with care.",
+    "text423": "For 5 years I've been building interfaces with React and React Native. I've shipped apps to the App Store and Google Play and built cultural portals for the Government of Maranhão.",
+    "text424": "See projects",
+    "text425": "Download résumé"
   }
 }

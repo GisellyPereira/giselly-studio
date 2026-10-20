@@ -418,5 +418,10 @@
   "Abrir detalhes do projeto {value0}": "text417",
   "Arte do projeto {value0}": "text418",
   "{value0} detalhes do curso {value1}": "text419",
-  "Página {value0} de {value1}. Projetos {value2} a {value3} de {value4}.": "text420"
+  "Página {value0} de {value1}. Projetos {value2} a {value3} de {value4}.": "text420",
+  "Desenvolvedora front-end, web e mobile": "text421",
+  "Apps nas lojas, portais no ar e interfaces feitas com cuidado.": "text422",
+  "Há 5 anos crio interfaces com React e React Native. Publiquei aplicativos na App Store e no Google Play e desenvolvi portais culturais para o Governo do Maranhão.": "text423",
+  "Ver projetos": "text424",
+  "Baixar currículo": "text425"
 }
