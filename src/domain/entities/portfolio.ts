@@ -42,7 +42,7 @@ export interface SkillSticker {
 
 export interface SkillsContent {
   readonly heading: readonly [string, string];
-  readonly skills: readonly string[];
+  readonly groups: readonly { readonly label: string; readonly skills: readonly string[] }[];
   readonly stickers: readonly SkillSticker[];
 }
 

@@ -26,11 +26,18 @@ export function SkillsSection({ content }: SkillsSectionProps) {
           <span>{content.heading[0]}</span>
           <em>{content.heading[1]}</em>
         </h2>
-        <ul aria-label={t("Tecnologias e competências")} data-entrance="rise" data-entrance-delay=".15">
-          {content.skills.map((skill) => (
-            <li key={skill}>{skill}</li>
+        <div className="skills-showcase__groups" data-entrance="rise" data-entrance-delay=".15">
+          {content.groups.map((group) => (
+            <div className="skills-showcase__group" key={group.label}>
+              <h3>{group.label}</h3>
+              <ul aria-label={group.label}>
+                {group.skills.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
 
       <p className="sr-only" id="skills-sticker-help">{t("Arraste para mover o adesivo. Pelo teclado, use as setas para mover, Shift para passos maiores e Escape para voltar à posição inicial.")}</p>

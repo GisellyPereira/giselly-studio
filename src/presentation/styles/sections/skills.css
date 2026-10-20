@@ -175,3 +175,30 @@
   --sticker-angle: -13deg;
   right: 18%; bottom: 12%; width: clamp(7.5rem, 9vw, 10.5rem);
 }
+
+/* Skills agrupadas */
+.skills-showcase__groups {
+  display: grid;
+  gap: clamp(1.1rem, 2vw, 1.5rem);
+  margin: clamp(2.2rem, 3.6vw, 3.2rem) auto 0;
+  max-width: 50rem;
+  width: 100%;
+}
+
+.skills-showcase__group h3 {
+  color: var(--pop-pink);
+  font-family: var(--font-clean);
+  font-size: .66rem;
+  font-weight: 750;
+  letter-spacing: .14em;
+  margin: 0 0 .55rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.skills-showcase__content .skills-showcase__group ul { margin: 0 auto; }
+
+@media (max-width: 640px) {
+  .skills-showcase__content .skills-showcase__group ul { gap: .45rem 0; margin-top: 0; }
+  .skills-showcase__group h3 { font-size: .6rem; }
+}

@@ -448,5 +448,8 @@
   "Sistema web e app para gestão de igrejas": "text451",
   "Desenvolvo aplicativos e portais do Governo do Maranhão com a equipe de sistemas. Reconstruí em React Native o aplicativo Viva Procon, publicado na App Store e no Google Play, e participei dos portais do Teatro Arthur Azevedo e do Museu do Palácio dos Leões, este com conteúdo em seis idiomas. Sou responsável pela publicação e atualização dos aplicativos nas lojas. No mobile, trabalho com React Native, Expo, Expo Router e TypeScript: notificações push com Firebase FCM, inclusive com o app encerrado, histórico de notificações em SQLite, câmera, galeria e gestão de permissões em Android e iOS. Configuro os builds de desenvolvimento, prévia e produção no EAS Build. Na web, desenvolvo interfaces em React integradas à gestão de conteúdo, com APIs REST, autenticação e formulários validados com Yup. Organizo componentes reutilizáveis, otimizo listas e renderização e participo das revisões de código.": "text139",
   "nov 2024 — atual": "text137",
-  "Escolha uma empresa": "text231"
+  "Escolha uma empresa": "text231",
+  "Qualidade & design": "text452",
+  "Ferramentas": "text453",
+  "App Store & Google Play": "text454"
 }
