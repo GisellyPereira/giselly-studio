@@ -11,6 +11,7 @@ export interface LandingPagesCalloutContent {
     readonly human: readonly string[];
   };
   readonly groups: readonly LandingPageGroup[];
+  readonly catalogHref: string;
   readonly primaryAction: { readonly label: string; readonly href: string };
   readonly secondaryAction: { readonly label: string; readonly href: string };
 }

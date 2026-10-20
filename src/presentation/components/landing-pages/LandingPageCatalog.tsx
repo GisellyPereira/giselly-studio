@@ -17,9 +17,11 @@ interface LandingPageCatalogProps {
   readonly groups: readonly LandingPageGroup[];
   readonly heading: string;
   readonly note: string;
+  readonly headingLevel?: "h1" | "h2";
 }
 
-export function LandingPageCatalog({ initialNiche, projects, niches, groups, heading, note }: LandingPageCatalogProps) {
+export function LandingPageCatalog({ initialNiche, projects, niches, groups, heading, note, headingLevel = "h1" }: LandingPageCatalogProps) {
+  const Heading = headingLevel;
   const { t } = useI18n();
   const [activeGroup, setActiveGroup] = useState<LandingPageGroup["id"] | "todos">(
     () => initialNiche === "todos" ? "todos" : groups.find((group) => group.niches.includes(initialNiche))?.id ?? "todos",
@@ -34,7 +36,7 @@ export function LandingPageCatalog({ initialNiche, projects, niches, groups, hea
     <EntranceSection className={styles.section} id="referencias" aria-labelledby="niche-title">
       <header className={styles.header} data-entrance="rise">
         <div>
-          <h1 id="niche-title">{heading}</h1>
+          <Heading id="niche-title">{heading}</Heading>
           <p className={styles.note}><span className={styles.flower} aria-hidden="true" />{note}</p>
         </div>
       </header>

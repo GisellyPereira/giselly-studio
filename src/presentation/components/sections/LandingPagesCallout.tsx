@@ -10,13 +10,15 @@ import styles from "./landing-pages-callout.module.css";
 
 interface LandingPagesCalloutProps {
   readonly content: LandingPagesCalloutContent;
+  readonly headingLevel?: "h1" | "h2";
 }
 
-export function LandingPagesCallout({ content }: LandingPagesCalloutProps) {
+export function LandingPagesCallout({ content, headingLevel = "h2" }: LandingPagesCalloutProps) {
+  const Heading = headingLevel;
   return (
     <EntranceSection
       className={styles.section}
-      id="landing-pages"
+      id="inicio"
       aria-labelledby="landing-pages-callout-heading"
     >
       <TornPaperCorners />
@@ -25,10 +27,10 @@ export function LandingPagesCallout({ content }: LandingPagesCalloutProps) {
         <HandwrittenNote lines={content.handwrittenNotes.human} className={styles.humanNote} />
         <div className={styles.intro}>
           <p className={styles.eyebrow} data-entrance="rise">{content.eyebrow}</p>
-          <h2 id="landing-pages-callout-heading" className={styles.heading} data-entrance="heading" data-entrance-children>
+          <Heading id="landing-pages-callout-heading" className={styles.heading} data-entrance="heading" data-entrance-children>
             <span>{content.heading[0]}</span>
             <em>{content.heading[1]}</em>
-          </h2>
+          </Heading>
           <div className={styles.copy} data-entrance="rise">
             <p>{content.description}</p>
             <div className={styles.actions}>
@@ -45,7 +47,7 @@ export function LandingPagesCallout({ content }: LandingPagesCalloutProps) {
         <NicheCollage
           label={content.catalogLabel}
           hint={content.catalogHint}
-          catalogHref={content.primaryAction.href}
+          catalogHref={content.catalogHref}
           groups={content.groups}
         />
       </div>

@@ -64,6 +64,13 @@ export const landingPageGroups = [
 
 export const landingPageContent = {
   catalogHeading: "Landing pages & sites",
+  processHeading: ["Como", "funciona."],
+  processSteps: [
+    { number: "01", title: "Conversa", text: "Você me conta sobre o seu negócio, o público e o que espera do site." },
+    { number: "02", title: "Proposta", text: "Organizo o conteúdo e defino com você o visual, as seções e o tom." },
+    { number: "03", title: "Criação", text: "Desenvolvo o site responsivo, leve e com a cara do seu negócio." },
+    { number: "04", title: "No ar", text: "Publico, ajusto os detalhes finais e te mostro como acompanhar." },
+  ],
   catalogNote: "cada projeto, um jeito.",
   contactDescription: "Me conta um pouco sobre o seu negócio e o que você imagina para ele. Vamos pensar em um site que combine com a sua ideia?",
 } as const;

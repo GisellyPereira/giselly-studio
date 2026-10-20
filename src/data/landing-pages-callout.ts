@@ -2,7 +2,7 @@ import type { LandingPagesCalloutContent } from "@/src/domain/entities/landing-p
 import { landingPageGroups } from "./landing-pages";
 
 export const landingPagesCalloutContent = {
-  eyebrow: "Landing pages para negócios",
+  eyebrow: "Giselly Studio · sites para negócios",
   heading: ["Seu negócio,", "com a sua cara."],
   description:
     "Uma página que apresenta o que você faz e facilita o contato. Comece pelas referências do seu segmento e imagine o seu site aqui.",
@@ -13,6 +13,7 @@ export const landingPagesCalloutContent = {
     human: ["negócios", "mais humanos"],
   },
   groups: landingPageGroups,
-  primaryAction: { label: "Ver landing pages", href: "/landing-pages" },
-  secondaryAction: { label: "Conversar sobre meu site", href: "/#contato" },
+  catalogHref: "/studio",
+  primaryAction: { label: "Ver referências", href: "#referencias" },
+  secondaryAction: { label: "Conversar sobre meu site", href: "#contato" },
 } as const satisfies LandingPagesCalloutContent;

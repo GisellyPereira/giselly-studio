@@ -16,10 +16,10 @@ interface HeaderProps {
 
 const navigation = [
   { href: "/projetos", label: "Projetos" },
-  { href: "/landing-pages", label: "LP" },
   { href: "/#experiencia", label: "Experiências" },
   { href: "/sobre", label: "Sobre" },
   { href: "/#contato", label: "Contato" },
+  { href: "/studio", label: "Para negócios" },
 ] as const;
 
 export function Header({ email, accent = false }: HeaderProps) {

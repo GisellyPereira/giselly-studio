@@ -4,6 +4,9 @@ import createNextIntlPlugin from "next-intl/plugin";
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1"],
   reactStrictMode: true,
+  async redirects() {
+    return [{ source: "/landing-pages", destination: "/studio", permanent: true }];
+  },
 };
 
 export default createNextIntlPlugin("./src/i18n/request.ts")(nextConfig);

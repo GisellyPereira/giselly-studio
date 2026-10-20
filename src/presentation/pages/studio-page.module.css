@@ -129,3 +129,91 @@
   .contact::after { display: none; }
   .contactInner { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
 }
+
+/* Studio: abertura com a colagem */
+.opening > section {
+  padding-top: clamp(7.5rem, 10vw, 9.5rem);
+}
+
+.page :global(#referencias) {
+  padding-top: clamp(4rem, 6vw, 5.5rem);
+}
+
+/* Studio: como funciona */
+.process {
+  --back-to-top-tone: rose;
+  padding: clamp(3.5rem, 6vw, 5.5rem) var(--page-padding);
+  position: relative;
+}
+
+.processInner {
+  margin: 0 auto;
+  max-width: var(--content-max-width);
+}
+
+.process h2 {
+  color: var(--pop-red-dark);
+  font-family: "Archivo Variable", sans-serif;
+  font-size: clamp(2.2rem, 3.6vw, 3.4rem);
+  font-variation-settings: "wdth" 92, "wght" 850;
+  letter-spacing: -.05em;
+  line-height: 1;
+  margin: 0 0 clamp(2rem, 4vw, 3rem);
+}
+
+.process h2 em {
+  color: var(--pop-red);
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-variation-settings: normal;
+  font-weight: 400;
+  letter-spacing: -.02em;
+}
+
+.processSteps {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.processSteps li {
+  background: var(--pop-white);
+  border: 1px solid rgb(119 29 60 / .14);
+  border-radius: 1.2rem;
+  box-shadow: .45rem .45rem 0 var(--pop-pink);
+  padding: 1.4rem 1.3rem 1.5rem;
+}
+
+.processNumber {
+  color: var(--pop-red);
+  display: block;
+  font-family: "Dawning of a New Day", cursive;
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: .6rem;
+}
+
+.processSteps h3 {
+  color: var(--pop-red-dark);
+  font-family: var(--font-clean);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 .45rem;
+}
+
+.processSteps p {
+  font-size: .9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .processSteps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  .processSteps { grid-template-columns: minmax(0, 1fr); }
+}

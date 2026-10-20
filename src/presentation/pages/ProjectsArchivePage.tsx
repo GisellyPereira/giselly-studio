@@ -122,7 +122,7 @@ export function ProjectsArchivePage() {
         <EntranceSection as="div">
           <aside className={styles.landingCallout} aria-label={t("Landing pages para negócios")} data-entrance="rise">
             <div><p className={styles.calloutLabel}>{t("Para o seu negócio")}</p><h2>{projectArchiveContent.landingHeading}</h2><p>{projectArchiveContent.landingDescription}</p></div>
-            <ButtonLink variant="heroPrimary" className={styles.landingButton} href="/landing-pages" icon={<ArrowIcon />}>{t("Explorar por nicho")}</ButtonLink>
+            <ButtonLink variant="heroPrimary" className={styles.landingButton} href="/studio" icon={<ArrowIcon />}>{t("Explorar por nicho")}</ButtonLink>
           </aside>
         </EntranceSection>
       </section>
