@@ -402,9 +402,7 @@
   "a": "text408",
   " publicado": "text409",
   " no GitHub": "text410",
-  "Sobre mim — Giselly Studio": "text411",
   "Conheça Giselly Pereira, de São Luís: sua mudança da enfermagem para a programação, seus estudos e sua criatividade entre livros, crochê e pintura.": "text412",
-  "Projetos — Giselly Studio": "text413",
   "Arquivo de projetos profissionais, publicados e experimentais de Giselly Pereira.": "text414",
   "Landing pages & sites por nicho — Giselly Studio": "text415",
   "Referências de landing pages e sites por área de atuação. Conheça projetos de Giselly Pereira e converse sobre o site do seu negócio.": "text416",
@@ -458,5 +456,7 @@
   "No front-end desde 2021": "text461",
   "Sou a Giselly Pereira e moro em São Luís, no Maranhão.": "text002",
   "Foi um desafio, porque eu comecei do zero. Foram muitos cursos, muitas aulas e pessoas da área me ajudando a entender por onde começar.": "text010",
-  "Os cursos que formaram a minha base, da primeira página em HTML às interfaces com React e UI Design.": "text025"
+  "Os cursos que formaram a minha base, da primeira página em HTML às interfaces com React e UI Design.": "text025",
+  "Projetos — Giselly Pereira": "text413",
+  "Sobre mim — Giselly Pereira": "text411"
 }

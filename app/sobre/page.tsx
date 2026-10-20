@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const messages = await getTranslations("site");
   const t = createTranslator((key) => messages.raw(key) as string, locale);
   return {
-  title: t("Sobre mim — Giselly Studio"),
+  title: t("Sobre mim — Giselly Pereira"),
   description: t("Conheça Giselly Pereira, de São Luís: sua mudança da enfermagem para a programação, seus estudos e sua criatividade entre livros, crochê e pintura."),
   };
 }

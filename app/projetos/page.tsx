@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const messages = await getTranslations("site");
   const t = createTranslator((key) => messages.raw(key) as string, locale);
   return {
-  title: t("Projetos — Giselly Studio"),
+  title: t("Projetos — Giselly Pereira"),
   description: t("Arquivo de projetos profissionais, publicados e experimentais de Giselly Pereira."),
   };
 }

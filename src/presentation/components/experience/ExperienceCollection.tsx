@@ -20,7 +20,7 @@ export function ExperienceCollection({ experiences }: { readonly experiences: re
   return (
     <div className={styles.collection}>
       <nav aria-label={t("Escolha uma experiência profissional")} className={styles.index}>
-        <p className={styles.indexLabel}>{t("Clique em uma empresa")}</p>
+        <p className={styles.indexLabel}>{t("Escolha uma empresa")}</p>
         <ul className={styles.indexList} data-entrance="from-left" data-entrance-children>
           {experiences.map((experience) => (
             <li key={experience.id}>
