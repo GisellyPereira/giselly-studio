@@ -24,7 +24,7 @@ export function CoursesSection({ content }: { readonly content: CoursesContent }
   };
 
   return (
-    <EntranceSection aria-labelledby="courses-title" className="courses-section" id="cursos">
+    <EntranceSection aria-labelledby="courses-title" className="courses-section courses-section--compact" id="cursos">
       <div aria-hidden="true" className="courses-section__pattern" />
       <div className="courses-section__inner">
         <header className="courses-section__header">

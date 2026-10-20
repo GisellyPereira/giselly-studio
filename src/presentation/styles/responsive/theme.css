@@ -135,3 +135,25 @@
   .courses-section__arrow--desktop { display: none; }
   .courses-section__arrow--mobile { display: flex; }
 }
+
+/* Cursos em versão compacta: mesmo fundo, menos destaque */
+.courses-section.courses-section--compact { padding-block: clamp(3.5rem, 5vw, 5rem); }
+.courses-section--compact .courses-section__header { min-height: 0; }
+.courses-section--compact .courses-section__eyebrow { font-size: .64rem; padding: .6rem .85rem .55rem; }
+.courses-section--compact .courses-section__heading-main { font-size: clamp(2.6rem, 4vw, 3.8rem); }
+.courses-section--compact .courses-section__heading-script { font-size: clamp(2.4rem, 3.7vw, 3.5rem); }
+.courses-section--compact .courses-section__note { padding: 1.3rem 1.4rem; }
+.courses-section--compact .courses-section__description { font-size: clamp(.85rem, 1vw, .95rem); }
+.courses-section--compact .courses-section__flower { width: clamp(2rem, 3vw, 3rem); }
+.courses-section--compact .courses-section__carousel { margin-top: clamp(2rem, 3vw, 3rem); }
+.courses-section--compact .courses-section__grid { gap: 1.6rem clamp(1rem, 1.8vw, 1.6rem); max-width: 54rem; }
+.courses-section--compact .course-card__title { font-size: clamp(1.4rem, 1.75vw, 1.65rem); line-height: .95; }
+.courses-section--compact .course-card__description { font-size: .82rem; }
+.courses-section--compact .courses-section__footer { margin-top: 2rem; }
+
+@media (max-width: 767px) {
+  .courses-section--compact .courses-section__heading-main { font-size: clamp(2.6rem, 12vw, 3.4rem); }
+  .courses-section--compact .courses-section__heading-script { font-size: clamp(2.4rem, 11vw, 3.2rem); }
+  .courses-section--compact .courses-section__grid { gap: 2rem; margin-inline: auto; max-width: 21rem; }
+  .courses-section--compact .courses-section__carousel { margin-top: 2.2rem; }
+}

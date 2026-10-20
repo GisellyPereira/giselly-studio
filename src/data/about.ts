@@ -3,10 +3,10 @@ import type { AboutContent } from "@/src/domain/entities/about";
 export const aboutContent: AboutContent = {
   heading: ["Oi, eu sou a", "Giselly."],
   introduction: [
-    "Sou a Giselly Pereira, tenho 24 anos e moro em São Luís, no Maranhão.",
+    "Sou a Giselly Pereira e moro em São Luís, no Maranhão.",
     "Sou curiosa, gosto de aprender coisas novas e de criar. Na programação, encontrei espaço para colocar minhas ideias e minha criatividade em prática.",
   ],
-  details: ["24 anos", "São Luís, MA"],
+  details: ["São Luís, MA", "No front-end desde 2021"],
   portrait: {
     src: "/images/about/giselly.jpeg",
     alt: "Giselly de camiseta rosa, ao lado de uma estante de livros.",
@@ -19,7 +19,7 @@ export const aboutContent: AboutContent = {
     heading: ["Antes do", "código."],
     paragraphs: [
       "Em 2020, comecei a faculdade de enfermagem. No quarto período, tranquei o curso para estudar programação, incentivada pelo meu irmão, que já era da área.",
-      "Foi um desafio porque eu mal sabia mexer em um computador. Foram muitos cursos, muitas aulas e pessoas da área me ajudando a entender por onde começar.",
+      "Foi um desafio, porque eu comecei do zero. Foram muitos cursos, muitas aulas e pessoas da área me ajudando a entender por onde começar.",
       "Me dediquei bastante e, com o tempo, fui me encontrando. O que eu mais gosto é de poder colocar minhas ideias e minha criatividade no que eu faço.",
       "Esse portfólio tem muito disso. Enquanto desenvolvia, quis que ele mostrasse um pouco de quem eu sou, até nos pequenos detalhes.",
     ],

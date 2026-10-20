@@ -1,6 +1,5 @@
 {
   "Oi, eu sou a": "text001",
-  "Sou a Giselly Pereira, tenho 24 anos e moro em São Luís, no Maranhão.": "text002",
   "Sou curiosa, gosto de aprender coisas novas e de criar. Na programação, encontrei espaço para colocar minhas ideias e minha criatividade em prática.": "text003",
   "24 anos": "text004",
   "Giselly de camiseta rosa, ao lado de uma estante de livros.": "text005",
@@ -8,7 +7,6 @@
   "Antes do": "text007",
   "código.": "text008",
   "Em 2020, comecei a faculdade de enfermagem. No quarto período, tranquei o curso para estudar programação, incentivada pelo meu irmão, que já era da área.": "text009",
-  "Foi um desafio porque eu mal sabia mexer em um computador. Foram muitos cursos, muitas aulas e pessoas da área me ajudando a entender por onde começar.": "text010",
   "Me dediquei bastante e, com o tempo, fui me encontrando. O que eu mais gosto é de poder colocar minhas ideias e minha criatividade no que eu faço.": "text011",
   "Esse portfólio tem muito disso. Enquanto desenvolvia, quis que ele mostrasse um pouco de quem eu sou, até nos pequenos detalhes.": "text012",
   "Giselly na época da faculdade de enfermagem, de uniforme branco e máscara rosa.": "text013",
@@ -23,7 +21,6 @@
   "Pintura de duas cerejas sobre listras amarelas, apoiada em um pequeno cavalete.": "text022",
   "Uma das minhas pinturas": "text023",
   "e formação": "text024",
-  "Da primeira página em HTML às interfaces com React e UI Design: cada curso amplia meu repertório e a forma como transformo ideias em experiências.": "text025",
   "Estrutura semântica, estilos e layouts responsivos: os fundamentos para construir páginas web do zero.": "text026",
   "Alinhamento, distribuição de espaço e composição de layouts flexíveis que se adaptam a diferentes telas.": "text027",
   "Fundamentos da linguagem, manipulação do DOM e requisições com Fetch para dar vida às interfaces.": "text028",
@@ -457,5 +454,9 @@
   "Enviar e-mail para {value0}": "text457",
   "Estou aberta a conversar sobre novas oportunidades, projetos e colaborações em front-end e mobile.": "text458",
   "Outras formas de contato": "text459",
-  "Currículo": "text460"
+  "Currículo": "text460",
+  "No front-end desde 2021": "text461",
+  "Sou a Giselly Pereira e moro em São Luís, no Maranhão.": "text002",
+  "Foi um desafio, porque eu comecei do zero. Foram muitos cursos, muitas aulas e pessoas da área me ajudando a entender por onde começar.": "text010",
+  "Os cursos que formaram a minha base, da primeira página em HTML às interfaces com React e UI Design.": "text025"
 }

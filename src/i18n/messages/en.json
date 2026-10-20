@@ -1,7 +1,7 @@
 {
   "site": {
     "text001": "Hi, I'm",
-    "text002": "I'm Giselly Pereira, I'm 24 years old and I live in São Luís, Maranhão, Brazil.",
+    "text002": "I'm Giselly Pereira and I live in São Luís, Maranhão, Brazil.",
     "text003": "I'm curious, I enjoy learning new things and creating. Programming gave me a space to put my ideas and creativity into practice.",
     "text004": "24 years old",
     "text005": "Giselly wearing a pink T-shirt beside a bookshelf.",
@@ -9,7 +9,7 @@
     "text007": "Before",
     "text008": "code.",
     "text009": "In 2020, I started studying nursing. In my fourth semester, I put my degree on hold to study programming, encouraged by my brother, who already worked in the field.",
-    "text010": "It was a challenge because I barely knew how to use a computer. There were many courses and lessons, and people in the field helped me figure out where to start.",
+    "text010": "It was a challenge, because I started from scratch. There were many courses and lessons, and people in the field helped me figure out where to start.",
     "text011": "I worked hard and gradually found my way. What I enjoy most is bringing my ideas and creativity into my work.",
     "text012": "This portfolio reflects that. While building it, I wanted it to show a little of who I am, even in the smallest details.",
     "text013": "Giselly during her nursing studies, wearing a white uniform and a pink mask.",
@@ -24,7 +24,7 @@
     "text022": "A painting of two cherries on yellow stripes, resting on a small easel.",
     "text023": "One of my paintings",
     "text024": "and training",
-    "text025": "From my first HTML page to interfaces built with React and UI design: each course broadens my skills and the way I turn ideas into experiences.",
+    "text025": "The courses that built my foundation, from my first HTML page to React interfaces and UI Design.",
     "text026": "Semantic structure, styling and responsive layouts: the foundations for building web pages from scratch.",
     "text027": "Alignment, space distribution and flexible layouts that adapt to different screens.",
     "text028": "Language fundamentals, DOM manipulation and Fetch requests to bring interfaces to life.",
@@ -459,6 +459,7 @@
     "text457": "Send an email to {value0}",
     "text458": "I'm open to talking about new opportunities, projects and collaborations in front-end and mobile.",
     "text459": "Other ways to get in touch",
-    "text460": "Résumé"
+    "text460": "Résumé",
+    "text461": "In front-end since 2021"
   }
 }

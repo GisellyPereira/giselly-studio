@@ -3,7 +3,7 @@ import type { CoursesContent } from "@/src/domain/entities/course";
 export const coursesContent = {
   heading: ["Cursos", "e formação"],
   description:
-    "Da primeira página em HTML às interfaces com React e UI Design: cada curso amplia meu repertório e a forma como transformo ideias em experiências.",
+    "Os cursos que formaram a minha base, da primeira página em HTML às interfaces com React e UI Design.",
   provider: "Origamid",
   providerLogo: "/images/courses/origamid.svg",
   courses: [
