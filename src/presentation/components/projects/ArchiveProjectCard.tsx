@@ -1,7 +1,7 @@
 "use client";
 
 import { useI18n } from "@/src/i18n/use-i18n";
-import Image from "next/image";
+import { LoadingImage } from "@/src/presentation/components/shared/LoadingImage";
 import type { ReactNode } from "react";
 import type { Project } from "@/src/domain/entities/portfolio";
 import type { ArchiveProject } from "@/src/domain/entities/project-archive";
@@ -26,7 +26,7 @@ export function ArchiveProjectCard({ project, onOpenCase }: ArchiveProjectCardPr
     <>
       <div className={styles.picture}>
         {project.imageSrc ? (
-          <Image
+          <LoadingImage
             alt={project.imageAlt}
             className={styles.image}
             fill

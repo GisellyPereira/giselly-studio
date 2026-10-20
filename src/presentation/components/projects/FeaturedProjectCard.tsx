@@ -1,7 +1,7 @@
 "use client";
 
 import { useI18n } from "@/src/i18n/use-i18n";
-import Image from "next/image";
+import { LoadingImage } from "@/src/presentation/components/shared/LoadingImage";
 import type { Project } from "@/src/domain/entities/portfolio";
 import { Button } from "@/src/presentation/components/shared/Button";
 
@@ -21,7 +21,7 @@ export function FeaturedProjectCard({ project, onOpen }: FeaturedProjectCardProp
         type="button"
       >
         <span className="featured-project__visual">
-          <Image
+          <LoadingImage
             alt={project.imageAlt}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw"

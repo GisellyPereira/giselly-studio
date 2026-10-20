@@ -1,7 +1,7 @@
 "use client";
 
 import { useI18n } from "@/src/i18n/use-i18n";
-import Image from "next/image";
+import { LoadingImage } from "@/src/presentation/components/shared/LoadingImage";
 import { useEffect, useRef } from "react";
 import type { Project } from "@/src/domain/entities/portfolio";
 import { Button, ButtonLink } from "@/src/presentation/components/shared/Button";
@@ -110,7 +110,7 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
             <figure className="case-visual">
               <span aria-hidden="true" className="case-visual__tape" />
               <div className="case-visual__frame">
-                <Image
+                <LoadingImage
                   alt={project.imageAlt}
                   className="case-visual__image"
                   fill
@@ -126,7 +126,7 @@ export function CaseStudyModal({ project, onClose }: CaseStudyModalProps) {
             <section className={galleryStyles.gallery} data-screens={project.screenshots.length} aria-label={t("Telas do {value0}", {value0: project.title})}>
               {project.screenshots.map((screenshot) => (
                 <figure className={galleryStyles.screen} key={screenshot.src}>
-                  <Image alt={screenshot.alt} src={screenshot.src} width={screenshot.width} height={screenshot.height} sizes="(max-width: 760px) 84vw, 30vw" className={galleryStyles.image} />
+                  <LoadingImage alt={screenshot.alt} src={screenshot.src} width={screenshot.width} height={screenshot.height} sizes="(max-width: 760px) 84vw, 30vw" className={galleryStyles.image} />
                   <figcaption>{screenshot.caption}</figcaption>
                 </figure>
               ))}

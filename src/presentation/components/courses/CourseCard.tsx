@@ -2,6 +2,7 @@
 
 import { useI18n } from "@/src/i18n/use-i18n";
 import Image from "next/image";
+import { LoadingImage } from "@/src/presentation/components/shared/LoadingImage";
 import { useState } from "react";
 import type { Course } from "@/src/domain/entities/course";
 import { Button } from "@/src/presentation/components/shared/Button";
@@ -34,7 +35,7 @@ export function CourseCard({ course, provider, providerLogo }: CourseCardProps) 
         <span aria-hidden="true" className="course-card__tape" />
 
         <div className="course-card__visual">
-          <Image
+          <LoadingImage
             alt=""
             className="course-card__image"
             fill

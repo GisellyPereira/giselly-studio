@@ -2,6 +2,7 @@
 
 import { useI18n } from "@/src/i18n/use-i18n";
 import Image from "next/image";
+import { LoadingImage } from "@/src/presentation/components/shared/LoadingImage";
 import { useCallback, useRef, useState } from "react";
 import type { Project } from "@/src/domain/entities/portfolio";
 import { CaseStudyModal } from "@/src/presentation/components/projects/CaseStudyModal";
@@ -56,7 +57,7 @@ export function FeaturedProjectsSection({ projects }: FeaturedProjectsSectionPro
                   }}
                 >
                   <span className="project-cutout__picture">
-                    <Image
+                    <LoadingImage
                       alt={project.imageAlt}
                       fill
                       sizes="(max-width: 700px) 82vw, (max-width: 1050px) 42vw, 30vw"

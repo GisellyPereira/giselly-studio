@@ -1,7 +1,7 @@
 "use client";
 
 import { useI18n } from "@/src/i18n/use-i18n";
-import Image from "next/image";
+import { LoadingImage } from "@/src/presentation/components/shared/LoadingImage";
 import type { GalleryTone, PublicProject } from "@/src/domain/entities/public-project";
 import { Button, ButtonLink } from "@/src/presentation/components/shared/Button";
 import { GlassPanel } from "@/src/presentation/components/shared/GlassPanel";
@@ -44,7 +44,7 @@ export function ProjectGalleryCard({ project, tone, active, onActivate, onDeacti
       }}
     >
       {project.imageSrc ? (
-        <Image alt="" className="gallery-card__image" fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 600px" src={project.imageSrc} style={project.imageFit ? { objectFit: project.imageFit, backgroundColor: "#fffdf8", transform: "none" } : undefined} />
+        <LoadingImage alt="" className="gallery-card__image" fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 600px" src={project.imageSrc} style={project.imageFit ? { objectFit: project.imageFit, backgroundColor: "#fffdf8", transform: "none" } : undefined} />
       ) : (
         <div aria-hidden="true" className="gallery-card__artwork">
           <span className="gallery-card__orbit" />

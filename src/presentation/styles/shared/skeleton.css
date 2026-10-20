@@ -1,0 +1,33 @@
+/* Skeleton: brilho suave em rosa e creme, nas cores da marca */
+:root {
+  --skeleton-base: #f3dfe3;
+  --skeleton-shine: #fff6f1;
+}
+
+@keyframes skeleton-shimmer {
+  from { background-position: 150% 0; }
+  to { background-position: -50% 0; }
+}
+
+.skeleton {
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+  background: linear-gradient(100deg, var(--skeleton-base) 30%, var(--skeleton-shine) 50%, var(--skeleton-base) 70%) var(--skeleton-base);
+  background-size: 200% 100%;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Contêineres de imagem: brilho enquanto a foto carrega, depois a foto aparece suave */
+:where(*):has(> img[data-image-state="loading"]) {
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+  background-image: linear-gradient(100deg, var(--skeleton-base) 30%, var(--skeleton-shine) 50%, var(--skeleton-base) 70%);
+  background-size: 200% 100%;
+}
+
+img[data-image-state] { transition: opacity .45s ease; }
+img[data-image-state="loading"] { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton,
+  :where(*):has(> img[data-image-state="loading"]) { animation: none; }
+}

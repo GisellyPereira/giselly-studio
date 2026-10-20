@@ -1,7 +1,7 @@
 "use client";
 
 import { useI18n } from "@/src/i18n/use-i18n";
-import Image from "next/image";
+import { LoadingImage } from "@/src/presentation/components/shared/LoadingImage";
 import type { LandingPageProject } from "@/src/domain/entities/public-project";
 import { ButtonLink } from "@/src/presentation/components/shared/Button";
 import { NicheSketch } from "./NicheSketch";
@@ -23,7 +23,7 @@ export function LandingPageCard({ project, nicheLabel }: LandingPageCardProps) {
         </div>
         <div className={styles.art}>
           {project.imageSrc ? (
-            <Image
+            <LoadingImage
               alt={t("Arte do projeto {value0}", {value0: project.title})}
               className={styles.image}
               src={project.imageSrc}

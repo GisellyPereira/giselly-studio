@@ -2,6 +2,7 @@
 
 import { useI18n } from "@/src/i18n/use-i18n";
 import Image from "next/image";
+import { LoadingImage } from "@/src/presentation/components/shared/LoadingImage";
 import type { AboutContent, AboutPhoto } from "@/src/domain/entities/about";
 import { EntranceSection } from "@/src/presentation/components/behavior/EntranceSection";
 import { ButtonLink } from "@/src/presentation/components/shared/Button";
@@ -16,7 +17,7 @@ function Polaroid({ photo, className, priority = false }: {
     <figure className={`${styles.polaroid} ${className}`}>
       <span aria-hidden="true" className={styles.tape} />
       <div className={styles.photoWindow}>
-        <Image
+        <LoadingImage
           alt={photo.alt}
           className={photo.sideways ? styles.sidewaysPhoto : styles.photo}
           height={photo.height}
