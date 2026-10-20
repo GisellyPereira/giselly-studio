@@ -54,7 +54,7 @@ export function StudioPage({ initialNiche }: StudioPageProps) {
             {landingPageContent.processSteps.map((step) => (
               <li key={step.number}>
                 <span className={styles.processNumber} aria-hidden="true">{step.number}</span>
-                <h3>{step.title}</h3>
+                <h3>{step.name}</h3>
                 <p>{step.text}</p>
               </li>
             ))}
