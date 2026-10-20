@@ -61,3 +61,12 @@ export function WhatsAppIcon() {
     </svg>
   );
 }
+
+export function MailIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.7" viewBox="0 0 24 24">
+      <rect height="15" rx="2.5" width="19" x="2.5" y="4.5" />
+      <path d="m3.5 6.5 8.5 6.5 8.5-6.5" />
+    </svg>
+  );
+}

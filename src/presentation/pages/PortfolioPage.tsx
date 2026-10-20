@@ -21,7 +21,7 @@ export function PortfolioPage() {
       <FeaturedProjectsSection projects={portfolioData.projects} />
       <ExperienceSection content={experienceContent} experiences={portfolioData.experiences} />
       <SkillsSection content={skillsContent} />
-      <ContactSection whatsapp={portfolioData.whatsapp} location={portfolioData.location} />
+      <ContactSection email={portfolioData.email} whatsapp={portfolioData.whatsapp} socials={portfolioData.socials} location={portfolioData.location} />
       <Footer role={portfolioData.role} socials={portfolioData.socials} />
     </main>
   );

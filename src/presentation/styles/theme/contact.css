@@ -148,3 +148,27 @@
   .contact h2 { width: 100%; }
   .contact__footer { width: 100%; }
 }
+
+.contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 1.4rem;
+}
+
+.contact__links a {
+  align-items: center;
+  color: var(--pop-cream);
+  display: inline-flex;
+  font-family: var(--font-clean);
+  font-size: .9rem;
+  font-weight: 650;
+  gap: .3rem;
+  text-decoration: underline;
+  text-decoration-color: rgb(247 220 227 / .45);
+  text-underline-offset: .3rem;
+  transition: text-decoration-color .3s;
+}
+
+.contact__links a:hover { text-decoration-color: currentColor; }
+.contact__links a:focus-visible { outline: 2px solid var(--pop-cream); outline-offset: 3px; }
+.contact__links svg { height: 1rem; width: 1rem; }
