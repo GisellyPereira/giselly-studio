@@ -1,4 +1,5 @@
 import type {
+  ArchiveBadge,
   ArchiveFilter,
   ArchiveFilterOption,
   ArchiveProject,
@@ -36,9 +37,22 @@ function mergeTechnology(featured: Project, publicProject?: PublicProject): stri
   }).join(" · ");
 }
 
+// Deixa claro o que foi trabalho profissional, projeto pessoal ou estudo.
+const professionalIds = new Set(["sistema-escolar-fab", "teatro-arthur-azevedo", "museu-do-palacio-dos-leoes", "procon-ma", "hubnews-app", "hubnews-web", "fala-ati"]);
+const studyIds = new Set(["animais-fantasticos", "3d-race", "soda-animation", "api-weather"]);
+const unlabeledIds = new Set(["app-reino"]);
+
+function archiveBadge(id: string): ArchiveBadge | undefined {
+  if (unlabeledIds.has(id)) return undefined;
+  if (professionalIds.has(id)) return "Profissional";
+  if (studyIds.has(id)) return "Estudo";
+  return "Projeto pessoal";
+}
+
 function toArchiveProject(project: PublicProject): ArchiveProject {
   return {
     ...project,
+    badge: archiveBadge(project.id),
     imageAlt: project.imageSrc ? `Prévia do projeto ${project.title}` : "",
   };
 }
@@ -62,6 +76,7 @@ function mergeFeaturedProject(project: Project, publicProject?: PublicProject): 
     storeLinks: project.storeLinks ?? publicProject?.storeLinks,
     repositoryUrl,
     featured: { ...project, deployUrl, repositoryUrl },
+    badge: archiveBadge(publicProject?.id ?? projectId(project.title)),
   };
 }
 

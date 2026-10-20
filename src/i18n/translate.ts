@@ -26,7 +26,7 @@ export function createTranslator(read: (key: string) => string, locale: string):
   };
 }
 
-const stableFields = new Set(["id", "category", "niche", "niches", "title", "company", "companyShort", "href", "deployUrl", "repositoryUrl", "imageSrc", "src"]);
+const stableFields = new Set(["id", "badge", "category", "niche", "niches", "title", "company", "companyShort", "href", "deployUrl", "repositoryUrl", "imageSrc", "src"]);
 export function translateContent<T>(content: T, translate: Translate, field = ""): T {
   if (stableFields.has(field)) return content;
   if (typeof content === "string") {

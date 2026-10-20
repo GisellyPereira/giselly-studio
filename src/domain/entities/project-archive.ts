@@ -3,6 +3,7 @@ import type { Project, SocialLink } from "./portfolio";
 import type { ProjectCoverLayout } from "./public-project";
 
 export type ArchiveCategory = "Web" | "Mobile" | "Experimento";
+export type ArchiveBadge = "Profissional" | "Projeto pessoal" | "Estudo";
 export type ArchiveFilter = "all" | ArchiveCategory;
 
 export interface ArchiveFilterOption {
@@ -29,4 +30,5 @@ export interface ArchiveProject {
   readonly heading?: readonly string[];
   readonly landingPage?: LandingPageDetails;
   readonly featured?: Project;
+  readonly badge?: ArchiveBadge;
 }

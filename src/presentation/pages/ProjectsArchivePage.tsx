@@ -1,11 +1,13 @@
 "use client";
 
 import { useI18n } from "@/src/i18n/use-i18n";
-import { useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { useLenis } from "lenis/react";
 import { archiveFilters as originalArchiveFilters, archiveProjects as originalArchiveProjects, filterArchiveProjects, projectArchiveContent as originalProjectArchiveContent } from "@/src/data/project-archive";
 import { portfolioData as originalPortfolioData } from "@/src/data/portfolio";
 import type { ArchiveFilter } from "@/src/domain/entities/project-archive";
+import type { Project } from "@/src/domain/entities/portfolio";
+import { CaseStudyModal } from "@/src/presentation/components/projects/CaseStudyModal";
 import { EntranceSection } from "@/src/presentation/components/behavior/EntranceSection";
 import { Footer } from "@/src/presentation/components/layout/Footer";
 import { Header } from "@/src/presentation/components/layout/Header";
@@ -35,6 +37,16 @@ export function ProjectsArchivePage() {
   const toolbarRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const lenis = useLenis();
+  const [caseProject, setCaseProject] = useState<Project | null>(null);
+  const caseTrigger = useRef<HTMLElement | null>(null);
+  const openCase = useCallback((project: Project, trigger: HTMLElement) => {
+    caseTrigger.current = trigger;
+    setCaseProject(project);
+  }, []);
+  const closeCase = useCallback(() => {
+    setCaseProject(null);
+    requestAnimationFrame(() => caseTrigger.current?.focus({ preventScroll: true }));
+  }, []);
 
   const filteredProjects = useMemo(() => filterArchiveProjects(archiveProjects, activeFilter, query), [activeFilter, query, archiveProjects]);
   const counts = useMemo(() => archiveFilters.map((filter) => filterArchiveProjects(archiveProjects, filter.id, query).length), [query, archiveFilters, archiveProjects]);
@@ -110,7 +122,7 @@ export function ProjectsArchivePage() {
 
         {pageProjects.length > 0 ? (
           <EntranceSection as="div" className={styles.grid} id="all-projects-grid" aria-labelledby="archive-grid-title" key={`${activeFilter}-${query}-${currentPage}`} revealTogether>
-            {pageProjects.map((project) => <ArchiveProjectCard project={project} githubUrl={projectArchiveContent.githubUrl} key={project.id} />)}
+            {pageProjects.map((project) => <ArchiveProjectCard project={project} onOpenCase={openCase} key={project.id} />)}
           </EntranceSection>
         ) : (
           <div className={styles.empty} id="all-projects-grid"><ArchiveCategoryIcon category="all" /><h2>{projectArchiveContent.emptyHeading}</h2><p>{projectArchiveContent.emptyDescription}</p><Button variant="caseAction" className={styles.reset} onClick={resetFilters}>{t("Limpar busca e filtros")}</Button></div>
@@ -127,6 +139,7 @@ export function ProjectsArchivePage() {
         </EntranceSection>
       </section>
       <Footer role={portfolioData.role} socials={portfolioData.socials} />
+      <CaseStudyModal project={caseProject} onClose={closeCase} />
     </main>
   );
 }

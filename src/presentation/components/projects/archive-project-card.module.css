@@ -92,3 +92,32 @@
   .card:is(:hover, :focus-within) { translate: none; }
   .card:hover .image { transform: none; }
 }
+
+button.bodyLink { background: none; border: 0; cursor: pointer; font: inherit; padding: 0; text-align: left; width: 100%; }
+
+.badge {
+  background: var(--pop-white);
+  border-radius: 999px;
+  box-shadow: 0 .2rem .6rem rgb(56 31 44 / .12);
+  color: var(--pop-red-dark);
+  font-family: var(--font-clean);
+  font-size: .62rem;
+  font-weight: 700;
+  left: .55rem;
+  letter-spacing: .04em;
+  padding: .32rem .62rem;
+  position: absolute;
+  text-transform: uppercase;
+  top: .55rem;
+  z-index: 1;
+}
+.badge[data-badge="Profissional"] { background: var(--pop-red-dark); color: var(--pop-white); }
+.badge[data-badge="Estudo"] { background: var(--pop-paper-yellow); }
+
+.private {
+  color: var(--pop-red-dark);
+  font-family: var(--font-clean);
+  font-size: .72rem;
+  font-weight: 600;
+  opacity: .7;
+}
