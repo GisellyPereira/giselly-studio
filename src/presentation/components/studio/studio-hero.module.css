@@ -1,20 +1,36 @@
 .hero {
-  --back-to-top-tone: wine;
-  background: var(--pop-pink-light);
-  color: var(--pop-red-dark);
+  --back-to-top-tone: cream;
+  background: radial-gradient(ellipse 70% 60% at 85% 35%, rgb(255 248 239 / .10), transparent 70%), var(--pop-red-dark);
+  color: var(--pop-cream);
   isolation: isolate;
   overflow: clip;
   padding: clamp(8rem, 12vw, 10rem) var(--page-padding) clamp(4.5rem, 7vw, 6.5rem);
   position: relative;
 }
 
-/* Mesmas listras da home, mais suaves, para ligar as duas portas de entrada */
+/* Textura de papel e uma flor grande da marca, bem discreta, no fundo vinho */
 .stripes {
-  background-image: repeating-linear-gradient(90deg, rgb(119 29 60 / .05) 0 4.5rem, transparent 4.5rem 9rem);
+  background: url("/images/decor/paper-grain.svg") repeat;
   inset: 0;
+  mix-blend-mode: soft-light;
+  opacity: .5;
   pointer-events: none;
   position: absolute;
   z-index: -1;
+}
+
+.stripes::after {
+  background: var(--pop-cream);
+  content: "";
+  height: clamp(22rem, 38vw, 34rem);
+  left: -8%;
+  -webkit-mask: url("/images/brand/giselly-studio-icon.svg") center / contain no-repeat;
+  mask: url("/images/brand/giselly-studio-icon.svg") center / contain no-repeat;
+  opacity: .05;
+  position: absolute;
+  top: 18%;
+  transform: rotate(-14deg);
+  width: clamp(22rem, 38vw, 34rem);
 }
 
 .inner {
@@ -52,7 +68,7 @@
 }
 
 .title em {
-  color: var(--pop-red);
+  color: var(--pop-pink-light);
   display: block;
   font-family: var(--font-editorial);
   font-size: clamp(3rem, 5.4vw, 5.2rem);
@@ -64,7 +80,7 @@
 }
 
 .lede {
-  color: var(--pop-ink);
+  color: rgb(255 248 239 / .82);
   font-family: var(--font-clean);
   font-size: clamp(.95rem, 1.15vw, 1.05rem);
   line-height: 1.7;
@@ -81,11 +97,11 @@
 }
 
 .hero .primary {
-  --action-fill: var(--pop-pink);
-  --action-hover-color: var(--pop-ink);
-  background: var(--pop-red-dark);
+  --action-fill: var(--pop-pink-light);
+  --action-hover-color: var(--pop-red-dark);
+  background: var(--pop-cream);
   border: 0;
-  color: var(--pop-white);
+  color: var(--pop-red-dark);
   font-size: .82rem;
   min-height: 3rem;
   min-width: 0;
@@ -97,11 +113,11 @@
 .hero .primary :global(.action-button__icon svg) { height: 100%; width: 100%; }
 
 .hero .secondary {
-  --action-fill: var(--pop-red-dark);
-  --action-hover-color: var(--pop-white);
+  --action-fill: var(--pop-cream);
+  --action-hover-color: var(--pop-red-dark);
   background: transparent;
-  border: 1.5px solid var(--pop-red-dark);
-  color: var(--pop-red-dark);
+  border: 1.5px solid rgb(255 248 239 / .7);
+  color: var(--pop-cream);
   font-size: .82rem;
   min-height: 3rem;
   min-width: 0;
@@ -117,7 +133,7 @@
 .window {
   background: var(--pop-white);
   border-radius: .7rem;
-  box-shadow: 0 1.4rem 3rem -1.4rem rgb(91 24 39 / .38), 0 .2rem .5rem rgb(91 24 39 / .08);
+  box-shadow: 0 1.6rem 3.2rem -1.2rem rgb(20 4 10 / .55), 0 .2rem .5rem rgb(20 4 10 / .2);
   margin: 0;
   overflow: hidden;
   position: absolute;
@@ -130,7 +146,7 @@
 .window[data-index="2"] { bottom: 2%; left: 18%; transform: rotate(-1deg); z-index: 3; }
 
 @media (hover: hover) and (pointer: fine) {
-  .window:hover { box-shadow: 0 1.8rem 3.4rem -1.4rem rgb(91 24 39 / .45); transform: rotate(0deg) translateY(-.35rem) scale(1.02); z-index: 4; }
+  .window:hover { box-shadow: 0 2rem 3.6rem -1.2rem rgb(20 4 10 / .6); transform: rotate(0deg) translateY(-.35rem) scale(1.02); z-index: 4; }
 }
 
 .chrome {
@@ -157,6 +173,7 @@
 
 .window figcaption {
   background: var(--pop-white);
+  color: var(--pop-red-dark);
   border-radius: 999px;
   bottom: .6rem;
   box-shadow: 0 .2rem .6rem rgb(56 31 44 / .14);
@@ -172,7 +189,7 @@
 
 .note {
   bottom: -1.4rem;
-  color: var(--pop-red-dark);
+  color: var(--pop-pink-light);
   font-family: "Dawning of a New Day", cursive;
   font-size: clamp(1.6rem, 2.2vw, 2.1rem);
   margin: 0;
@@ -196,4 +213,13 @@
 
 @media (prefers-reduced-motion: reduce) {
   .window { transition: none; }
+}
+
+.flower {
+  background: var(--pop-pink-light);
+  display: block;
+  height: 1.05rem;
+  -webkit-mask: url("/images/brand/giselly-studio-icon.svg") center / contain no-repeat;
+  mask: url("/images/brand/giselly-studio-icon.svg") center / contain no-repeat;
+  width: 1.05rem;
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { useI18n } from "@/src/i18n/use-i18n";
-import Image from "next/image";
 import type { SocialLink } from "@/src/domain/entities/portfolio";
 import { EntranceSection } from "@/src/presentation/components/behavior/EntranceSection";
 import { ButtonLink } from "@/src/presentation/components/shared/Button";
@@ -24,7 +23,7 @@ export function StudioHero({ whatsapp }: { readonly whatsapp: SocialLink }) {
       <div className={styles.inner}>
         <div className={styles.copy}>
           <p className={styles.eyebrow} data-entrance="rise">
-            <Image alt="" aria-hidden="true" height={20} src="/images/brand/giselly-studio-icon.svg" width={20} />
+            <span aria-hidden="true" className={styles.flower} />
             Giselly Studio
           </p>
           <h1 className={styles.title} data-entrance="heading" data-entrance-children id="studio-hero-title">
