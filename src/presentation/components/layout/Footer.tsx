@@ -10,9 +10,10 @@ import { EntranceSection } from "@/src/presentation/components/behavior/Entrance
 interface FooterProps {
   readonly role: string;
   readonly socials: readonly SocialLink[];
+  readonly brand?: "pereira" | "studio";
 }
 
-export function Footer({ role, socials }: FooterProps) {
+export function Footer({ role, socials, brand = "pereira" }: FooterProps) {
   const { t } = useI18n();
   return (
     <EntranceSection as="footer" className="site-footer" revealTogether>
@@ -21,10 +22,10 @@ export function Footer({ role, socials }: FooterProps) {
           <div className="footer-brand" data-entrance="rise">
             <Image
               className="footer-logo"
-              src="/images/brand/giselly-studio-light.svg"
-              alt="Giselly Studio"
-              width={900}
-              height={925}
+              src={brand === "studio" ? "/images/brand/giselly-studio-light.svg" : "/images/brand/giselly-pereira-light.svg"}
+              alt={brand === "studio" ? "Giselly Studio" : "Giselly Pereira"}
+              width={brand === "studio" ? 900 : 880}
+              height={brand === "studio" ? 925 : 940}
             />
             <div className="footer-brand__copy">
               <p className="footer-brand__signature">{t("Feito por mim, do meu jeito")}</p>
