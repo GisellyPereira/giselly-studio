@@ -240,7 +240,7 @@
 /* Hero: um único botão, na mesma cor vinho do "Vamos conversar" */
 .portfolio-home .hero-campaign__logo { max-height: 50svh; }
 
-.hero-campaign__actions { display: flex; justify-content: center; margin-top: .4rem; }
+.hero-campaign__actions { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin-top: .4rem; }
 
 .hero-campaign .hero-campaign__action {
   --action-fill: var(--pop-pink);
@@ -257,3 +257,13 @@
 @media (max-width: 640px) {
   .portfolio-home .hero-campaign__logo { max-height: 42svh; }
 }
+
+.hero-campaign .hero-campaign__action--outline {
+  --action-fill: var(--pop-red-dark);
+  --action-hover-color: var(--pop-white);
+  background: transparent;
+  border: 1.5px solid var(--pop-red-dark);
+  color: var(--pop-red-dark);
+}
+.hero-campaign__action .action-button__icon { display: inline-flex; height: 1rem; width: 1rem; }
+.hero-campaign__action .action-button__icon svg { height: 100%; width: 100%; }

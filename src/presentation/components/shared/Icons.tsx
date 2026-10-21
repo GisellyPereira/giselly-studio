@@ -70,3 +70,13 @@ export function MailIcon() {
     </svg>
   );
 }
+
+export function DownloadIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" viewBox="0 0 24 24">
+      <path d="M12 4v11" />
+      <path d="m7 10 5 5 5-5" />
+      <path d="M5 19.5h14" />
+    </svg>
+  );
+}
