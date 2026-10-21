@@ -1,0 +1,199 @@
+.hero {
+  --back-to-top-tone: wine;
+  background: var(--pop-pink-light);
+  color: var(--pop-red-dark);
+  isolation: isolate;
+  overflow: clip;
+  padding: clamp(8rem, 12vw, 10rem) var(--page-padding) clamp(4.5rem, 7vw, 6.5rem);
+  position: relative;
+}
+
+/* Mesmas listras da home, mais suaves, para ligar as duas portas de entrada */
+.stripes {
+  background-image: repeating-linear-gradient(90deg, rgb(119 29 60 / .05) 0 4.5rem, transparent 4.5rem 9rem);
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.inner {
+  align-items: center;
+  display: grid;
+  gap: clamp(3rem, 5vw, 5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  margin: 0 auto;
+  max-width: var(--content-max-width);
+}
+
+.eyebrow {
+  align-items: center;
+  display: inline-flex;
+  font-family: var(--font-clean);
+  font-size: .72rem;
+  font-weight: 750;
+  gap: .5rem;
+  letter-spacing: .14em;
+  margin: 0 0 1.6rem;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+}
+
+.title span {
+  display: block;
+  font-family: "Archivo Variable", sans-serif;
+  font-size: clamp(2.6rem, 4.6vw, 4.4rem);
+  font-variation-settings: "wdth" 92, "wght" 850;
+  letter-spacing: -.06em;
+  line-height: 1;
+}
+
+.title em {
+  color: var(--pop-red);
+  display: block;
+  font-family: var(--font-editorial);
+  font-size: clamp(3rem, 5.4vw, 5.2rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -.035em;
+  line-height: 1;
+  margin-top: .08em;
+}
+
+.lede {
+  color: var(--pop-ink);
+  font-family: var(--font-clean);
+  font-size: clamp(.95rem, 1.15vw, 1.05rem);
+  line-height: 1.7;
+  margin: 1.6rem 0 0;
+  max-width: 36ch;
+  text-wrap: pretty;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin-top: 2rem;
+}
+
+.hero .primary {
+  --action-fill: var(--pop-pink);
+  --action-hover-color: var(--pop-ink);
+  background: var(--pop-red-dark);
+  border: 0;
+  color: var(--pop-white);
+  font-size: .82rem;
+  min-height: 3rem;
+  min-width: 0;
+  padding: .8rem 1.4rem;
+}
+
+.hero .primary :global(.action-button__content) { gap: .5rem; }
+.hero .primary :global(.action-button__icon) { display: inline-flex; height: 1.1rem; order: -1; width: 1.1rem; }
+.hero .primary :global(.action-button__icon svg) { height: 100%; width: 100%; }
+
+.hero .secondary {
+  --action-fill: var(--pop-red-dark);
+  --action-hover-color: var(--pop-white);
+  background: transparent;
+  border: 1.5px solid var(--pop-red-dark);
+  color: var(--pop-red-dark);
+  font-size: .82rem;
+  min-height: 3rem;
+  min-width: 0;
+  padding: .8rem 1.4rem;
+}
+
+/* Janelas de navegador sobrepostas, como fotos espalhadas */
+.showcase {
+  aspect-ratio: 1 / .82;
+  position: relative;
+}
+
+.window {
+  background: var(--pop-white);
+  border-radius: .7rem;
+  box-shadow: 0 1.4rem 3rem -1.4rem rgb(91 24 39 / .38), 0 .2rem .5rem rgb(91 24 39 / .08);
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+  transition: transform .5s var(--ease-out-quint), box-shadow .5s var(--ease-out-quint);
+  width: 64%;
+}
+
+.window[data-index="0"] { left: 0; top: 4%; transform: rotate(-4deg); z-index: 1; }
+.window[data-index="1"] { right: 0; top: 0; transform: rotate(3.5deg); z-index: 2; }
+.window[data-index="2"] { bottom: 2%; left: 18%; transform: rotate(-1deg); z-index: 3; }
+
+@media (hover: hover) and (pointer: fine) {
+  .window:hover { box-shadow: 0 1.8rem 3.4rem -1.4rem rgb(91 24 39 / .45); transform: rotate(0deg) translateY(-.35rem) scale(1.02); z-index: 4; }
+}
+
+.chrome {
+  align-items: center;
+  background: #f4e6e9;
+  display: flex;
+  gap: .32rem;
+  height: 1.55rem;
+  padding: 0 .65rem;
+}
+
+.chrome i {
+  background: rgb(119 29 60 / .28);
+  border-radius: 50%;
+  height: .42rem;
+  width: .42rem;
+}
+
+.shot {
+  aspect-ratio: 16 / 10;
+  background: var(--pop-cream);
+  position: relative;
+}
+
+.window figcaption {
+  background: var(--pop-white);
+  border-radius: 999px;
+  bottom: .6rem;
+  box-shadow: 0 .2rem .6rem rgb(56 31 44 / .14);
+  font-family: var(--font-clean);
+  font-size: .62rem;
+  font-weight: 700;
+  left: .6rem;
+  letter-spacing: .06em;
+  padding: .3rem .6rem;
+  position: absolute;
+  text-transform: uppercase;
+}
+
+.note {
+  bottom: -1.4rem;
+  color: var(--pop-red-dark);
+  font-family: "Dawning of a New Day", cursive;
+  font-size: clamp(1.6rem, 2.2vw, 2.1rem);
+  margin: 0;
+  position: absolute;
+  right: 2%;
+  transform: rotate(-6deg);
+  z-index: 5;
+}
+
+@media (max-width: 980px) {
+  .inner { grid-template-columns: minmax(0, 1fr); }
+  .showcase { margin: 0 auto; max-width: 34rem; width: 100%; }
+}
+
+@media (max-width: 560px) {
+  .hero { padding-top: 7rem; }
+  .actions > * { flex: 1 1 100%; }
+  .window { width: 70%; }
+  .note { bottom: -1.8rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .window { transition: none; }
+}

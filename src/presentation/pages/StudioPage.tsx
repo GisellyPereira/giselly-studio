@@ -2,14 +2,13 @@
 
 import { useI18n } from "@/src/i18n/use-i18n";
 import { landingPageContent as originalLandingPageContent, landingPageGroups as originalLandingPageGroups, landingPageNiches as originalLandingPageNiches, landingPageProjects as originalLandingPageProjects } from "@/src/data/landing-pages";
-import { landingPagesCalloutContent as originalCalloutContent } from "@/src/data/landing-pages-callout";
 import { portfolioData as originalPortfolioData } from "@/src/data/portfolio";
 import type { LandingPageNiche } from "@/src/domain/entities/landing-page";
 import { EntranceSection } from "@/src/presentation/components/behavior/EntranceSection";
 import { LandingPageCatalog } from "@/src/presentation/components/landing-pages/LandingPageCatalog";
 import { Footer } from "@/src/presentation/components/layout/Footer";
 import { Header } from "@/src/presentation/components/layout/Header";
-import { LandingPagesCallout } from "@/src/presentation/components/sections/LandingPagesCallout";
+import { StudioHero } from "@/src/presentation/components/studio/StudioHero";
 import { ButtonLink } from "@/src/presentation/components/shared/Button";
 import { WhatsAppIcon } from "@/src/presentation/components/shared/Icons";
 import styles from "./studio-page.module.css";
@@ -19,23 +18,17 @@ interface StudioPageProps {
 }
 
 export function StudioPage({ initialNiche }: StudioPageProps) {
-  const { t, localize, locale } = useI18n();
+  const { t, localize } = useI18n();
   const landingPageContent = localize(originalLandingPageContent);
   const landingPageGroups = localize(originalLandingPageGroups);
   const landingPageNiches = localize(originalLandingPageNiches);
   const landingPageProjects = localize(originalLandingPageProjects);
   const portfolioData = localize(originalPortfolioData);
-  const translatedCallout = localize(originalCalloutContent);
-  const calloutContent = locale === "en"
-    ? { ...translatedCallout, handwrittenNotes: { ...translatedCallout.handwrittenNotes, human: [...translatedCallout.handwrittenNotes.human].reverse() } }
-    : translatedCallout;
 
   return (
     <main className={styles.page}>
       <Header email={portfolioData.email} accent />
-      <div className={styles.opening}>
-        <LandingPagesCallout content={calloutContent} headingLevel="h1" />
-      </div>
+      <StudioHero whatsapp={portfolioData.whatsapp} />
       <LandingPageCatalog
         initialNiche={initialNiche}
         projects={landingPageProjects}
