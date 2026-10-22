@@ -38,10 +38,10 @@ export const portfolioData = {
     {
       number: "02",
       title: "Teatro Arthur Azevedo",
-      highlight: "Portal com agenda cultural, acervo e bilheteria · Governo do MA",
+      highlight: "Front-end completo · agenda cultural, acervo e bilheteria",
       category: "Web",
       description:
-        "Atuei no desenvolvimento do portal do Teatro Arthur Azevedo, em parceria com a coordenação do teatro e a equipe de design. O projeto apresenta a história do espaço cultural e a trajetória de Arthur Azevedo, conectando memória, acervo e programação em uma experiência digital. Minha atuação reuniu implementação de interfaces, integração com o sistema de gestão de conteúdo e construção de animações e interações, traduzindo a proposta visual em uma navegação que combina o caráter clássico da instituição com uma experiência envolvente e divertida.",
+        "Fui responsável por todo o front-end do portal do Teatro Arthur Azevedo, em parceria com a coordenação do teatro e a equipe de design. O projeto apresenta a história do espaço cultural e a trajetória de Arthur Azevedo, conectando memória, acervo e programação em uma experiência digital. Minha atuação reuniu implementação de interfaces, integração com o sistema de gestão de conteúdo e construção de animações e interações, traduzindo a proposta visual em uma navegação que combina o caráter clássico da instituição com uma experiência envolvente e divertida.",
       color: "banana",
       imageSrc: "/images/featured-projects/teatro-arthur-azevedo-hero-80283d7c.png",
       deployUrl: "https://teatroarthurazevedo.ma.gov.br/",
@@ -230,7 +230,7 @@ export const portfolioData = {
       companyShort: "ATI Maranhão",
       focus: "Mobile & Web",
       description:
-        "- Desenvolvo aplicativos e portais do Governo do Maranhão, da prototipação no Figma à publicação, no mobile com React Native e na web com React e Next.js.\n- Entre os apps que desenvolvi, destaco o Viva Procon, em que fui a única desenvolvedora front-end: ele leva agendamento e registro de reclamações ao celular de cidadãos de todo o estado, sem fila e sem ida a uma unidade.\n- Entre os portais, destaco os do Teatro Arthur Azevedo e do Museu do Palácio dos Leões, este com conteúdo em 6 idiomas.\n- Sou responsável pela publicação e atualização dos apps da agência na App Store e no Google Play, com builds no EAS e versionamento automático.\n- Implementei notificações push com Firebase FCM, inclusive com o app fechado, com histórico e controle de leitura em SQLite.\n- Reviso código de desenvolvedores iniciantes em web e mobile e faço a mentoria de uma pessoa desenvolvedora front-end júnior.",
+        "- Desenvolvo aplicativos e portais do Governo do Maranhão, da prototipação no Figma à publicação, no mobile com React Native e na web com React e Next.js.\n- Entre os apps que desenvolvi, destaco o Viva Procon, em que fui a única desenvolvedora front-end: ele leva agendamento e registro de reclamações ao celular de cidadãos de todo o estado, sem fila e sem ida a uma unidade.\n- Entre os portais, destaco o do Teatro Arthur Azevedo, em que fui responsável por todo o front-end, e o do Museu do Palácio dos Leões, feito em equipe e com conteúdo em 6 idiomas.\n- Sou responsável pela publicação e atualização dos apps da agência na App Store e no Google Play, com builds no EAS e versionamento automático.\n- Implementei notificações push com Firebase FCM, inclusive com o app fechado, com histórico e controle de leitura em SQLite.\n- Reviso código de desenvolvedores iniciantes em web e mobile e faço a mentoria de uma pessoa desenvolvedora front-end júnior.",
       tags: ["React Native", "React", "Expo", "TypeScript", "JavaScript", "Firebase FCM", "Expo Router", "SQLite", "EAS Build", "APIs REST", "Yup"],
     },
     {
