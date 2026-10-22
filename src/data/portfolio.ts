@@ -90,21 +90,6 @@ export const portfolioData = {
         "Entreguei uma aplicação responsiva com busca por título, autoria ou assunto, sugestões de leitura, exploração de revistas e detalhes dos livros, incluindo pré-visualização quando disponível. A estante permite salvar e remover títulos, acompanhar os status Quero ler, Lendo e Lido e organizar a coleção com busca, filtros, ordenação e paginação. Temas claro e escuro e animações reforçam a identidade do produto. Implementei testes com Vitest e React Testing Library para componentes, integrações e fluxos de uso, exercitando o ciclo completo de um projeto front-end: concepção visual, implementação, integração com API e validação do comportamento.",
     },
     {
-      number: "04",
-      title: "App Reino",
-      category: "Mobile",
-      description:
-        "Aplicativo que concentra agenda, conteúdos, atividades e comunicação de comunidades em uma única jornada. A interface foi pensada para reduzir atritos nas tarefas diárias e deixar informações importantes sempre fáceis de encontrar.",
-      color: "rose",
-      imageSrc: "/images/featured-projects/app-reino.png",
-      imageAlt: "Aplicativo de agenda e comunidade sendo usado em um celular",
-      tags: ["React Native", "TypeScript", "APIs REST"],
-      challenge:
-        "Transformar tarefas administrativas e diferentes jornadas de uso em fluxos móveis fáceis de entender e executar.",
-      result:
-        "Uma interface organizada para acompanhar informações, agenda e atividades com mais autonomia no dia a dia.",
-    },
-    {
       number: "05",
       title: "Viva Procon",
       highlight: "App do Procon para todo o Maranhão · única dev front-end",
