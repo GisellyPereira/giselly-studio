@@ -10,13 +10,21 @@
 
 /* Textura de papel e uma flor grande da marca, bem discreta, no fundo vinho */
 .stripes {
-  background: url("/images/decor/paper-grain.svg") repeat;
   inset: 0;
-  mix-blend-mode: soft-light;
-  opacity: .5;
   pointer-events: none;
   position: absolute;
   z-index: -1;
+}
+
+/* Textura de pontinhos rosa, mais forte à direita e sumindo para o texto */
+.stripes::before {
+  background-image: radial-gradient(circle, rgb(247 220 227 / .22) 1.3px, transparent 1.6px);
+  background-size: 22px 22px;
+  content: "";
+  inset: 0;
+  -webkit-mask-image: radial-gradient(ellipse 75% 90% at 78% 45%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 75% 90% at 78% 45%, #000 20%, transparent 75%);
+  position: absolute;
 }
 
 .stripes::after {
@@ -26,7 +34,7 @@
   left: -8%;
   -webkit-mask: url("/images/brand/giselly-studio-icon.svg") center / contain no-repeat;
   mask: url("/images/brand/giselly-studio-icon.svg") center / contain no-repeat;
-  opacity: .05;
+  opacity: .07;
   position: absolute;
   top: 18%;
   transform: rotate(-14deg);

@@ -217,3 +217,12 @@
 @media (max-width: 560px) {
   .processSteps { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Header sobre o vinho da abertura: botões em rosa claro para aparecer em qualquer fundo */
+.page :global(.header-actions .talk-pill),
+.page :global(.language-pill) {
+  --action-fill: var(--pop-cream);
+  --action-hover-color: var(--pop-red-dark);
+  background: var(--pop-pink-light);
+  color: var(--pop-red-dark);
+}
