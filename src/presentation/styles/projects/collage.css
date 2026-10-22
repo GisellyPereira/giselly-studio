@@ -262,3 +262,13 @@
   .selected-work__flower--six { right: -.5rem; }
   .selected-work__more { justify-content: center; margin-top: 3rem; }
 }
+
+.project-cutout__highlight {
+  font-family: var(--font-clean);
+  font-size: .86rem;
+  font-weight: 500;
+  grid-column: 1 / -1;
+  line-height: 1.45;
+  opacity: .85;
+  text-wrap: pretty;
+}

@@ -20,6 +20,7 @@ export const portfolioData = {
     {
       number: "01",
       title: "Sistema Escolar — FAB",
+      highlight: "Gestão escolar para cerca de 600 alunos · front-end e UI/UX",
       presentationUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7358138095839391744/",
       category: "Web",
       description:
@@ -37,6 +38,7 @@ export const portfolioData = {
     {
       number: "02",
       title: "Teatro Arthur Azevedo",
+      highlight: "Portal com agenda cultural, acervo e bilheteria · Governo do MA",
       category: "Web",
       description:
         "Atuei no desenvolvimento do portal do Teatro Arthur Azevedo, em parceria com a coordenação do teatro e a equipe de design. O projeto apresenta a história do espaço cultural e a trajetória de Arthur Azevedo, conectando memória, acervo e programação em uma experiência digital. Minha atuação reuniu implementação de interfaces, integração com o sistema de gestão de conteúdo e construção de animações e interações, traduzindo a proposta visual em uma navegação que combina o caráter clássico da instituição com uma experiência envolvente e divertida.",
@@ -54,6 +56,7 @@ export const portfolioData = {
     {
       number: "03",
       title: "Museu do Palácio dos Leões",
+      highlight: "Portal em 6 idiomas com acervo e galerias · Governo do MA",
       category: "Web",
       description:
         "Atuei no desenvolvimento do portal do Museu do Palácio dos Leões, em colaboração com a equipe de design, para apresentar a riqueza histórica e cultural de um dos principais patrimônios do Maranhão. O projeto reúne a história do palácio, seu acervo, galerias e a trajetória dos governadores do estado. Minha atuação conectou a implementação das interfaces à integração com o sistema de gestão de conteúdo, traduzindo a direção visual em uma experiência responsiva, de linguagem clássica e tradicional, que valoriza o caráter institucional e museológico do espaço.",
@@ -104,6 +107,7 @@ export const portfolioData = {
     {
       number: "05",
       title: "Viva Procon",
+      highlight: "App do Procon para todo o Maranhão · única dev front-end",
       category: "Mobile",
       deployUrl: "https://play.google.com/store/apps/details?id=br.gov.ma.proconapp&hl=pt_BR",
       storeLinks: [
@@ -132,6 +136,7 @@ export const portfolioData = {
     {
       number: "06",
       title: "HubNews — App",
+      highlight: "Concepção, layout e front-end do app · publicado na App Store",
       category: "Mobile",
       description:
         "A empresa responsável pelo HubNews me procurou para desenvolver uma nova versão do aplicativo, com uma proposta diferente da anterior. Atuei na concepção da experiência, criação do layout e implementação do front-end em React Native. O produto reúne notícias sobre tecnologia e seus impactos em áreas como games, governo e economia, com conteúdo produzido e publicado por inteligência artificial.",
@@ -156,6 +161,7 @@ export const portfolioData = {
     {
       number: "07",
       title: "HubNews — Web",
+      highlight: "Portal de notícias de tecnologia e IA em Next.js",
       category: "Web",
       description:
         "Portal de notícias sobre tecnologia e inteligência artificial. A composição editorial organiza destaques, últimas notícias e categorias para acompanhar os assuntos em diferentes telas.",
@@ -224,7 +230,7 @@ export const portfolioData = {
       companyShort: "ATI Maranhão",
       focus: "Mobile & Web",
       description:
-        "Desenvolvo aplicativos e portais do Governo do Maranhão com a equipe de sistemas. Reconstruí em React Native o aplicativo Viva Procon, publicado na App Store e no Google Play, e participei dos portais do Teatro Arthur Azevedo e do Museu do Palácio dos Leões, este com conteúdo em seis idiomas. Sou responsável pela publicação e atualização dos aplicativos nas lojas.\n\nNo mobile, trabalho com React Native, Expo, Expo Router e TypeScript: notificações push com Firebase FCM, inclusive com o app encerrado, histórico de notificações em SQLite, câmera, galeria e gestão de permissões em Android e iOS. Configuro os builds de desenvolvimento, prévia e produção no EAS Build.\n\nNa web, desenvolvo interfaces em React integradas à gestão de conteúdo, com APIs REST, autenticação e formulários validados com Yup. Organizo componentes reutilizáveis, otimizo listas e renderização e participo das revisões de código.",
+        "- Fui a única desenvolvedora front-end do Viva Procon, app oficial do Procon Maranhão, ao lado de um desenvolvedor back-end: redesenho no Figma, reconstrução em React Native, 6 meses de desenvolvimento e 1 mês de testes com usuários reais antes da liberação geral.\n- Com o app, agendamentos e reclamações passaram a ser feitos pelo celular, sem fila e sem ida a uma unidade, para cidadãos de todo o Maranhão.\n- Desenvolvi apps e portais do Governo do Estado, entre eles os do Teatro Arthur Azevedo e do Museu do Palácio dos Leões, este com conteúdo em 6 idiomas.\n- Sou responsável pela publicação e atualização dos apps da agência na App Store e no Google Play, com builds no EAS e versionamento automático.\n- Reviso código de desenvolvedores iniciantes em web e mobile e faço a mentoria de uma pessoa desenvolvedora front-end júnior.\n- Implementei notificações push com Firebase FCM, inclusive com o app fechado, com histórico e controle de leitura em SQLite.",
       tags: ["React Native", "React", "Expo", "TypeScript", "JavaScript", "Firebase FCM", "Expo Router", "SQLite", "EAS Build", "APIs REST", "Yup"],
     },
     {
@@ -236,7 +242,7 @@ export const portfolioData = {
       summary: "E-commerces VTEX de marcas como Nike e Chilli Beans",
       focus: "E-commerce",
       description:
-        "Fui uma das desenvolvedoras responsáveis pelas interfaces de lojas como Nike, Chilli Beans, Authentic Feet, Santa Lolla, Móveis Linhares, Vivavinhos, Nautika e Artwalk. Trabalhei na implementação e manutenção desses e-commerces em VTEX CMS e VTEX IO. Mantive contato direto com os clientes pelo Monday para receber demandas, esclarecer necessidades e alinhar as funcionalidades e os recursos de cada solicitação.\n\nNo VTEX CMS, desenvolvi e ajustei a estrutura das páginas com HTML, os estilos com CSS e Sass e as interações com JavaScript. No VTEX IO, implementei componentes em React e trabalhei sua composição nas interfaces das lojas. Implementei layouts enviados pelos clientes ou elaborados pela equipe de design, preservando a identidade visual de cada marca.",
+        "- Desenvolvi e mantive interfaces de e-commerces de marcas como Nike, Chilli Beans, Authentic Feet, Artwalk, Santa Lolla, Nautika, Vivavinhos e Móveis Linhares.\n- Conduzia até 3 lojas ao mesmo tempo, cada uma com seu cliente, sua identidade visual e sua fila de demandas.\n- Criei componentes React no VTEX IO e páginas no VTEX CMS com HTML, Sass e JavaScript, preservando a identidade de cada marca.\n- Atendia os clientes diretamente pelo Monday, alinhando escopo, recursos e prazo de cada entrega.",
       tags: ["VTEX CMS", "VTEX IO", "React", "JavaScript", "HTML", "CSS", "Sass", "Monday"],
     },
     {
@@ -248,7 +254,7 @@ export const portfolioData = {
       summary: "Front-end de três sistemas para cartórios",
       focus: "Sistemas para cartórios",
       description:
-        "Desenvolvi o front-end de três sistemas para cartórios como desenvolvedora pleno, participando da análise de requisitos, implementação e manutenção das telas. Trabalhei em fluxos de registro civil — nascimentos, óbitos e casamentos — e em serviços de escrituras, autenticações e protestos. Implementei interfaces para preenchimento de dados, consulta de registros e disponibilização de informações, incluindo fluxos de troca de dados entre cartórios, em colaboração com as demais áreas da equipe.\n\nUtilizei React, Vite e JavaScript, com Redux para gerenciamento de estado e Tailwind CSS para os estilos. Desenvolvi formulários com Formik, seleção de datas com Datepicker e iconografia com React Icons. Fui responsável pela integração com o back-end, conectando formulários e consultas aos serviços do sistema e exibindo as informações retornadas nas telas. Também trabalhei na configuração do ambiente com Docker e MySQL 8.",
+        "- Desenvolvi o front-end de 3 sistemas para cartórios, entre eles uma central de registro civil de abrangência nacional, com dados de nascimentos, óbitos e casamentos de todo o Brasil.\n- Implementei os fluxos de registro civil, escrituras, autenticações, protestos e troca de dados entre cartórios.\n- Fui responsável pela integração com o back-end, conectando formulários e consultas aos serviços do sistema.\n- Trabalhei com React, Vite, Redux, Formik e Tailwind CSS, e configurei o ambiente com Docker e MySQL 8.",
       tags: ["React", "Vite", "Redux", "Tailwind CSS", "Formik", "Datepicker", "React Icons", "Docker", "MySQL 8"],
     },
     {
@@ -260,7 +266,7 @@ export const portfolioData = {
       summary: "Sistema web e app para gestão de igrejas",
       focus: "Web & Mobile",
       description:
-        "Participei, junto à equipe, do desenvolvimento de um sistema de gestão para igrejas e do aplicativo vinculado a esse mesmo produto. No front-end web, implementei telas e componentes com React a partir dos layouts propostos pela equipe. Utilizei Redux para gerenciamento de estado, Tailwind CSS e Material UI para construir as interfaces e integrei as telas às APIs. No mobile, contribuí para a implementação do aplicativo em React Native.\n\nDesenvolvi funcionalidades de controle financeiro para registrar e acompanhar entradas e saídas no fluxo de caixa, além de cadastro e gestão de membros e consulta de aniversariantes. Minha atuação incluía transformar essas rotinas administrativas em telas funcionais, conectar os dados do sistema às interfaces, corrigir bugs e propor melhorias com a equipe. Também participei da revisão e organização do código e dos ajustes necessários para as entregas.",
+        "- Participei desde o início do sistema de gestão para igrejas e do app ligado a ele. O produto começou com 2 igrejas e hoje atende muitas outras.\n- Desenvolvi o controle financeiro de entradas e saídas, o cadastro de membros e a consulta de aniversariantes.\n- Implementei telas em React com Redux, Tailwind CSS e Material UI, integradas às APIs, e contribuí com o app em React Native.\n- Corrigi bugs, propus melhorias e participei da revisão e organização do código.",
       tags: ["React", "React Native", "Redux", "Tailwind CSS", "Material UI", "APIs REST"],
     },
   ],

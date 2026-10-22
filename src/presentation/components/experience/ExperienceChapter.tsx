@@ -64,9 +64,11 @@ export function ExperienceChapter({ experience, animateEntrance = false }: Exper
       <div className={styles.chapterBody}>
         <div className={styles.description}>
           {experience.company !== experience.companyShort ? <p className={styles.organization} data-chapter-reveal>{experience.company}</p> : null}
-          {experience.description.split("\n\n").map((paragraph) => (
-            <p className={styles.descriptionText} data-chapter-reveal key={paragraph}>{paragraph}</p>
-          ))}
+          <ul className={styles.highlights}>
+            {experience.description.split("\n").map((line) => line.replace(/^- /, "").trim()).filter(Boolean).map((item) => (
+              <li className={styles.descriptionText} data-chapter-reveal key={item}>{item}</li>
+            ))}
+          </ul>
           <div className={styles.stack} data-chapter-reveal><TagList tags={experience.tags} /></div>
         </div>
       </div>

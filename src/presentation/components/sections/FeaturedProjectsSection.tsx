@@ -15,7 +15,7 @@ interface FeaturedProjectsSectionProps {
 
 export function FeaturedProjectsSection({ projects }: FeaturedProjectsSectionProps) {
   const { t } = useI18n();
-  const selectedProjects = projects.filter((project) => project.title !== "RamenGo" && project.title !== "App Reino").slice(0, 6);
+  const selectedProjects = projects.filter((project) => project.highlight).slice(0, 6);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const projectTrigger = useRef<HTMLButtonElement | null>(null);
   const closeProject = useCallback(() => {
@@ -68,6 +68,7 @@ export function FeaturedProjectsSection({ projects }: FeaturedProjectsSectionPro
                   <span className="project-cutout__caption">
                     <span className="project-cutout__meta">{project.category}</span>
                     <strong>{project.title}</strong>
+                    {project.highlight ? <span className="project-cutout__highlight">{project.highlight}</span> : null}
                   </span>
                 </Button>
               </article>

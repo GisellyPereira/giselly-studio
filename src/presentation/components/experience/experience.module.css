@@ -117,3 +117,8 @@
 
 .indexSummary { font-size: .74rem; font-weight: 550; line-height: 1.35; margin-top: .2rem; opacity: .85; text-wrap: pretty; }
 @media (max-width: 767px) { .indexSummary { font-size: .66rem; } }
+
+.highlights { display: grid; gap: .7rem; list-style: none; margin: 0; padding: 0; }
+.highlights li { padding-left: 1.4rem; position: relative; line-height: 1.65; }
+.highlights li::before { background: var(--pop-red-dark); content: ""; height: .7rem; left: 0; -webkit-mask: url("/images/brand/giselly-studio-icon.svg") center / contain no-repeat; mask: url("/images/brand/giselly-studio-icon.svg") center / contain no-repeat; position: absolute; top: .45em; width: .7rem; }
+.highlights .descriptionText + .descriptionText { margin-top: 0; }

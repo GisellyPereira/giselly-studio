@@ -8,6 +8,7 @@ export interface SocialLink {
 export interface Project {
   readonly number: string;
   readonly title: string;
+  readonly highlight?: string;
   readonly category: string;
   readonly description: string;
   readonly year?: string;
