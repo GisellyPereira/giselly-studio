@@ -68,7 +68,7 @@ export function StudioPage({ initialNiche }: StudioPageProps) {
           </div>
         </div>
       </EntranceSection>
-      <Footer brand="studio" role={t("Giselly Studio · sites e landing pages para negócios")} socials={portfolioData.socials} />
+      <Footer role={t("Giselly Studio · sites e landing pages para negócios")} socials={portfolioData.socials} />
     </main>
   );
 }

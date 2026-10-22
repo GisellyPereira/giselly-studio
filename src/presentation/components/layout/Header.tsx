@@ -31,7 +31,7 @@ export function Header({ email, accent = false }: HeaderProps) {
           <Image
             className="brand-logo"
             src="/images/brand/giselly-studio-icon.svg"
-            alt=""
+            alt="Giselly Studio"
             width={256}
             height={256}
             priority
