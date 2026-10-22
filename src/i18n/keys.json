@@ -500,5 +500,6 @@
   "Portal em 6 idiomas com acervo e galerias · Governo do MA": "text500",
   "App do Procon para todo o Maranhão · única dev front-end": "text501",
   "Concepção, layout e front-end do app · publicado na App Store": "text502",
-  "Portal de notícias de tecnologia e IA em Next.js": "text503"
+  "Portal de notícias de tecnologia e IA em Next.js": "text503",
+  "- Desenvolvo aplicativos e portais do Governo do Maranhão, da prototipação no Figma à publicação, no mobile com React Native e na web com React e Next.js. - Entre os apps, fui a única desenvolvedora front-end do Viva Procon, que leva agendamento e registro de reclamações ao celular de cidadãos de todo o estado, sem fila e sem ida a uma unidade. - Na web, desenvolvi os portais do Teatro Arthur Azevedo e do Museu do Palácio dos Leões, este com conteúdo em 6 idiomas. - Sou responsável pela publicação e atualização dos apps da agência na App Store e no Google Play, com builds no EAS e versionamento automático. - Implementei notificações push com Firebase FCM, inclusive com o app fechado, com histórico e controle de leitura em SQLite. - Reviso código de desenvolvedores iniciantes em web e mobile e faço a mentoria de uma pessoa desenvolvedora front-end júnior.": "text504"
 }
