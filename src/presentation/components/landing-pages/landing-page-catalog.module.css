@@ -203,3 +203,20 @@
     padding: 1.6rem;
   }
 }
+
+.header .title {
+  color: var(--pop-red-dark);
+  font-family: "Archivo Variable", sans-serif;
+  font-size: clamp(2.2rem, 3.6vw, 3.4rem);
+  font-variation-settings: "wdth" 92, "wght" 850;
+  letter-spacing: -.05em;
+  line-height: 1;
+  margin: 0;
+}
+.header .title em {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-variation-settings: normal;
+  font-weight: 500;
+  letter-spacing: -.02em;
+}

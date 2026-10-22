@@ -63,7 +63,7 @@ export const landingPageGroups = [
 ] as const satisfies readonly LandingPageGroup[];
 
 export const landingPageContent = {
-  catalogHeading: "Landing pages & sites",
+  catalogHeading: ["Referências", "por nicho."],
   processHeading: ["Como", "funciona."],
   processSteps: [
     { number: "01", name: "Conversa", text: "Você me conta sobre o seu negócio, o público e o que espera do site." },

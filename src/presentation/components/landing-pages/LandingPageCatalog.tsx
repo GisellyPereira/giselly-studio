@@ -15,7 +15,7 @@ interface LandingPageCatalogProps {
   readonly projects: readonly LandingPageProject[];
   readonly niches: readonly LandingPageNicheOption[];
   readonly groups: readonly LandingPageGroup[];
-  readonly heading: string;
+  readonly heading: string | readonly [string, string];
   readonly note: string;
   readonly headingLevel?: "h1" | "h2";
 }
@@ -36,7 +36,7 @@ export function LandingPageCatalog({ initialNiche, projects, niches, groups, hea
     <EntranceSection className={styles.section} id="referencias" aria-labelledby="niche-title">
       <header className={styles.header} data-entrance="rise">
         <div>
-          <Heading id="niche-title">{heading}</Heading>
+          <Heading className={styles.title} id="niche-title">{typeof heading === "string" ? heading : <><span>{heading[0]}</span> <em>{heading[1]}</em></>}</Heading>
           <p className={styles.note}><span className={styles.flower} aria-hidden="true" />{note}</p>
         </div>
       </header>

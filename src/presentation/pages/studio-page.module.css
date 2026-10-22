@@ -136,13 +136,14 @@
 }
 
 .page :global(#referencias) {
+  padding-bottom: clamp(2rem, 3vw, 2.5rem);
   padding-top: clamp(4rem, 6vw, 5.5rem);
 }
 
 /* Studio: como funciona */
 .process {
   --back-to-top-tone: rose;
-  padding: clamp(3.5rem, 6vw, 5.5rem) var(--page-padding);
+  padding: clamp(2.5rem, 3.5vw, 3rem) var(--page-padding) clamp(3.5rem, 6vw, 5.5rem);
   position: relative;
 }
 
@@ -162,7 +163,7 @@
 }
 
 .process h2 em {
-  color: var(--pop-red);
+  color: var(--pop-red-dark);
   font-family: var(--font-editorial);
   font-style: italic;
   font-variation-settings: normal;
@@ -188,7 +189,7 @@
 }
 
 .processNumber {
-  color: var(--pop-red);
+  color: var(--pop-red-dark);
   display: block;
   font-family: "Dawning of a New Day", cursive;
   font-size: 2rem;
