@@ -16,7 +16,7 @@ export function HeroSection() {
         <HeroLogo />
         <h1 className="hero-campaign__role" data-entrance="rise" data-entrance-delay=".4">
           <span className="sr-only">Giselly Pereira — </span>
-          {t("Desenvolvedora front-end")}
+          {t("Desenvolvedora front-end sênior")}
           <em>{t("web & mobile")}</em>
         </h1>
         <div className="hero-campaign__actions" data-entrance="rise" data-entrance-delay=".55">

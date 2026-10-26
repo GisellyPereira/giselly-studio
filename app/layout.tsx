@@ -16,13 +16,13 @@ import "./globals.css";
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   if (locale === "en") return {
-    title: "Giselly Pereira — Front-End Developer",
-    description: "Portfolio of Giselly Pereira, a front-end developer for web and mobile with apps on the App Store and Google Play and portals for the Government of Maranhão.",
+    title: "Giselly Pereira — Senior Front-End Developer",
+    description: "Portfolio of Giselly Pereira, a senior front-end developer for web and mobile with apps on the App Store and Google Play and portals for the Government of Maranhão.",
   };
   return {
-    title: "Giselly Pereira — Desenvolvedora Front-End",
+    title: "Giselly Pereira — Desenvolvedora Front-End Sênior",
     description:
-      "Portfólio de Giselly Pereira, desenvolvedora front-end web e mobile com apps na App Store e no Google Play e portais para o Governo do Maranhão.",
+      "Portfólio de Giselly Pereira, desenvolvedora front-end sênior, web e mobile, com apps na App Store e no Google Play e portais para o Governo do Maranhão.",
   };
 }
 

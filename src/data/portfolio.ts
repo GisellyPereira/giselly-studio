@@ -8,7 +8,7 @@ import type {
 export const portfolioData = {
   name: "GISELLY PEREIRA",
   initials: "Gi",
-  role: "Desenvolvedora Front-End · Mobile & Web",
+  role: "Desenvolvedora Front-End Sênior · Mobile & Web",
   email: "giselly.avpereira@gmail.com",
   whatsapp: { label: "(98) 99144-9679", href: "https://wa.me/5598991449679" },
   location: "São Luís, MA — Brasil",
@@ -208,7 +208,7 @@ export const portfolioData = {
     {
       id: "ati",
       period: "nov 2024 — atual",
-      role: "Desenvolvedora Front-End · Mobile & Web",
+      role: "Desenvolvedora Front-End Sênior · Mobile & Web",
       current: true,
       summary: "Apps e portais do Governo do Maranhão",
       company: "ATI — Agência Estadual de TI do Maranhão",
