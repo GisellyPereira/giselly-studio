@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import { bioLinks } from "@/src/data/links";
 import { ArrowIcon, DownloadIcon } from "@/src/presentation/components/shared/Icons";
@@ -15,10 +16,10 @@ export function LinksPage() {
         </header>
 
         <ul className={styles.list}>
-          {bioLinks.map((link) => (
-            <li key={link.id}>
+          {bioLinks.map((link, index) => (
+            <li className={styles.item} key={link.id} style={{ "--i": index } as CSSProperties}>
               <a
-                className={`${styles.link} ${link.featured ? styles.featured : ""}`}
+                className={styles.link}
                 download={link.download || undefined}
                 href={link.href}
                 rel={link.external ? "noopener noreferrer" : undefined}
@@ -34,9 +35,9 @@ export function LinksPage() {
           ))}
         </ul>
 
-        <footer className={styles.footer}>
+        <div className={styles.footer} style={{ "--i": bioLinks.length } as CSSProperties}>
           <Image alt="Giselly Studio" className={styles.wordmark} height={120} src="/images/brand/giselly-studio.svg" width={117} />
-        </footer>
+        </div>
       </div>
     </main>
   );

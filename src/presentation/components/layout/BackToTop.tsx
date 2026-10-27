@@ -3,6 +3,7 @@
 import { useI18n } from "@/src/i18n/use-i18n";
 import { useEffect, useRef, useState } from "react";
 import { useLenis } from "lenis/react";
+import { usePathname } from "next/navigation";
 import { ArrowIcon } from "@/src/presentation/components/shared/Icons";
 import styles from "./back-to-top.module.css";
 
@@ -35,6 +36,7 @@ export function BackToTop() {
   const { t } = useI18n();
   const buttonRef = useRef<HTMLButtonElement>(null);
   const lenis = useLenis();
+  const pathname = usePathname();
   const [appearance, setAppearance] = useState<{ visible: boolean; tone: ArrowTone }>({
     visible: false,
     tone: "rose",
@@ -78,6 +80,9 @@ export function BackToTop() {
       window.scrollTo({ top: 0, behavior: reducedMotion ? "instant" : "smooth" });
     }
   };
+
+  // A página de links é curta e não tem cara de site: sem seta de voltar ao topo.
+  if (pathname === "/links") return null;
 
   return (
     <button

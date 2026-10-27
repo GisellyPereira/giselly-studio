@@ -76,12 +76,15 @@
   min-height: 4.5rem;
   padding: .95rem 1.15rem .95rem 1.35rem;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
   transition: transform var(--duration-small) var(--ease-out-quint), box-shadow var(--duration-small) var(--ease-out-quint);
 }
 
-.link:hover {
-  box-shadow: 0 6px 0 var(--pop-red-dark);
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .link:hover {
+    box-shadow: 0 6px 0 var(--pop-red-dark);
+    transform: translateY(-2px);
+  }
 }
 
 .link:active {
@@ -92,20 +95,6 @@
 .link:focus-visible {
   outline: 3px solid var(--pop-red-dark);
   outline-offset: 4px;
-}
-
-.featured {
-  background: var(--pop-red-dark);
-  box-shadow: 0 4px 0 #4d1026;
-  color: var(--pop-cream);
-}
-
-.featured:hover {
-  box-shadow: 0 6px 0 #4d1026;
-}
-
-.featured:active {
-  box-shadow: 0 1px 0 #4d1026;
 }
 
 .text {
@@ -156,8 +145,48 @@
   width: 5.5rem;
 }
 
+/* Entrada: a flor desabrocha, o nome sobe e os cartões entram um a um. */
+@keyframes bloom {
+  from { opacity: 0; transform: scale(.6) rotate(-40deg); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+.flower {
+  animation: bloom .8s var(--ease-out-quint) both;
+}
+
+.name,
+.role,
+.tagline {
+  animation: rise .7s var(--ease-out-quint) both;
+}
+
+.name { animation-delay: .12s; }
+.role { animation-delay: .2s; }
+.tagline { animation-delay: .26s; }
+
+.item,
+.footer {
+  animation: rise .6s var(--ease-out-quint) both;
+  animation-delay: calc(.34s + var(--i, 0) * .07s);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .link {
     transition: none;
+  }
+
+  .flower,
+  .name,
+  .role,
+  .tagline,
+  .item,
+  .footer {
+    animation: none;
   }
 }
