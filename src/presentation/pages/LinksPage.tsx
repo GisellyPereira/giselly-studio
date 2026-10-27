@@ -6,7 +6,7 @@ import styles from "./links-page.module.css";
 
 export function LinksPage() {
   return (
-    <main className={styles.page}>
+    <main className={styles.page} data-bio-links>
       <div className={styles.inner}>
         <header className={styles.header}>
           <Image alt="" aria-hidden="true" className={styles.flower} height={256} priority src="/images/brand/giselly-studio-icon.svg" width={256} />

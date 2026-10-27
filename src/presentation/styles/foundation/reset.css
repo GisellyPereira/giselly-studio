@@ -18,6 +18,13 @@ body {
   overflow-x: hidden;
 }
 
+/* Página de links: o fundo da página toda acompanha as listras, então o Safari
+   não pinta uma faixa creme atrás das barras do navegador nem ao puxar a tela. */
+html:has([data-bio-links]),
+body:has([data-bio-links]) {
+  background: var(--pop-pink-light);
+}
+
 ::selection {
   background: var(--bubblegum-tint);
   color: var(--dark-amethyst);
