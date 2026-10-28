@@ -8,6 +8,7 @@ const github = portfolioData.socials.find((social) => social.label === "GitHub")
 export const bioLinks: readonly BioLink[] = [
   { id: "portfolio", title: "Meu portfólio", description: "Projetos, experiências e currículo", href: "/" },
   { id: "studio", title: "Sites e landing pages", description: "Para o seu negócio", href: "/studio" },
+  { id: "hubnews", title: "HubNews", description: "Newsletter de IA grátis · site que eu fiz", href: "https://hubnews.ai", external: true },
   { id: "linkedin", title: "LinkedIn", description: "Minha trajetória e os bastidores", href: linkedin, external: true },
   { id: "github", title: "GitHub", description: "O código dos meus projetos", href: github, external: true },
   { id: "curriculo", title: "Baixar currículo", description: "PDF atualizado", href: "/curriculo-giselly-pereira.pdf", download: true },
